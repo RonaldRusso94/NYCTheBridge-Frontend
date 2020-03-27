@@ -13,8 +13,16 @@ const AlbumsState = props => {
           'https://upload.wikimedia.org/wikipedia/commons/e/ec/Record-Album-02.jpg',
         title: 'Different Path Album',
         songs: [
-          { songtitle: 'Different Path', artistsId: ['1'] },
-          { songtitle: 'Different Path 2', artistsId: ['1', '3'] }
+          {
+            songtitle: 'Different Path',
+            artistsId: ['1'],
+            genre: ['classic', 'pop']
+          },
+          {
+            songtitle: 'Different Path 2',
+            artistsId: ['1', '3'],
+            genre: ['trap', 'drill']
+          }
         ]
       },
       {
@@ -24,8 +32,16 @@ const AlbumsState = props => {
           'https://upload.wikimedia.org/wikipedia/commons/e/ec/Record-Album-02.jpg',
         title: 'Stick By My Side Album',
         songs: [
-          { songtitle: 'Stick By My Side', artistsId: ['3'] },
-          { songtitle: 'Stick By My Side 2', artistsId: ['3', '1'] }
+          {
+            songtitle: 'Stick By My Side',
+            artistsId: ['3'],
+            genre: ['classic', 'rb']
+          },
+          {
+            songtitle: 'Stick By My Side 2',
+            artistsId: ['3', '1'],
+            genre: ['rb', 'pop']
+          }
         ]
       }
     ],

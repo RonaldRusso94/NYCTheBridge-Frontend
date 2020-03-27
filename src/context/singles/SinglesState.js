@@ -11,14 +11,16 @@ const SinglesState = props => {
         artistId: '1',
         singleImg:
           'https://image.shutterstock.com/image-vector/vector-music-icon-260nw-668051581.jpg',
-        title: 'Different Path Single'
+        title: 'Different Path Single',
+        genre: ['classic', 'pop']
       },
       {
         singleId: '2',
         artistId: '3',
         singleImg:
           'https://image.shutterstock.com/image-vector/vector-music-icon-260nw-668051581.jpg',
-        title: 'Stick By My Side Single'
+        title: 'Stick By My Side Single',
+        genre: ['classic', 'pop']
       }
     ],
     single: {}
