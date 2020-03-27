@@ -20,7 +20,7 @@ const SinglesState = props => {
         singleImg:
           'https://image.shutterstock.com/image-vector/vector-music-icon-260nw-668051581.jpg',
         title: 'Stick By My Side Single',
-        genre: ['classic', 'pop']
+        genre: ['classic', 'r&b']
       }
     ],
     single: {}

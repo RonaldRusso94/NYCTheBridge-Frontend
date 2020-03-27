@@ -10,6 +10,7 @@ import NotFound from './components/pages/NotFound';
 import User from './components/users/User';
 import Album from './components/albums/Album';
 import Single from './components/singles/Single';
+import Genre from './components/genres/Genre';
 
 import ArtistsState from './context/artists/ArtistsState';
 import AlbumsState from './context/albums/AlbumsState';
@@ -29,6 +30,7 @@ const App = () => {
                 <Switch>
                   <Route exact path='/' component={Home} />
                   <Route exact path='/browse' component={Browse} />
+                  <Route exact path='/genre/:genre' component={Genre} />
                   <Route exact path='/artist/:id' component={User} />
                   <Route exact path='/album/:id' component={Album} />
                   <Route exact path='/single/:id' component={Single} />

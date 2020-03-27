@@ -35,12 +35,12 @@ const AlbumsState = props => {
           {
             songtitle: 'Stick By My Side',
             artistsId: ['3'],
-            genre: ['classic', 'rb']
+            genre: ['classic', 'r&b']
           },
           {
             songtitle: 'Stick By My Side 2',
             artistsId: ['3', '1'],
-            genre: ['rb', 'pop']
+            genre: ['r&b', 'pop']
           }
         ]
       }

@@ -9,10 +9,10 @@ const UserItem = ({
     <div className='card text-center py-2'>
       <Link to={`/artist/${id}`}>
         <img src={image_address} alt='' style={{ width: '80%' }} />
+        <h3>
+          {artist_name} - {song_name}
+        </h3>
       </Link>
-      <h3>
-        {artist_name} - {song_name}
-      </h3>
     </div>
   );
 };

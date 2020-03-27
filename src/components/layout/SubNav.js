@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Users from '../users/Users';
 import Albums from '../albums/Albums';
 import Singles from '../singles/Singles';
+import Genres from '../genres/Genres';
 
 const SubNav = () => {
   const [nav, setNav] = useState('genres');
@@ -31,7 +32,7 @@ const SubNav = () => {
       <>
         {subnav}
         <h3>Genres</h3>
-        <Users />
+        <Genres />
       </>
     );
   } else if (nav === 'artists') {
