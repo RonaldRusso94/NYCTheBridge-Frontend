@@ -16,12 +16,16 @@ const AlbumsState = props => {
           {
             songtitle: 'Different Path',
             artistsId: ['1'],
-            genre: ['classic', 'pop']
+            genre: ['classic', 'pop'],
+            musicVideo: true,
+            musicUrl: ''
           },
           {
             songtitle: 'Different Path 2',
             artistsId: ['1', '3'],
-            genre: ['trap', 'drill']
+            genre: ['trap', 'drill'],
+            musicVideo: true,
+            musicUrl: ''
           }
         ]
       },
@@ -35,12 +39,16 @@ const AlbumsState = props => {
           {
             songtitle: 'Stick By My Side',
             artistsId: ['3'],
-            genre: ['classic', 'rb']
+            genre: ['classic', 'rb'],
+            musicVideo: true,
+            musicUrl: ''
           },
           {
             songtitle: 'Stick By My Side 2',
             artistsId: ['3', '1'],
-            genre: ['rb', 'pop']
+            genre: ['rb', 'pop'],
+            musicVideo: true,
+            musicUrl: ''
           }
         ]
       }
