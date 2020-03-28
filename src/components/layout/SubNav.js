@@ -2,11 +2,8 @@ import React, { useState } from 'react';
 import Users from '../users/Users';
 import Albums from '../albums/Albums';
 import Singles from '../singles/Singles';
-<<<<<<< HEAD
 import Genres from '../genres/Genres';
-=======
 import Videos from '../videos/Videos';
->>>>>>> videos
 
 const SubNav = () => {
   const [nav, setNav] = useState('genres');

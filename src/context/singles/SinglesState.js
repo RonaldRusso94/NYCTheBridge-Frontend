@@ -12,7 +12,7 @@ const SinglesState = props => {
         singleImg:
           'https://image.shutterstock.com/image-vector/vector-music-icon-260nw-668051581.jpg',
         title: 'Different Path Single',
-        genre: ['classic', 'pop'],
+        genre: ['classic', 'pop', 'trap'],
         musicVideo: true,
         musicUrl: ''
       },
@@ -22,13 +22,9 @@ const SinglesState = props => {
         singleImg:
           'https://image.shutterstock.com/image-vector/vector-music-icon-260nw-668051581.jpg',
         title: 'Stick By My Side Single',
-<<<<<<< HEAD
-        genre: ['classic', 'r&b']
-=======
-        genre: ['classic', 'pop'],
+        genre: ['classic', 'pop', 'r&b'],
         musicVideo: true,
         musicUrl: ''
->>>>>>> videos
       }
     ],
     single: {}
