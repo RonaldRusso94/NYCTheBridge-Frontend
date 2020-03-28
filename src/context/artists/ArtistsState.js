@@ -9,7 +9,6 @@ const ArtistsState = props => {
       {
         id: '1',
         artist_name: 'Ray Flexie',
-        song_name: 'Different Path',
         music_page_url:
           'https://nycthebridge.com/Song_FlexieRay_DifferentPath.html',
         image_address:
@@ -18,7 +17,6 @@ const ArtistsState = props => {
       {
         id: '2',
         artist_name: 'Jay Makk x Young Esco',
-        song_name: 'Interlude',
         music_page_url:
           'https://nycthebridge.com/Song_FlexieRay_DifferentPath.html',
         image_address:
@@ -27,7 +25,6 @@ const ArtistsState = props => {
       {
         id: '3',
         artist_name: 'G-Whizz',
-        song_name: 'Stick By My Side',
         music_page_url:
           'https://nycthebridge.com/Song_FlexieRay_DifferentPath.html',
         image_address:

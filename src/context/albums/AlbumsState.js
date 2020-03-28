@@ -8,7 +8,7 @@ const AlbumsState = props => {
     albums: [
       {
         albumId: '1',
-        artistId: '1',
+        artistId: ['1'],
         albumImg:
           'https://upload.wikimedia.org/wikipedia/commons/e/ec/Record-Album-02.jpg',
         title: 'Different Path Album',
@@ -16,6 +16,7 @@ const AlbumsState = props => {
           {
             songtitle: 'Different Path',
             artistsId: ['1'],
+            features: [],
             genre: ['classic', 'pop'],
             musicVideo: true,
             musicUrl: ''
@@ -23,6 +24,7 @@ const AlbumsState = props => {
           {
             songtitle: 'Different Path 2',
             artistsId: ['1', '3'],
+            features: [],
             genre: ['trap', 'drill'],
             musicVideo: true,
             musicUrl: ''
@@ -31,7 +33,7 @@ const AlbumsState = props => {
       },
       {
         albumId: '2',
-        artistId: '3',
+        artistId: ['1'],
         albumImg:
           'https://upload.wikimedia.org/wikipedia/commons/e/ec/Record-Album-02.jpg',
         title: 'Stick By My Side Album',
@@ -39,6 +41,7 @@ const AlbumsState = props => {
           {
             songtitle: 'Stick By My Side',
             artistsId: ['3'],
+            features: ['1'],
             genre: ['classic', 'rb'],
             musicVideo: true,
             musicUrl: ''
@@ -46,6 +49,7 @@ const AlbumsState = props => {
           {
             songtitle: 'Stick By My Side 2',
             artistsId: ['3', '1'],
+            features: ['3'],
             genre: ['r&b', 'pop'],
             musicVideo: false,
             musicUrl: ''
