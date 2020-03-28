@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ArtistOverview from './ArtistOverview';
+import ArtistAbout from './ArtistAbout';
 
 const User = ({ match }) => {
   const [nav, setNav] = useState('overview');
@@ -37,11 +38,10 @@ const User = ({ match }) => {
       <>
         {subnav}
         <h1>About</h1>
+        <ArtistAbout params={match.params.id} />
       </>
     );
   }
-
-  return;
 };
 
 export default User;
