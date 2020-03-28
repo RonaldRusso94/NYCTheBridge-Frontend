@@ -7,8 +7,8 @@ import Admin from './components/pages/Admin';
 
 import NotFound from './components/pages/NotFound';
 
-import Artist from './components/users/Artist';
-import ArtistOverview from './components/users/ArtistOverview';
+import Artist from './components/artists/Artist';
+import ArtistOverview from './components/artists/ArtistOverview';
 
 import Album from './components/albums/Album';
 import Single from './components/singles/Single';

@@ -4,7 +4,7 @@ import ArtistsContext from '../../context/artists/artistsContext';
 import AlbumsContext from '../../context/albums/albumsContext';
 import SinglesContext from '../../context/singles/singlesContext';
 
-import Artists from '../users/Artists';
+import Artists from '../artists/Artists';
 
 const Home = () => {
   const artistsContext = useContext(ArtistsContext);

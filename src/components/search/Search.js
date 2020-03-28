@@ -11,7 +11,7 @@ const Search = () => {
 
   const onSubmit = e => {
     e.preventDefault();
-    artistsContext.searchUsers(text);
+    artistsContext.searchArtists(text);
     setText('');
   };
 
@@ -31,7 +31,7 @@ const Search = () => {
         <input
           type='text'
           name='text'
-          placeholder='Search Users...'
+          placeholder='Search Artists...'
           value={text}
           onChange={onChange}
           // onClick={onClick}
@@ -46,7 +46,7 @@ const Search = () => {
         <button
           className='btn btn-block'
           style={{ background: '#d9d9d9' }}
-          onClick={artistsContext.clearUsers}
+          onClick={artistsContext.clearArtists}
         >
           Clear
         </button>

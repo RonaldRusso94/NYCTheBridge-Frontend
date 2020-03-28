@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import Albums from '../albums/Albums';
 import Singles from '../singles/Singles';
-import Artists from '../users/Artists';
+import Artists from '../artists/Artists';
 
 import '../../App.css';
 
