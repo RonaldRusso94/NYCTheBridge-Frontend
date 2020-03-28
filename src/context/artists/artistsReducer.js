@@ -1,8 +1,13 @@
-import { SEARCH_USERS, SET_LOADING, CLEAR_USERS, GET_ARTIST } from '../types';
+import {
+  SEARCH_ARTISTS,
+  SET_LOADING,
+  CLEAR_ARTISTS,
+  GET_ARTIST
+} from '../types';
 
 export default (state, action) => {
   switch (action.type) {
-    case SEARCH_USERS:
+    case SEARCH_ARTISTS:
       return {
         ...state,
         artists: action.payload,
@@ -14,7 +19,7 @@ export default (state, action) => {
         artist: action.payload,
         loading: false
       };
-    case CLEAR_USERS:
+    case CLEAR_ARTISTS:
       return {
         ...state,
         artists: [],

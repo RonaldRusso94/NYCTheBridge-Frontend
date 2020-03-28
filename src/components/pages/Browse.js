@@ -2,7 +2,7 @@ import React, { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Albums from '../albums/Albums';
 import Singles from '../singles/Singles';
-import Users from '../users/Users';
+import Artists from '../artists/Artists';
 
 import Subnav from '../layout/SubNav';
 

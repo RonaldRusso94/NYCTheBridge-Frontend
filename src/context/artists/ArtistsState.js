@@ -1,7 +1,12 @@
 import React, { useReducer } from 'react';
 import ArtistsContext from './artistsContext';
 import ArtistsReducer from './artistsReducer';
-import { SEARCH_USERS, SET_LOADING, CLEAR_USERS, GET_ARTIST } from '../types';
+import {
+  SEARCH_ARTISTS,
+  SET_LOADING,
+  CLEAR_ARTISTS,
+  GET_ARTIST
+} from '../types';
 
 const ArtistsState = props => {
   const initialState = {
@@ -37,8 +42,8 @@ const ArtistsState = props => {
 
   const [state, dispatch] = useReducer(ArtistsReducer, initialState);
 
-  // Search Users **FIX
-  const searchUsers = async text => {
+  // Search Artists **FIX
+  const searchArtists = async text => {
     setLoading();
 
     const filtered = state.artists.filter(artist => {
@@ -46,13 +51,13 @@ const ArtistsState = props => {
     });
 
     dispatch({
-      type: SEARCH_USERS,
+      type: SEARCH_ARTISTS,
       payload: filtered
     });
   };
 
-  // Clear users from state
-  const clearUsers = () => dispatch({ type: CLEAR_USERS });
+  // Clear artists from state
+  const clearArtists = () => dispatch({ type: CLEAR_ARTISTS });
 
   // Get a single artist
   const getArtist = async id => {
@@ -74,8 +79,8 @@ const ArtistsState = props => {
         artists: state.artists,
         artist: state.artist,
         loading: state.loading,
-        searchUsers,
-        clearUsers,
+        searchArtists,
+        clearArtists,
         getArtist
       }}
     >

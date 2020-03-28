@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
-import UserItem from './UserItem';
+import ArtistItem from './ArtistItem';
 import Spinner from '../layout/Spinner';
 import ArtistsContext from '../../context/artists/artistsContext';
 
-const Users = () => {
+const Artists = () => {
   const artistsContext = useContext(ArtistsContext);
 
   const { loading, artists } = artistsContext;
@@ -14,7 +14,7 @@ const Users = () => {
     return (
       <div style={artistStyle}>
         {artists.map(artist => (
-          <UserItem key={artist.id} artist={artist} />
+          <ArtistItem key={artist.id} artist={artist} />
         ))}
       </div>
     );
@@ -27,4 +27,4 @@ const artistStyle = {
   gridGap: '1rem'
 };
 
-export default Users;
+export default Artists;

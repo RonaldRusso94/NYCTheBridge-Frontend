@@ -5,9 +5,7 @@ import ArtistsContext from '../../context/artists/artistsContext';
 import AlbumsContext from '../../context/albums/albumsContext';
 import SinglesContext from '../../context/singles/singlesContext';
 
-import UserProfileNav from './UserProfileNav';
-
-const User = ({ match }) => {
+export const ArtistOverview = props => {
   const artistsContext = useContext(ArtistsContext);
   const singlesContext = useContext(SinglesContext);
   const albumsContext = useContext(AlbumsContext);
@@ -17,14 +15,14 @@ const User = ({ match }) => {
   const { id, artist_name, music_page_url, image_address, instagram } = artist;
 
   useEffect(() => {
-    getArtist(match.params.id);
+    getArtist(props.params);
     // eslint-disable-next-line
   }, []);
 
   const getAlbum = () => {
     return albumsContext.albums.map(album => {
       return album.artistId.map(artist => {
-        if (artist === match.params.id) {
+        if (artist === props.params) {
           return (
             <div className='card'>
               <h4>{album.title}</h4>
@@ -50,7 +48,7 @@ const User = ({ match }) => {
   const getSingles = () => {
     return singlesContext.singles.map(single => {
       return single.artistId.map(artist => {
-        if (artist === match.params.id) {
+        if (artist === props.params) {
           return (
             <div className='card'>
               <img
@@ -71,7 +69,7 @@ const User = ({ match }) => {
     return albumsContext.albums.map(album => {
       return album.songs.map(song => {
         return song.features.map(artist => {
-          if (artist === match.params.id)
+          if (artist === props.params)
             return (
               <div>
                 <img
@@ -90,7 +88,7 @@ const User = ({ match }) => {
   const appearsOnSingles = () => {
     return singlesContext.singles.map(single => {
       return single.features.map(artist => {
-        if (artist === match.params.id) {
+        if (artist === props.params) {
           return (
             <div className='card'>
               <img
@@ -110,7 +108,6 @@ const User = ({ match }) => {
 
   return (
     <Fragment>
-      <UserProfileNav />
       <div>
         <Link to='/' className='btn btn-dark'>
           Back
@@ -161,10 +158,4 @@ const User = ({ match }) => {
   );
 };
 
-// const cardStyle = {
-//   display: 'grid',
-//   gridTemplateColumns: 'repeat(3, 1fr)',
-//   gridGap: '1rem'
-// };
-
-export default User;
+export default ArtistOverview;

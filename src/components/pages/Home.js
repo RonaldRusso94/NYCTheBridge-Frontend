@@ -4,7 +4,7 @@ import ArtistsContext from '../../context/artists/artistsContext';
 import AlbumsContext from '../../context/albums/albumsContext';
 import SinglesContext from '../../context/singles/singlesContext';
 
-import Users from '../users/Users';
+import Artists from '../users/Artists';
 
 const Home = () => {
   const artistsContext = useContext(ArtistsContext);
@@ -22,7 +22,7 @@ const Home = () => {
         albums={albumsContext.albums}
       />
       <h1 className='text-center py-2'>Most Recent</h1>
-      <Users />
+      <Artists />
     </Fragment>
   );
 };

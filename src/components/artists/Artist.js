@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
+import ArtistOverview from './ArtistOverview';
 
-export const UserProfileNav = () => {
-  // Subnav Overview/About
+const User = ({ match }) => {
   const [nav, setNav] = useState('overview');
 
   const onClick = e => {
@@ -29,6 +29,7 @@ export const UserProfileNav = () => {
       <>
         {subnav}
         <h1>Overview</h1>
+        <ArtistOverview params={match.params.id} />
       </>
     );
   } else if (nav === 'about') {
@@ -39,6 +40,8 @@ export const UserProfileNav = () => {
       </>
     );
   }
+
+  return;
 };
 
-export default UserProfileNav;
+export default User;
