@@ -11,6 +11,7 @@ const Navbar = ({ icon, title }) => {
           <i className={icon}></i> {title}
         </Link>
       </h1>
+      <SearchState />
       <ul>
         <li>
           <Link to='/'>Home</Link>
@@ -22,7 +23,6 @@ const Navbar = ({ icon, title }) => {
           <Link to='/admin'>Admin</Link>
         </li>
       </ul>
-      <SearchState />
     </nav>
   );
 };

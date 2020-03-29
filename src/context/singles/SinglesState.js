@@ -19,7 +19,7 @@ const SinglesState = props => {
       },
       {
         singleId: '2',
-        artistId: ['3'],
+        artistId: ['3', '1'],
         features: ['1'],
         singleImg:
           'https://image.shutterstock.com/image-vector/vector-music-icon-260nw-668051581.jpg',

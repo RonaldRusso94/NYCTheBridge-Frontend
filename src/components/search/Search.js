@@ -27,7 +27,7 @@ const Search = () => {
 
   return (
     <div>
-      <form onSubmit={onSubmit} className='form'>
+      <form onSubmit={onSubmit} className='form' style={{ display: 'inline' }}>
         <input
           type='text'
           name='text'
@@ -35,6 +35,7 @@ const Search = () => {
           value={text}
           onChange={onChange}
           // onClick={onClick}
+          style={{ width: '50%', display: 'inline' }}
         />
         <input type='submit' value='Search' className='btn btn-dark' />
       </form>

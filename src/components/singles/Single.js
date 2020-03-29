@@ -131,6 +131,7 @@ const Single = ({ match }) => {
           );
         })}
       </div>
+      {/* ======================= */}
       <div
         className='card2 grid-5'
         style={{
@@ -166,6 +167,7 @@ const Single = ({ match }) => {
           </a>
         </div>
       </div>
+      {/* ======================= */}
     </Fragment>
   );
 };
