@@ -1,32 +1,32 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import ArtistsContext from '../../context/artists/artistsContext';
 import SearchModal from '../search/SearchModal';
 import SearchState from '../search/SearchState';
 
-const Search = () => {
+const Search = ({ setSearch, text, setText }) => {
   const artistsContext = useContext(ArtistsContext);
-
-  const [text, setText] = useState('');
-  const [search, setSearch] = useState(false);
 
   const onSubmit = e => {
     e.preventDefault();
     artistsContext.searchArtists(text);
-    setText('');
+    setText = '';
   };
 
-  // const onClick = e => {
-  //   setSearch(true);
-  // };
-
-  const onChange = e => setText(e.target.value);
+  const onClick = e => {
+    setSearch(true);
+  };
 
   // if (search === true) {
   //   return <SearchModal />;
   // }
 
+  const onChange = e => setText(e.target.value);
+
   return (
     <div>
+      {/* {console.log('FROM SEARCH', change)} */}
+      {/* {console.log('FROM SEARCH', text)} */}
+
       <form onSubmit={onSubmit} className='form' style={{ display: 'inline' }}>
         <input
           type='text'
@@ -34,7 +34,7 @@ const Search = () => {
           placeholder='Search Artists...'
           value={text}
           onChange={onChange}
-          // onClick={onClick}
+          onClick={onClick}
           style={{ width: '50%', display: 'inline' }}
         />
         <input type='submit' value='Search' className='btn btn-dark' />

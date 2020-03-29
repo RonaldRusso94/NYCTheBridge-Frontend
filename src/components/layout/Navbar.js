@@ -1,17 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import SearchState from '../search/SearchState.js';
+import Search from '../search/Search.js';
 
-const Navbar = ({ icon, title }) => {
+const Navbar = ({ icon, title, setSearch, text, setText }) => {
   return (
     <nav className='navbar bg-primary'>
+      {/* {console.log('FROM NAVBAR CHANGE ', change)} */}
       <h1>
         <Link to='/'>
           <i className={icon}></i> {title}
         </Link>
       </h1>
-      <SearchState />
+      <Search text={text} setText={setText} setSearch={setSearch} />
       <ul>
         <li>
           <Link to='/'>Home</Link>
