@@ -8,7 +8,7 @@ const AlbumsState = props => {
     albums: [
       {
         albumId: '1',
-        artistId: '1',
+        artistId: ['1'],
         albumImg:
           'https://upload.wikimedia.org/wikipedia/commons/e/ec/Record-Album-02.jpg',
         title: 'Different Path Album',
@@ -31,7 +31,7 @@ const AlbumsState = props => {
       },
       {
         albumId: '2',
-        artistId: '3',
+        artistId: ['3'],
         albumImg:
           'https://upload.wikimedia.org/wikipedia/commons/e/ec/Record-Album-02.jpg',
         title: 'Stick By My Side Album',
