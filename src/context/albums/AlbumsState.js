@@ -33,11 +33,7 @@ const AlbumsState = props => {
       },
       {
         albumId: '2',
-<<<<<<< HEAD
         artistId: ['1'],
-=======
-        artistId: ['3'],
->>>>>>> origin/singleTemplate
         albumImg:
           'https://upload.wikimedia.org/wikipedia/commons/e/ec/Record-Album-02.jpg',
         title: 'Stick By My Side Album',

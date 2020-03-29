@@ -40,7 +40,7 @@ const Search = () => {
       </form>
       {artistsContext.artists.length > 0 && (
         <button
-          className='btn '
+          className='btn'
           style={{ background: '#d9d9d9' }}
           onClick={artistsContext.clearArtists}
         >
