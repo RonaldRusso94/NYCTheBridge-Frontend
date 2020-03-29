@@ -36,15 +36,11 @@ const Search = () => {
           onChange={onChange}
           // onClick={onClick}
         />
-        <input
-          type='submit'
-          value='Search'
-          className='btn btn-dark btn-block'
-        />
+        <input type='submit' value='Search' className='btn btn-dark' />
       </form>
       {artistsContext.artists.length > 0 && (
         <button
-          className='btn btn-block'
+          className='btn '
           style={{ background: '#d9d9d9' }}
           onClick={artistsContext.clearArtists}
         >
