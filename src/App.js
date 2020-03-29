@@ -28,6 +28,7 @@ const App = () => {
           <Router>
             <div className='App'>
               <Navbar />
+              edgi
               <div className='container'>
                 <Switch>
                   <Route exact path='/' component={Home} />
