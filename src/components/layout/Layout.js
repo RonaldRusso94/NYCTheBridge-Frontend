@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Navbar from './Navbar';
-import SearchState from '../search/SearchState';
 const Layout = ({ children }) => {
   const [text, setText] = useState('');
   const [search, setSearch] = useState(false);

@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import ArtistsContext from '../../context/artists/artistsContext';
 import SearchModal from '../search/SearchModal';
-import SearchState from '../search/SearchState';
 
 const Search = ({ setSearch, text, setText }) => {
   const artistsContext = useContext(ArtistsContext);
