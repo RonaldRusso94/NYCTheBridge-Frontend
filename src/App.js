@@ -18,6 +18,8 @@ import ArtistsState from './context/artists/ArtistsState';
 import AlbumsState from './context/albums/AlbumsState';
 import SinglesState from './context/singles/SinglesState';
 
+import Layout from './components/layout/Layout';
+
 import './App.css';
 
 const App = () => {
@@ -27,19 +29,20 @@ const App = () => {
         <SinglesState>
           <Router>
             <div className='App'>
-              <Navbar />
-              <div className='container'>
-                <Switch>
-                  <Route exact path='/' component={Home} />
-                  <Route exact path='/browse' component={Browse} />
-                  <Route exact path='/genre/:genre' component={Genre} />
-                  <Route exact path='/artist/:id' component={Artist} />
-                  <Route exact path='/album/:id' component={Album} />
-                  <Route exact path='/single/:id' component={Single} />
-                  <Route exact path='/admin' component={Admin} />
-                  <Route component={NotFound} />
-                </Switch>
-              </div>
+              <Layout>
+                <div className='container'>
+                  <Switch>
+                    <Route exact path='/' component={Home} />
+                    <Route exact path='/browse' component={Browse} />
+                    <Route exact path='/genre/:genre' component={Genre} />
+                    <Route exact path='/artist/:id' component={Artist} />
+                    <Route exact path='/album/:id' component={Album} />
+                    <Route exact path='/single/:id' component={Single} />
+                    <Route exact path='/admin' component={Admin} />
+                    <Route component={NotFound} />
+                  </Switch>
+                </div>
+              </Layout>
             </div>
           </Router>
         </SinglesState>

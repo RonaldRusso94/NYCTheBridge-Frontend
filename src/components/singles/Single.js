@@ -13,7 +13,7 @@ const Single = ({ match }) => {
     // eslint-disable-next-line
   }, []);
 
-  const { title, singleId } = single;
+  const { title, singleId, singleImg } = single;
 
   return (
     <Fragment>
@@ -25,6 +25,7 @@ const Single = ({ match }) => {
           <h1>
             {title} - {singleId}
           </h1>
+          <img src={singleImg} alt='' style={{ width: '50%' }} />
         </div>
         <div className='all-center'></div>
       </div>

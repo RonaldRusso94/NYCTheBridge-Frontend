@@ -1,9 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export class SearchModal extends Component {
-  render() {
-    return <div>SearchModal</div>;
-  }
-}
+export const SearchModal = () => {
+  return (
+    <div>
+      <h1>Working</h1>
+    </div>
+  );
+};
 
 export default SearchModal;

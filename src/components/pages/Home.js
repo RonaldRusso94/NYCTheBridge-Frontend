@@ -16,11 +16,6 @@ const Home = () => {
 
   return (
     <Fragment>
-      <SearchState
-        artists={artistsContext.artists}
-        singles={singlesContext.singles}
-        albums={albumsContext.albums}
-      />
       <h1 className='text-center py-2'>Most Recent</h1>
       <Artists />
     </Fragment>

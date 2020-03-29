@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import SearchState from '../search/SearchState.js';
 
 const Navbar = ({ icon, title }) => {
   return (
@@ -21,6 +22,7 @@ const Navbar = ({ icon, title }) => {
           <Link to='/admin'>Admin</Link>
         </li>
       </ul>
+      <SearchState />
     </nav>
   );
 };
