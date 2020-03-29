@@ -42,6 +42,7 @@ const Album = ({ match }) => {
         <div className='all-center'>
           <h1>
             {title} - {albumId}
+            {console.log(albumId)}
           </h1>
 
           {album.songs &&

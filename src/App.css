@@ -118,6 +118,14 @@ img {
   border-radius: 5%;
 }
 
+/* Alternate Cards */
+.card2 {
+  padding: 1rem;
+  background-color: white;
+  margin: 0.7rem 0;
+  color: #313131;
+}
+
 /* List */
 .list {
   margin: 0.5rem 0;
