@@ -1,4 +1,4 @@
-import { GET_ALBUM } from '../types';
+import { GET_ALBUM, SEARCH_ALBUMS } from '../types';
 
 export default (state, action) => {
   switch (action.type) {
@@ -6,6 +6,11 @@ export default (state, action) => {
       return {
         ...state,
         album: action.payload
+      };
+    case SEARCH_ALBUMS:
+      return {
+        ...state,
+        albums: action.payload
       };
     default:
       return state;

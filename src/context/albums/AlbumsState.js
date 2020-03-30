@@ -1,7 +1,7 @@
 import React, { useReducer } from 'react';
 import AlbumsContext from './albumsContext';
 import AlbumsReducer from './albumsReducer';
-import { GET_ALBUM } from '../types';
+import { GET_ALBUM, SEARCH_ALBUMS } from '../types';
 
 const AlbumsState = props => {
   const initialState = {
@@ -74,12 +74,24 @@ const AlbumsState = props => {
     });
   };
 
+  // Search Albums **FIX
+  const searchAlbums = async text => {
+    const filtered = state.albums.filter(album => {
+      return album.title.indexOf(text) !== -1;
+    });
+    dispatch({
+      type: SEARCH_ALBUMS,
+      payload: filtered
+    });
+  };
+
   return (
     <AlbumsContext.Provider
       value={{
         albums: state.albums,
         album: state.album,
-        getAlbum
+        getAlbum,
+        searchAlbums
       }}
     >
       {props.children}

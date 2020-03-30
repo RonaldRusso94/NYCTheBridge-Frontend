@@ -129,14 +129,22 @@ export const ArtistOverview = props => {
       <h3>Artist's Pick</h3>
       <div className='grid-3'>
         <div className='card '>
-          <img
-            src={singlesContext.singles[0].singleImg}
-            alt=''
-            style={{ width: '15%', height: '15%' }}
-          />
+          {singlesContext.singles[0] ? (
+            <img
+              src={singlesContext.singles[0].singleImg}
+              alt=''
+              style={{ width: '15%', height: '15%' }}
+            />
+          ) : null}
         </div>
         <div className='card'>
-          <h5>{singlesContext.singles[0].title}</h5>
+          {
+            <h5>
+              {singlesContext.singles[0]
+                ? singlesContext.singles[0].title
+                : null}
+            </h5>
+          }
         </div>
       </div>
 

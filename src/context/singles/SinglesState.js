@@ -1,7 +1,7 @@
 import React, { useReducer } from 'react';
 import SinglesContext from './singlesContext';
 import SinglesReducer from './singlesReducer';
-import { GET_SINGLE } from '../types';
+import { GET_SINGLE, SEARCH_SINGLES } from '../types';
 
 const SinglesState = props => {
   const initialState = {
@@ -46,12 +46,24 @@ const SinglesState = props => {
     });
   };
 
+  // Search Singles **FIX
+  const searchSingles = async text => {
+    const filtered = state.singles.filter(single => {
+      return single.title.indexOf(text) !== -1;
+    });
+    dispatch({
+      type: SEARCH_SINGLES,
+      payload: filtered
+    });
+  };
+
   return (
     <SinglesContext.Provider
       value={{
         singles: state.singles,
         single: state.single,
-        getSingle
+        getSingle,
+        searchSingles
       }}
     >
       {props.children}

@@ -3,7 +3,14 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Search from '../search/Search.js';
 
-const Navbar = ({ icon, title, setSearch, text, setText }) => {
+const Navbar = ({
+  icon,
+  title,
+  setSearch,
+  text,
+  setText,
+  setSearchResults
+}) => {
   return (
     <nav className='navbar bg-primary'>
       {/* {console.log('FROM NAVBAR CHANGE ', change)} */}
@@ -12,7 +19,12 @@ const Navbar = ({ icon, title, setSearch, text, setText }) => {
           <i className={icon}></i> {title}
         </Link>
       </h1>
-      <Search text={text} setText={setText} setSearch={setSearch} />
+      <Search
+        text={text}
+        setText={setText}
+        setSearch={setSearch}
+        setSearchResults={setSearchResults}
+      />
       <ul>
         <li>
           <Link to='/'>Home</Link>

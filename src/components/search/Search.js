@@ -1,23 +1,30 @@
 import React, { useContext } from 'react';
 import ArtistsContext from '../../context/artists/artistsContext';
+import SinglesContext from '../../context/singles/singlesContext';
+import AlbumsContext from '../../context/albums/albumsContext';
+
+import Artists from '../artists/Artist';
+
 import SearchModal from '../search/SearchModal';
 
-const Search = ({ setSearch, text, setText }) => {
+const Search = ({ setSearch, text, setText, setSearchResults }) => {
   const artistsContext = useContext(ArtistsContext);
+  const singlesContext = useContext(SinglesContext);
+  const albumsContext = useContext(AlbumsContext);
 
-  const onSubmit = e => {
+  const onSubmit = async e => {
     e.preventDefault();
+
+    singlesContext.searchSingles(text);
     artistsContext.searchArtists(text);
-    setText = '';
+    albumsContext.searchAlbums(text);
+
+    setSearchResults(true);
   };
 
   const onClick = e => {
     setSearch(true);
   };
-
-  // if (search === true) {
-  //   return <SearchModal />;
-  // }
 
   const onChange = e => setText(e.target.value);
 
