@@ -17,7 +17,7 @@ const Album = ({ match }) => {
   // is what I was getting at so just be a bit more defensive in your coding and do checks
   // for things before you even get here or along the way even if they are sometimes not necessary
   // then you can go back and refactor and take them out if not needed
-  const { title, albumId } = album;
+  const { title, albumId, albumImg } = album;
 
   /**
    * so because songs exists on albums, we have to make sure that songs exists on albums first so
@@ -39,22 +39,30 @@ const Album = ({ match }) => {
         Back
       </Link>
       <div className='card grid-2'>
-        <div className='all-center'>
-          <h1>
-            {title} - {albumId}
-            {console.log(albumId)}
-          </h1>
-
-          {album.songs &&
-            album.songs.map(({ songtitle, artistsId }, index) => (
-              <div key={index}>
-                <h2>
-                  Track {index + 1} - {songtitle}
-                </h2>
-              </div>
-            ))}
+        <img src={albumImg} alt='' style={{ width: '50%' }} />
+        <div className=''>
+          <h3>Album</h3>
+          <h2>{title}</h2>
+          <h3>{albumId}</h3>
+          <h5>{Date(Date.now())}</h5>
         </div>
-        <div className='all-center'></div>
+      </div>
+      <div className='all-center py-3 card'>
+        <h1>PLAYER</h1>
+      </div>
+      <div className='all-center'>
+        <p># Title Time</p>
+        {album.songs &&
+          album.songs.map(({ songtitle, artistsId }, index) => (
+            <div key={index}>
+              <p style={{ textDecoration: 'underline', width: '100%' }}>
+                Track {index + 1} - {songtitle}
+              </p>
+            </div>
+          ))}
+      </div>
+      <div className='all-center py-3 card'>
+        <h1>DISQUS FORM</h1>
       </div>
     </Fragment>
   );
