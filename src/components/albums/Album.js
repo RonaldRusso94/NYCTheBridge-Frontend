@@ -32,7 +32,17 @@ const Album = ({ match }) => {
 
   //  but basically any time that something can come through undefined or exists deeper
   //   inside of an object and might be emtpy or undefied you should check for it first
-
+  
+  
+  function albumsMap(album) {
+    album.songs.map(({songtitle, artistId}, index) => (
+      <div key={index}>
+                <h2>
+                  Track {index + 1} - {songtitle}
+                </h2> 
+              </div>
+    ))
+  }
   return (
     <Fragment>
       <Link to='/browse' className='btn btn-dark'>
@@ -45,14 +55,18 @@ const Album = ({ match }) => {
             {console.log(albumId)}
           </h1>
 
-          {album.songs &&
+          
+            {console.log(album)}
+            {album.songs ? albumsMap(album) : <h1> Cannot find / no songs : </h1>}
+          
+          {/* {album.songs &&
             album.songs.map(({ songtitle, artistsId }, index) => (
               <div key={index}>
                 <h2>
                   Track {index + 1} - {songtitle}
                 </h2>
               </div>
-            ))}
+            ))} */}
         </div>
         <div className='all-center'></div>
       </div>
