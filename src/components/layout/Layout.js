@@ -1,6 +1,8 @@
 import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
+import SideNav from './SideNav';
+
 import ArtistsContext from '../../context/artists/artistsContext';
 import AlbumContext from '../../context/albums/albumsContext';
 import SinglesContext from '../../context/singles/singlesContext';
@@ -22,7 +24,14 @@ const Layout = ({ children }) => {
     return (
       <div>
         <Navbar text={text} setText={setText} setSearch={setSearch} />
-        {children}
+        <div style={{ display: 'flex', height: '100%' }}>
+          <SideNav />
+          <div
+            style={{ display: 'flex', justifyContent: 'center', width: '100%' }}
+          >
+            {children}
+          </div>
+        </div>
       </div>
     );
   } else {

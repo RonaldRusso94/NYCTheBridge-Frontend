@@ -45,7 +45,7 @@ const Search = ({ setSearch, text, setText, setSearchResults }) => {
         />
         <input type='submit' value='Search' className='btn btn-dark' />
       </form>
-      {artistsContext.artists.length > 0 && (
+      {/* {artistsContext.artists.length > 0 && (
         <button
           className='btn'
           style={{ background: '#d9d9d9' }}
@@ -53,7 +53,7 @@ const Search = ({ setSearch, text, setText, setSearchResults }) => {
         >
           Clear
         </button>
-      )}
+      )} */}
     </div>
   );
 };

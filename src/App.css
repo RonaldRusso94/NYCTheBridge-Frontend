@@ -389,7 +389,7 @@ table th {
   z-index: 1;
   width: 100%;
   opacity: 0.9;
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; */
 }
 
 .navbar ul {
@@ -402,12 +402,56 @@ table th {
   margin: 0 0.25rem;
 }
 
+#myLinks {
+  display: none;
+}
+
+/* Style the hamburger menu */
+nav a.icon {
+  /* background: black; */
+  display: block;
+  /* position: absolute; */
+  right: 0;
+  top: 0;
+}
+
+@media (max-width: 769px) {
+  /* .navbar ul.navbar-desktop-links {
+    display: none;
+  } */
+  .navbar {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
 .navbar a:hover {
   color: var(--light-color);
 }
 
 .navbar .welcome span {
   margin-right: 0.6rem;
+}
+
+/* SideNav */
+.wrapper {
+  /* display: flex; */
+  position: relative;
+  width: 200px;
+}
+
+.wrapper .sidebar {
+  height: 100vh;
+  background-color: #c4c4c4;
+  color: black;
+  padding: 30px 30px;
+}
+.sidebar-fixed {
+  position: fixed;
+  top: 0;
+}
+.sidebar-absolute {
+  position: absolute;
 }
 
 /* Mobile Styles */
@@ -435,14 +479,3 @@ table th {
     font-size: 1rem;
   }
 }
-/* artist page*/
-/* .image-with-artist-name {
-  position: relative;
-  text-align: center;
-  color: white;
-}
-.text-artist-image {
-  position: absolute;
-  bottom: 8px;
-  left: 16px;
-} */
