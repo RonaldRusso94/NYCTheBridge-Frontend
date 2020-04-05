@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 
-const SideNav = () => {
+const SideNav = ({ mobileNav }) => {
   const [passed, setPassed] = useState(false);
 
   useEffect(() => {
-    const renderSideNav = _ => {
+    const renderSideNav = (_) => {
       const scroll = window.scrollY;
       console.log(scroll);
       if (scroll > 99) {
@@ -16,29 +16,34 @@ const SideNav = () => {
     };
     window.addEventListener('scroll', renderSideNav);
   });
+
   return (
     <div className='wrapper'>
       <div
-        className={`sidebar ${passed ? 'sidebar-fixed' : 'sidebar-absolute'}`}
+        className={`bg-light sidebar ${
+          passed ? 'sidebar-fixed' : 'sidebar-absolute'
+        }`}
       >
-        <ul>
-          <h3>Siderbar</h3>
-          <li>
-            <a href='#'>aaa</a>
-          </li>
-          <li>
-            <a href='#'>aaa</a>
-          </li>
-          <li>
-            <a href='#'>aaa</a>
-          </li>
-          <li>
-            <a href='#'>aaa</a>
-          </li>
-          <li>
-            <a href='#'>aaa</a>
-          </li>
-        </ul>
+        {mobileNav && (
+          <ul>
+            <h3>Siderbar</h3>
+            <li>
+              <a href='#'>aaa</a>
+            </li>
+            <li>
+              <a href='#'>aaa</a>
+            </li>
+            <li>
+              <a href='#'>aaa</a>
+            </li>
+            <li>
+              <a href='#'>aaa</a>
+            </li>
+            <li>
+              <a href='#'>aaa</a>
+            </li>
+          </ul>
+        )}
       </div>
     </div>
   );

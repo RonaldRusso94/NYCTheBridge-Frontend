@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 import SideNav from './SideNav';
+import SideDrawer from './SideDrawer';
 
 import ArtistsContext from '../../context/artists/artistsContext';
 import AlbumContext from '../../context/albums/albumsContext';
@@ -11,6 +12,7 @@ const Layout = ({ children }) => {
   const [text, setText] = useState('');
   const [search, setSearch] = useState(false);
   const [searchResults, setSearchResults] = useState(false);
+  const [mobileNav, setMobileNav] = useState(false);
 
   const artistsContext = useContext(ArtistsContext);
   const albumContext = useContext(AlbumContext);
@@ -22,17 +24,29 @@ const Layout = ({ children }) => {
 
   if (search === false) {
     return (
-      <div>
-        <Navbar text={text} setText={setText} setSearch={setSearch} />
-        <div style={{ display: 'flex', height: '100%' }}>
-          <SideNav />
+      <>
+        <Navbar
+          mobileNav={mobileNav}
+          setMobileNav={setMobileNav}
+          text={text}
+          setText={setText}
+          setSearch={setSearch}
+        />
+        <SideDrawer />
+        <div className='d-flex h-100'>
+          {/* <SideNav mobileNav={mobileNav} /> */}
           <div
-            style={{ display: 'flex', justifyContent: 'center', width: '100%' }}
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              width: '100%',
+              marginTop: '4rem',
+            }}
           >
             {children}
           </div>
         </div>
-      </div>
+      </>
     );
   } else {
     if (searchResults === true) {
@@ -49,7 +63,7 @@ const Layout = ({ children }) => {
 
           <h1>Artist</h1>
           {/*  {if(artistsContext.artists.length==0)return <h2>No results</h2>}  */}
-          {artistsContext.artists.map(artist => {
+          {artistsContext.artists.map((artist) => {
             return (
               <Link onClick={onClick} to={`/artist/${artist.id}`}>
                 <p className='card'> {artist.artist_name} </p>;
@@ -57,7 +71,7 @@ const Layout = ({ children }) => {
             );
           })}
           <h1>Albums</h1>
-          {albumContext.albums.map(album => {
+          {albumContext.albums.map((album) => {
             return (
               <Link onClick={onClick} to={`/album/${album.albumId}`}>
                 <p className='card'> {album.title} </p>
@@ -65,7 +79,7 @@ const Layout = ({ children }) => {
             );
           })}
           <h1>Singles</h1>
-          {singlesContext.singles.map(single => {
+          {singlesContext.singles.map((single) => {
             return (
               <Link onClick={onClick} to={`/single/${single.singleId}`}>
                 <p className='card'> {single.title} </p>

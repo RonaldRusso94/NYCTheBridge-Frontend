@@ -1,0 +1,39 @@
+/* Navbar */
+
+.navbar {
+  position: fixed;
+  width: 100%;
+}
+
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+
+.navbar-logo a {
+  display: flex;
+  align-items: center;
+}
+.navbar-logo a i {
+  padding-right: 0.5rem;
+}
+
+.navbar-items {
+  margin-left: auto;
+}
+
+.navbar-items ul {
+  display: flex;
+}
+
+.navbar-items ul li {
+  padding: 0 0.5rem;
+  font-size: 0.7rem;
+}
+
+.navbar-items a:hover,
+.navbar-items a:active,
+.navbar-logo a:hover {
+  color: var(--light-color);
+}
