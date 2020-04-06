@@ -2,7 +2,6 @@ import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 import SideNav from './SideNav';
-import SideDrawer from './SideDrawer';
 
 import ArtistsContext from '../../context/artists/artistsContext';
 import AlbumContext from '../../context/albums/albumsContext';
@@ -12,7 +11,6 @@ const Layout = ({ children }) => {
   const [text, setText] = useState('');
   const [search, setSearch] = useState(false);
   const [searchResults, setSearchResults] = useState(false);
-  const [mobileNav, setMobileNav] = useState(false);
 
   const artistsContext = useContext(ArtistsContext);
   const albumContext = useContext(AlbumContext);
@@ -25,16 +23,9 @@ const Layout = ({ children }) => {
   if (search === false) {
     return (
       <>
-        <Navbar
-          mobileNav={mobileNav}
-          setMobileNav={setMobileNav}
-          text={text}
-          setText={setText}
-          setSearch={setSearch}
-        />
-        <SideDrawer />
+        <Navbar text={text} setText={setText} setSearch={setSearch} />
         <div className='d-flex h-100'>
-          {/* <SideNav mobileNav={mobileNav} /> */}
+          <SideNav />
           <div
             style={{
               display: 'flex',

@@ -25,28 +25,29 @@ const Navbar = ({
   text,
   setText,
   setSearchResults,
-  mobileNav,
-  setMobileNav,
 }) => {
   return (
     <header className='navbar'>
       <nav className='navbar-nav bg-dark'>
-        <div className='hamburger'>
-          {' '}
-          {/* <a
-        href='#'
-        onClick={() => (mobileNav ? setMobileNav(false) : setMobileNav(true))}
-      >
-        <i class='fa fa-bars'></i>
-      </a> */}
-        </div>
-
         <div className='navbar-logo'>
           <Link to='/'>
             <i className={icon}></i> {title}
           </Link>
         </div>
-
+        <input className='menu-btn' type='checkbox' id='menu-btn' />
+        <label className='menu-icon' htmlFor='menu-btn'>
+          <span className='nav-icon'></span>
+        </label>
+        {/* <div className='hamburger'>
+          <a
+            href='#'
+            onClick={() =>
+              mobileNav ? setMobileNav(false) : setMobileNav(true)
+            }
+          >
+            <i class='fa fa-bars'></i>
+          </a>
+        </div> */}
         {/* <div>
         <Search
           text={text}
@@ -55,7 +56,6 @@ const Navbar = ({
           setSearchResults={setSearchResults}
         />
       </div> */}
-
         <div className='navbar-items'>
           <ul>
             <li>
