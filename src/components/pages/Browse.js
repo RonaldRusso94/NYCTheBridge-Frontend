@@ -10,7 +10,7 @@ import '../../App.css';
 const Browse = () => {
   const [nav, setNav] = useState('genres');
 
-  const onClick = e => {
+  const onClick = (e) => {
     setNav(e.target.name);
   };
 
@@ -19,10 +19,10 @@ const Browse = () => {
   const subnav = (
     <>
       <h1>Browse</h1>
-      <ul>
-        {navitems.map(item => {
+      <ul className='d-flex' style={{ justifyContent: 'space-around' }}>
+        {navitems.map((item) => {
           return (
-            <li className='px-1' style={{ display: 'inline' }}>
+            <li>
               <a name={item} onClick={onClick}>
                 {item}
               </a>
