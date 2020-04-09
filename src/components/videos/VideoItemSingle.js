@@ -3,22 +3,24 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const VideoItemSingle = ({
-  single: { singleId, artistId, singleImg, title, songs }
+  single: { singleId, artistId, singleImg, title, songs },
 }) => {
   return (
-    <div className='card text-center py-3'>
+    <div className='item-container py-1'>
       <Link to={`/single/${singleId}`}>
-        <img src={singleImg} alt='' style={{ width: '80%' }} />
+        <img src={singleImg} alt='' />
       </Link>
-      <h3>
-        {title} - {artistId}
-      </h3>
+      <div className='text-wrapper'>
+        <h3 className='text-styles'>
+          {title} - {artistId}
+        </h3>
+      </div>
     </div>
   );
 };
 
 VideoItemSingle.propTypes = {
-  single: PropTypes.object.isRequired
+  single: PropTypes.object.isRequired,
 };
 
 export default VideoItemSingle;

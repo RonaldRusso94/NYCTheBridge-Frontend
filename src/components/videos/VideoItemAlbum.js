@@ -3,22 +3,24 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const VideoItemAlbum = ({
-  album: { albumId, artistId, albumImg, title, songs }
+  album: { albumId, artistId, albumImg, title, songs },
 }) => {
   return (
-    <div className='card text-center py-3'>
+    <div className='item-container py-1'>
       <Link to={`/album/${albumId}`}>
-        <img src={albumImg} alt='' style={{ width: '80%' }} />
+        <img src={albumImg} alt='' />
       </Link>
-      <h3>
-        {title} - {artistId}
-      </h3>
+      <div className='text-wrapper'>
+        <h3 className='text-styles'>
+          {title} - {artistId}
+        </h3>
+      </div>
     </div>
   );
 };
 
 VideoItemAlbum.propTypes = {
-  album: PropTypes.object.isRequired
+  album: PropTypes.object.isRequired,
 };
 
 export default VideoItemAlbum;

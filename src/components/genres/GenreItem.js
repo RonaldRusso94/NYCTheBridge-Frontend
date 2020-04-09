@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom';
 
 const GenreItem = ({ genre: { genre, img } }) => {
   return (
-    <div className='card text-center py-2'>
+    <div className='item-container py-1'>
       <Link to={`/genre/${genre}`}>
-        <img src={img} style={{ width: '80%' }} alt='' />
-        <h3>{genre}</h3>
+        <img src={img} alt='' />
+        <div className='text-wrapper'>
+          <h3 className='text-styles'>{genre}</h3>
+        </div>
       </Link>
     </div>
   );

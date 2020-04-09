@@ -3,6 +3,12 @@ import SinglesContext from '../../context/singles/singlesContext';
 import AlbumsContext from '../../context/albums/albumsContext';
 import GenreItem from './GenreItem';
 
+import Classic from '../layout/images/Classic.jpeg';
+import Trap from '../layout/images/Trap.jpg';
+
+import Drill from '../layout/images/Drill.jpg';
+import Rb from '../layout/images/R&B.jpeg';
+
 const Genres = () => {
   //   const singlesContext = useContext(SinglesContext);
   //   const albumsContext = useContext(AlbumsContext);
@@ -12,20 +18,20 @@ const Genres = () => {
   const genres = [
     {
       genre: 'classic',
-      img: 'https://nycthebridge.com/images/JayMakkxYoungEsco_Interlude.jpg'
+      img: Classic,
     },
     {
       genre: 'trap',
-      img: 'https://nycthebridge.com/images/JayMakkxYoungEsco_Interlude.jpg'
+      img: Trap,
     },
     {
       genre: 'drill',
-      img: 'https://nycthebridge.com/images/JayMakkxYoungEsco_Interlude.jpg'
+      img: Drill,
     },
     {
       genre: 'r&b',
-      img: 'https://nycthebridge.com/images/JayMakkxYoungEsco_Interlude.jpg'
-    }
+      img: Rb,
+    },
     //  'spanish',
     //  'reggae',
     //  'pop',
@@ -35,7 +41,7 @@ const Genres = () => {
 
   return (
     <div style={genresStyle}>
-      {genres.map(genre => {
+      {genres.map((genre) => {
         return <GenreItem key={genre.genre} genre={genre} />;
       })}
 
@@ -49,7 +55,7 @@ const Genres = () => {
 const genresStyle = {
   display: 'grid',
   gridTemplateColumns: 'repeat(3, 1fr)',
-  gridGap: '1rem'
+  gridGap: '1rem',
 };
 
 export default Genres;

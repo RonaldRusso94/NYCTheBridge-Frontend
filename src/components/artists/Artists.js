@@ -18,7 +18,7 @@ const Artists = () => {
             <ArtistItem key={artist.id} artist={artist} />
           ))}
         </div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, magnam
+        {/* Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, magnam
         alias dolor, aspernatur ducimus nulla provident quod iste sit distinctio
         odit expedita dignissimos reiciendis voluptates obcaecati delectus ab.
         Magni quidem debitis omnis architecto ea maiores minima expedita? Hic
@@ -61,7 +61,7 @@ const Artists = () => {
         asperiores nam dicta placeat est, unde, libero inventore rem maiores
         minima minus ut tempore eum pariatur, provident ad voluptatem at? Labore
         exercitationem sunt error tempore necessitatibus, nemo at repudiandae
-        molestias quia obcaecati culpa nostrum quibusdam rerum.
+        molestias quia obcaecati culpa nostrum quibusdam rerum. */}
       </>
     );
   }

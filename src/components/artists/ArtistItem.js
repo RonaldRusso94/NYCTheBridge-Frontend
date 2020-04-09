@@ -3,20 +3,22 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const UserItem = ({
-  artist: { id, artist_name, music_page_url, image_address }
+  artist: { id, artist_name, music_page_url, image_address },
 }) => {
   return (
-    <div className='card text-center py-2'>
+    <div className='item-container py-1'>
       <Link to={`/artist/${id}`}>
-        <img src={image_address} alt='' style={{ width: '80%' }} />
-        <h3>{artist_name}</h3>
+        <img src={image_address} alt='' />
+        <div className='text-wrapper'>
+          <h3 className='text-styles'>{artist_name}</h3>
+        </div>
       </Link>
     </div>
   );
 };
 
 UserItem.propTypes = {
-  artist: PropTypes.object.isRequired
+  artist: PropTypes.object.isRequired,
 };
 
 export default UserItem;
