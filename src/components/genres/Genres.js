@@ -29,7 +29,7 @@ const Genres = () => {
       img: Drill,
     },
     {
-      genre: 'Freestyles',
+      genre: 'freestyle',
       img: Freestyle,
     },
     {

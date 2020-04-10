@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const SideNav = () => {
   return (
@@ -6,44 +7,41 @@ const SideNav = () => {
       <div className='sidebar'>
         <ul className='pages my-3'>
           <li>
-            <a href='#'>Home</a>
+            <Link to='/'>Home</Link>
           </li>
           <li>
-            <a href='#'>Browse</a>
+            <Link to='/browse'>Browse</Link>
           </li>
         </ul>
         <ul className='categories my-2'>
           <li>
-            <a href='#'>Genres</a>
+            <a href='/browse'>Genres</a>
           </li>
           <li>
             <ul className='subcategories my-1'>
               <li>
-                <a href='#'>Classic</a>
+                <Link to='/genre/classic'>Classic</Link>
               </li>
               <li>
-                <a href='#'>Trap</a>
+                <Link to='/genre/trap'>Trap</Link>
               </li>
               <li>
-                <a href='#'>Drill</a>
+                <Link to='/genre/drill'>Drill</Link>
               </li>
               <li>
-                <a href='#'>R&B</a>
+                <Link to='/genre/r&b'>R&B</Link>
               </li>
               <li>
-                <a href='#'>Spanish</a>
+                <Link to='/genre/spanish'>Spanish</Link>
               </li>
               <li>
-                <a href='#'>Reggae</a>
+                <Link to='/genre/reggae'>Reggae</Link>
               </li>
               <li>
-                <a href='#'>Pop</a>
+                <Link to='/genre/freestyle'>Freestyles</Link>
               </li>
               <li>
-                <a href='#'>Freestyles</a>
-              </li>
-              <li>
-                <a href='#'>Instrumentals</a>
+                <Link to='/genre/instrumental'>Instrumentals</Link>
               </li>
             </ul>
           </li>

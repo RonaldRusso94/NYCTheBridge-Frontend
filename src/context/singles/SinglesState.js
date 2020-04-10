@@ -3,7 +3,7 @@ import SinglesContext from './singlesContext';
 import SinglesReducer from './singlesReducer';
 import { GET_SINGLE, SEARCH_SINGLES } from '../types';
 
-const SinglesState = props => {
+const SinglesState = (props) => {
   const initialState = {
     singles: [
       {
@@ -13,9 +13,9 @@ const SinglesState = props => {
         singleImg:
           'https://image.shutterstock.com/image-vector/vector-music-icon-260nw-668051581.jpg',
         title: 'Different Path Single',
-        genre: ['classic', 'pop', 'trap'],
+        genre: ['classic', 'trap'],
         musicVideo: true,
-        musicUrl: ''
+        musicUrl: '',
       },
       {
         singleId: '2',
@@ -24,36 +24,45 @@ const SinglesState = props => {
         singleImg:
           'https://image.shutterstock.com/image-vector/vector-music-icon-260nw-668051581.jpg',
         title: 'Stick By My Side Single',
-        genre: ['classic', 'pop', 'r&b'],
+        genre: [
+          'classic',
+          'r&b',
+          'trap',
+          'drill',
+          'spanish',
+          'reggae',
+          'freestyle',
+          'instrumental',
+        ],
         musicVideo: true,
-        musicUrl: ''
-      }
+        musicUrl: '',
+      },
     ],
-    single: {}
+    single: {},
   };
 
   const [state, dispatch] = useReducer(SinglesReducer, initialState);
 
   // Get a single
-  const getSingle = async id => {
-    const single = state.singles.find(single => single.singleId === id);
+  const getSingle = async (id) => {
+    const single = state.singles.find((single) => single.singleId === id);
 
     console.log('from dispatch getSingle', single);
 
     dispatch({
       type: GET_SINGLE,
-      payload: single
+      payload: single,
     });
   };
 
   // Search Singles **FIX
-  const searchSingles = async text => {
-    const filtered = state.singles.filter(single => {
+  const searchSingles = async (text) => {
+    const filtered = state.singles.filter((single) => {
       return single.title.indexOf(text) !== -1;
     });
     dispatch({
       type: SEARCH_SINGLES,
-      payload: filtered
+      payload: filtered,
     });
   };
 
@@ -63,7 +72,7 @@ const SinglesState = props => {
         singles: state.singles,
         single: state.single,
         getSingle,
-        searchSingles
+        searchSingles,
       }}
     >
       {props.children}
