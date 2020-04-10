@@ -3,11 +3,15 @@ import SinglesContext from '../../context/singles/singlesContext';
 import AlbumsContext from '../../context/albums/albumsContext';
 import GenreItem from './GenreItem';
 
-import Classic from '../layout/images/Classic.jpeg';
+import Classic from '../layout/images/Classic.jpg';
 import Trap from '../layout/images/Trap.jpg';
 
 import Drill from '../layout/images/Drill.jpg';
-import Rb from '../layout/images/R&B.jpeg';
+import Rb from '../layout/images/R&B.jpg';
+import Spanish from '../layout/images/Spanish.jpg';
+import Reggae from '../layout/images/Reggae.jpg';
+import Freestyle from '../layout/images/Freestyle.jpg';
+import Instrumental from '../layout/images/Instrumental.jpg';
 
 const Genres = () => {
   //   const singlesContext = useContext(SinglesContext);
@@ -21,21 +25,34 @@ const Genres = () => {
       img: Classic,
     },
     {
-      genre: 'trap',
-      img: Trap,
-    },
-    {
       genre: 'drill',
       img: Drill,
+    },
+    {
+      genre: 'Freestyles',
+      img: Freestyle,
+    },
+    {
+      genre: 'instrumental',
+      img: Instrumental,
+    },
+    {
+      genre: 'reggae',
+      img: Reggae,
     },
     {
       genre: 'r&b',
       img: Rb,
     },
-    //  'spanish',
-    //  'reggae',
-    //  'pop',
-    //  'freestyles',
+    {
+      genre: 'spanish',
+      img: Spanish,
+    },
+    {
+      genre: 'trap',
+      img: Trap,
+    },
+
     //  'instrumental'
   ];
 
