@@ -35,7 +35,6 @@ const App = () => {
                     <Route exact path='/' component={Home} />
                     <Route exact path='/browse' component={Browse} />
                     <Route exact path='/browse/:category' component={Browse} />
-
                     <Route
                       exact
                       path='/browse/genres/:genre'

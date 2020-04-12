@@ -5,19 +5,6 @@ import Search from '../search/Search.js';
 
 import './Navbar.css';
 
-// function myFunction() {
-//   var x = document.getElementById('myLinks');
-//   if (x.style.display === 'block') {
-//     x.style.display = 'none';
-//   } else {
-//     x.style.display = 'block';
-//   }
-// }
-// const linkHandler = () => {
-//   if (show) return <NavLinks />;
-//   else return null;
-// };
-
 const Navbar = ({
   icon,
   title,
@@ -38,16 +25,6 @@ const Navbar = ({
         <label className='menu-icon' htmlFor='menu-btn'>
           <span className='nav-icon'></span>
         </label>
-        {/* <div className='hamburger'>
-          <a
-            href='#'
-            onClick={() =>
-              mobileNav ? setMobileNav(false) : setMobileNav(true)
-            }
-          >
-            <i class='fa fa-bars'></i>
-          </a>
-        </div> */}
         {/* <div>
         <Search
           text={text}
@@ -57,7 +34,7 @@ const Navbar = ({
         />
       </div> */}
         <div className='navbar-items'>
-          <ul>
+          <ul onClick={() => document.getElementById('menu-btn').click()}>
             <li>
               <Link to='/'>Home</Link>
             </li>

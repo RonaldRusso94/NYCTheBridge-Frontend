@@ -20,28 +20,28 @@ const SideNav = () => {
           <li>
             <ul className='subcategories my-1'>
               <li>
-                <Link to='/genre/classic'>Classic</Link>
+                <Link to='/browse/genres/classic'>Classic</Link>
               </li>
               <li>
-                <Link to='/genre/trap'>Trap</Link>
+                <Link to='/browse/genres/trap'>Trap</Link>
               </li>
               <li>
-                <Link to='/genre/drill'>Drill</Link>
+                <Link to='/browse/genres/drill'>Drill</Link>
               </li>
               <li>
-                <Link to='/genre/r&b'>R&B</Link>
+                <Link to='/browse/genres/r&b'>R&B</Link>
               </li>
               <li>
-                <Link to='/genre/spanish'>Spanish</Link>
+                <Link to='/browse/genres/spanish'>Spanish</Link>
               </li>
               <li>
-                <Link to='/genre/reggae'>Reggae</Link>
+                <Link to='/browse/genres/reggae'>Reggae</Link>
               </li>
               <li>
-                <Link to='/genre/freestyle'>Freestyles</Link>
+                <Link to='/browse/genres/freestyle'>Freestyles</Link>
               </li>
               <li>
-                <Link to='/genre/instrumental'>Instrumentals</Link>
+                <Link to='/browse/genres/instrumental'>Instrumentals</Link>
               </li>
             </ul>
           </li>
