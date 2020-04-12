@@ -16,7 +16,7 @@ const Genre = ({ match }) => {
     <>
       <h1>{match.params.genre}</h1>
       <hr></hr>
-      <div style={genresStyle}>
+      <div className='grid-3'>
         {singles.map((single) =>
           single.genre.map((x) => {
             if (x === match.params.genre) {
@@ -62,12 +62,6 @@ const Genre = ({ match }) => {
       </div>
     </>
   );
-};
-
-const genresStyle = {
-  display: 'grid',
-  gridTemplateColumns: 'repeat(3, 1fr)',
-  gridGap: '1rem',
 };
 
 export default Genre;

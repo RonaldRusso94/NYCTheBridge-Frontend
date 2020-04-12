@@ -14,8 +14,8 @@ const Browse = ({ match }) => {
 
   const subnav = (
     <>
-      <h1>Browse</h1>
-      <ul className='d-flex' style={{ justifyContent: 'space-around' }}>
+      <h1 className='py'>Browse</h1>
+      <ul className='browse-subnav'>
         {navitems.map((item) => {
           return (
             <li>
@@ -37,7 +37,6 @@ const Browse = ({ match }) => {
     return (
       <>
         {subnav}
-        <h3>Genres</h3>
         <Genres />
       </>
     );
@@ -45,7 +44,6 @@ const Browse = ({ match }) => {
     return (
       <>
         {subnav}
-        <h3>Artists</h3>
         <Artists />
       </>
     );
@@ -53,7 +51,6 @@ const Browse = ({ match }) => {
     return (
       <>
         {subnav}
-        <h3>Albums</h3>
         <Albums />
       </>
     );
@@ -61,7 +58,6 @@ const Browse = ({ match }) => {
     return (
       <>
         {subnav}
-        <h3>Singles</h3>
         <Singles />
       </>
     );
@@ -69,7 +65,6 @@ const Browse = ({ match }) => {
     return (
       <>
         {subnav}
-        <h3>Videos</h3>
         <Videos />
       </>
     );
@@ -77,7 +72,6 @@ const Browse = ({ match }) => {
     return (
       <>
         {subnav}
-        <h3>Genres</h3>
         <Genres />
       </>
     );

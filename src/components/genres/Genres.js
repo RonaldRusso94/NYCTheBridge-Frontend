@@ -57,7 +57,7 @@ const Genres = () => {
   ];
 
   return (
-    <div style={genresStyle}>
+    <div className='grid-3'>
       {genres.map((genre) => {
         return <GenreItem key={genre.genre} genre={genre} />;
       })}
@@ -67,12 +67,6 @@ const Genres = () => {
       })} */}
     </div>
   );
-};
-
-const genresStyle = {
-  display: 'grid',
-  gridTemplateColumns: 'repeat(3, 1fr)',
-  gridGap: '1rem',
 };
 
 export default Genres;

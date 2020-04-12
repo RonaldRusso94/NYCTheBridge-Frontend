@@ -13,7 +13,7 @@ const Artists = () => {
   } else {
     return (
       <>
-        <div style={artistStyle}>
+        <div className='grid-3'>
           {artists.map((artist) => (
             <ArtistItem key={artist.id} artist={artist} />
           ))}
@@ -65,12 +65,6 @@ const Artists = () => {
       </>
     );
   }
-};
-
-const artistStyle = {
-  display: 'grid',
-  gridTemplateColumns: 'repeat(3, 1fr)',
-  gridGap: '1rem',
 };
 
 export default Artists;

@@ -427,17 +427,44 @@ table th {
   font-family: 'ZCOOL KuaiLe';
 }
 
+.browse-subnav {
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 1.3rem;
+  padding-bottom: 1rem;
+}
+
 /* Mobile Styles */
 @media (max-width: 700px) {
   .hide-sm {
     display: none;
   }
 
-  .grid-2,
+  .py {
+    padding: 0.1rem;
+  }
+
+  .container {
+    padding: 0 0.5rem;
+  }
+
+  .text-wrapper h3 {
+    font-size: 0.7rem;
+  }
+
+  .browse-subnav {
+    font-size: 0.8rem;
+  }
+
+  .grid-3 {
+    grid-gap: 0.5rem;
+  }
+
+  /* .grid-2,
   .grid-3,
   .grid-4 {
     grid-template-columns: 1fr;
-  }
+  } */
 
   /* Text Styles */
   .x-large {
@@ -450,12 +477,5 @@ table th {
 
   .lead {
     font-size: 1rem;
-  }
-  .container {
-    padding: 0 0.5rem;
-  }
-
-  .text-wrapper h3 {
-    font-size: 0.5rem;
   }
 }

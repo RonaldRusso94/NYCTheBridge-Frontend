@@ -14,7 +14,7 @@ const Videos = () => {
   const { albums } = albumsContext;
 
   return (
-    <div style={videoStyle}>
+    <div className='grid-3'>
       {/* runs through all singles and creates a component for each one */}
       {singles &&
         singles.map(
@@ -43,12 +43,6 @@ const Videos = () => {
         )}
     </div>
   );
-};
-
-const videoStyle = {
-  display: 'grid',
-  gridTemplateColumns: 'repeat(3, 1fr)',
-  gridGap: '1rem',
 };
 
 export default Videos;

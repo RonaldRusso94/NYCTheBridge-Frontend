@@ -8,17 +8,11 @@ const Albums = () => {
 
   const { albums } = albumsContext;
   return (
-    <div style={albumStyle}>
+    <div className='grid-3'>
       {albums &&
         albums.map((album) => <AlbumItem key={album.albumId} album={album} />)}
     </div>
   );
-};
-
-const albumStyle = {
-  display: 'grid',
-  gridTemplateColumns: 'repeat(3, 1fr)',
-  gridGap: '1rem',
 };
 
 export default Albums;
