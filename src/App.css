@@ -460,11 +460,11 @@ table th {
     grid-gap: 0.5rem;
   }
 
-  /* .grid-2,
+  .grid-2,
   .grid-3,
   .grid-4 {
     grid-template-columns: 1fr;
-  } */
+  }
 
   /* Text Styles */
   .x-large {
