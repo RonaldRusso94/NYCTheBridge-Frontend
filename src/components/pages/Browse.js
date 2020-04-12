@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+
 import Artists from '../artists/Artists';
 import Albums from '../albums/Albums';
 import Singles from '../singles/Singles';
@@ -7,13 +9,7 @@ import Videos from '../videos/Videos';
 
 import '../../App.css';
 
-const Browse = () => {
-  const [nav, setNav] = useState('genres');
-
-  const onClick = (e) => {
-    setNav(e.target.name);
-  };
-
+const Browse = ({ match }) => {
   const navitems = ['genres', 'artists', 'albums', 'singles', 'videos'];
 
   const subnav = (
@@ -23,9 +19,13 @@ const Browse = () => {
         {navitems.map((item) => {
           return (
             <li>
-              <a name={item} onClick={onClick}>
+              <NavLink
+                className='capitalize'
+                to={`/browse/${item}`}
+                name={item}
+              >
                 {item}
-              </a>
+              </NavLink>
             </li>
           );
         })}
@@ -33,7 +33,7 @@ const Browse = () => {
     </>
   );
 
-  if (nav === 'genres') {
+  if (match.params.category === 'genres') {
     return (
       <>
         {subnav}
@@ -41,7 +41,7 @@ const Browse = () => {
         <Genres />
       </>
     );
-  } else if (nav === 'artists') {
+  } else if (match.params.category === 'artists') {
     return (
       <>
         {subnav}
@@ -49,7 +49,7 @@ const Browse = () => {
         <Artists />
       </>
     );
-  } else if (nav === 'albums') {
+  } else if (match.params.category === 'albums') {
     return (
       <>
         {subnav}
@@ -57,7 +57,7 @@ const Browse = () => {
         <Albums />
       </>
     );
-  } else if (nav === 'singles') {
+  } else if (match.params.category === 'singles') {
     return (
       <>
         {subnav}
@@ -65,12 +65,20 @@ const Browse = () => {
         <Singles />
       </>
     );
-  } else if (nav === 'videos') {
+  } else if (match.params.category === 'videos') {
     return (
       <>
         {subnav}
         <h3>Videos</h3>
         <Videos />
+      </>
+    );
+  } else {
+    return (
+      <>
+        {subnav}
+        <h3>Genres</h3>
+        <Genres />
       </>
     );
   }

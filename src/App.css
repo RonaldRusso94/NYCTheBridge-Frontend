@@ -45,6 +45,14 @@ img {
 }
 
 /* Text Styles*/
+.capitalize {
+  text-transform: capitalize;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
 .x-large {
   font-size: 4rem;
   line-height: 1.2;
@@ -442,5 +450,12 @@ table th {
 
   .lead {
     font-size: 1rem;
+  }
+  .container {
+    padding: 0 0.5rem;
+  }
+
+  .text-wrapper h3 {
+    font-size: 0.5rem;
   }
 }

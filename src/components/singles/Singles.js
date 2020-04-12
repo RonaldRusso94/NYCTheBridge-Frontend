@@ -11,7 +11,7 @@ const Singles = () => {
   return (
     <div style={singleStyle}>
       {singles &&
-        singles.map(single => (
+        singles.map((single) => (
           <SingleItem key={single.singleId} single={single} />
         ))}
     </div>
@@ -21,7 +21,7 @@ const Singles = () => {
 const singleStyle = {
   display: 'grid',
   gridTemplateColumns: 'repeat(3, 1fr)',
-  gridGap: '1rem'
+  gridGap: '1rem',
 };
 
 export default Singles;

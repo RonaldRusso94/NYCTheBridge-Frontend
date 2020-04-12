@@ -6,7 +6,7 @@ const VideoItemAlbum = ({
   album: { albumId, artistId, albumImg, title, songs },
 }) => {
   return (
-    <div className='item-container py-1'>
+    <div className='item-container'>
       <Link to={`/album/${albumId}`}>
         <img src={albumImg} alt='' />
       </Link>

@@ -6,7 +6,7 @@ const VideoItemSingle = ({
   single: { singleId, artistId, singleImg, title, songs },
 }) => {
   return (
-    <div className='item-container py-1'>
+    <div className='item-container'>
       <Link to={`/single/${singleId}`}>
         <img src={singleImg} alt='' />
       </Link>

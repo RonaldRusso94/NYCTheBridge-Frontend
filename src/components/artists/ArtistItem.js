@@ -6,7 +6,7 @@ const UserItem = ({
   artist: { id, artist_name, music_page_url, image_address },
 }) => {
   return (
-    <div className='item-container py-1'>
+    <div className='item-container'>
       <Link to={`/artist/${id}`}>
         <img src={image_address} alt='' />
         <div className='text-wrapper'>

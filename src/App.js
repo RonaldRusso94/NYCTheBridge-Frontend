@@ -34,7 +34,13 @@ const App = () => {
                   <Switch>
                     <Route exact path='/' component={Home} />
                     <Route exact path='/browse' component={Browse} />
-                    <Route exact path='/genre/:genre' component={Genre} />
+                    <Route exact path='/browse/:category' component={Browse} />
+
+                    <Route
+                      exact
+                      path='/browse/genre/:genre'
+                      component={Genre}
+                    />
                     <Route exact path='/artist/:id' component={Artist} />
                     <Route exact path='/album/:id' component={Album} />
                     <Route exact path='/single/:id' component={Single} />

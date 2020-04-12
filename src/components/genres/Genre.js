@@ -10,15 +10,15 @@ const Genre = ({ match }) => {
   const { singles } = singlesContext;
   const { albums } = albumsContext;
 
-  const doesMatch = genre => {};
+  const doesMatch = (genre) => {};
 
   return (
     <>
       <h1>{match.params.genre}</h1>
       <hr></hr>
       <div style={genresStyle}>
-        {singles.map(single =>
-          single.genre.map(x => {
+        {singles.map((single) =>
+          single.genre.map((x) => {
             if (x === match.params.genre) {
               return (
                 <div className='card text-center py-2'>
@@ -37,9 +37,9 @@ const Genre = ({ match }) => {
             }
           })
         )}
-        {albums.map(album => {
-          return album.songs.map(song => {
-            return song.genre.map(x => {
+        {albums.map((album) => {
+          return album.songs.map((song) => {
+            return song.genre.map((x) => {
               if (x === match.params.genre) {
                 return (
                   <div className='card text-center py-2'>
@@ -67,7 +67,7 @@ const Genre = ({ match }) => {
 const genresStyle = {
   display: 'grid',
   gridTemplateColumns: 'repeat(3, 1fr)',
-  gridGap: '1rem'
+  gridGap: '1rem',
 };
 
 export default Genre;

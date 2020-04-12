@@ -15,7 +15,7 @@ const SideNav = () => {
         </ul>
         <ul className='categories my-2'>
           <li>
-            <a href='/browse'>Genres</a>
+            <Link to='/browse/genres'>Genres</Link>
           </li>
           <li>
             <ul className='subcategories my-1'>
@@ -46,19 +46,16 @@ const SideNav = () => {
             </ul>
           </li>
           <li>
-            <a href='#'>Artists</a>
+            <Link to='/browse/artists'>Artists</Link>
           </li>
           <li>
-            <a href='#'>Albums</a>
+            <Link to='/browse/albums'>Albums</Link>
           </li>
           <li>
-            <a href='#'>Singles</a>
+            <Link to='/browse/singles'>Singles</Link>
           </li>
           <li>
-            <a href='#'>Sigles</a>
-          </li>
-          <li>
-            <a href='#'>Videos</a>
+            <Link to='/browse/videos'>Videos</Link>
           </li>
         </ul>
       </div>

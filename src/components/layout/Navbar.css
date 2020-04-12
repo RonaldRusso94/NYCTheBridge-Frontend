@@ -121,6 +121,10 @@
   display: none;
 }
 
+.active {
+  text-decoration: underline;
+}
+
 /* .wrapper .sidebar {
   display: none;
 } */
@@ -132,9 +136,7 @@
   } */
 
   .navbar-items {
-    margin-left: auto;
-    width: auto;
-    display: flex;
+    display: none;
   }
 
   .navbar-nav .menu-icon {
