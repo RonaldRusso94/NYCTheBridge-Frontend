@@ -1,23 +1,40 @@
-import React, { Fragment, useEffect, useContext } from 'react';
+import React, { Fragment, useEffect, useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import AlbumsContext from '../../context/albums/albumsContext';
 
-const Album = ({ match }) => {
-  const albumsContext = useContext(AlbumsContext);
+import api from '../../api';
 
-  const { getAlbum, album } = albumsContext;
+const Album = ({ match }) => {
+  // const albumsContext = useContext(AlbumsContext);
+
+  // const { album, getAlbum } = albumsContext;
+
+  const [album, setAlbum] = useState([]);
+
+  // useEffect(() => {
+  //   getAlbum(match.params.id);
+
+  //   // eslint-disable-next-line
+  // }, []);
 
   useEffect(() => {
-    getAlbum(match.params.id);
-
-    // eslint-disable-next-line
+    const apiCall = async () => {
+      try {
+        const res = await api.get('/albums/:albumId');
+        console.log('From Album', res.data);
+        setAlbum(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    apiCall();
   }, []);
 
   // if album is ever non existen this will break because there is nothing to destructure
   // is what I was getting at so just be a bit more defensive in your coding and do checks
   // for things before you even get here or along the way even if they are sometimes not necessary
   // then you can go back and refactor and take them out if not needed
-  const { title, albumId, albumImg } = album;
+  const { title, _id, img } = album;
 
   /**
    * so because songs exists on albums, we have to make sure that songs exists on albums first so
@@ -39,11 +56,11 @@ const Album = ({ match }) => {
         Back
       </Link>
       <div className='card grid-2'>
-        <img src={albumImg} alt='' style={{ width: '50%' }} />
+        <img src={img} alt='' style={{ width: '50%' }} />
         <div className=''>
           <h3>Album</h3>
           <h2>{title}</h2>
-          <h3>{albumId}</h3>
+          <h3>{_id}</h3>
           <h5>{Date(Date.now())}</h5>
         </div>
       </div>

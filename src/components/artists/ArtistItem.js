@@ -2,15 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const UserItem = ({
-  artist: { id, artist_name, music_page_url, image_address },
-}) => {
+const UserItem = ({ artist: { _id, img, name } }) => {
+  // console.log('From Artist Item', _id);
   return (
     <div className='item-container'>
-      <Link to={`/artist/${id}`}>
-        <img src={image_address} alt='' />
+      <Link to={`/artist/${_id}`}>
+        <img src={img} alt='' />
         <div className='text-wrapper'>
-          <h3 className='text-styles'>{artist_name}</h3>
+          <h3 className='text-styles'>{name}</h3>
         </div>
       </Link>
     </div>

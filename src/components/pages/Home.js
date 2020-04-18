@@ -10,9 +10,6 @@ const Home = () => {
   const singlesContext = useContext(SinglesContext);
   const albumsContext = useContext(AlbumsContext);
 
-  console.log('Artist From Home', artistsContext.artists);
-  console.log('Singles From Home', singlesContext.singles);
-
   return (
     <Fragment>
       <h1 className='text-center py-1'>Most Recent</h1>

@@ -1,8 +1,9 @@
 import {
   SEARCH_ARTISTS,
+  GET_ARTISTS,
+  GET_ARTIST,
   SET_LOADING,
   CLEAR_ARTISTS,
-  GET_ARTIST
 } from '../types';
 
 export default (state, action) => {
@@ -11,24 +12,30 @@ export default (state, action) => {
       return {
         ...state,
         artists: action.payload,
-        loading: false
+        loading: false,
+      };
+    case GET_ARTISTS:
+      return {
+        ...state,
+        artists: action.payload,
+        loading: false,
       };
     case GET_ARTIST:
       return {
         ...state,
         artist: action.payload,
-        loading: false
+        loading: false,
       };
     case CLEAR_ARTISTS:
       return {
         ...state,
         artists: [],
-        loading: false
+        loading: false,
       };
     case SET_LOADING:
       return {
         ...state,
-        loading: true
+        loading: true,
       };
     default:
       return state;

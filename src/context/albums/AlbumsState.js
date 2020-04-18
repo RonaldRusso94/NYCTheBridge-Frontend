@@ -1,87 +1,51 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useEffect } from 'react';
 import AlbumsContext from './albumsContext';
 import AlbumsReducer from './albumsReducer';
-import { GET_ALBUM, SEARCH_ALBUMS } from '../types';
+import { GET_ALBUMS, GET_ALBUM, SEARCH_ALBUMS } from '../types';
+import { findDOMNode } from 'react-dom';
 
-const AlbumsState = props => {
+import api from '../../api';
+
+const AlbumsState = (props) => {
   const initialState = {
-    albums: [
-      {
-        albumId: '1',
-        artistId: ['1'],
-        albumImg:
-          'https://upload.wikimedia.org/wikipedia/commons/e/ec/Record-Album-02.jpg',
-        title: 'Different Path Album',
-        songs: [
-          {
-            songtitle: 'Different Path',
-            artistsId: ['1'],
-            features: [],
-            genre: ['classic', 'pop'],
-            musicVideo: true,
-            musicUrl: ''
-          },
-          {
-            songtitle: 'Different Path 2',
-            artistsId: ['1', '3'],
-            features: [],
-            genre: ['trap', 'drill'],
-            musicVideo: true,
-            musicUrl: ''
-          }
-        ]
-      },
-      {
-        albumId: '2',
-        artistId: ['1'],
-        albumImg:
-          'https://upload.wikimedia.org/wikipedia/commons/e/ec/Record-Album-02.jpg',
-        title: 'Stick By My Side Album',
-        songs: [
-          {
-            songtitle: 'Stick By My Side',
-            artistsId: ['3'],
-            features: ['1'],
-            genre: ['classic', 'rb'],
-            musicVideo: true,
-            musicUrl: ''
-          },
-          {
-            songtitle: 'Stick By My Side 2',
-            artistsId: ['3', '1'],
-            features: ['3'],
-            genre: ['r&b', 'pop'],
-            musicVideo: false,
-            musicUrl: ''
-          }
-        ]
-      }
-    ],
-    album: {}
+    albums: [],
+    album: {},
   };
+
+  useEffect(() => {
+    getAlbums();
+  }, []);
 
   const [state, dispatch] = useReducer(AlbumsReducer, initialState);
 
-  // Get a single album
-  const getAlbum = async id => {
-    const album = state.albums.find(album => album.albumId === id);
-
-    console.log('from dispatch getAlbum', album);
+  // Get all albums
+  const getAlbums = async (id) => {
+    const albums = await api.get('/albums');
+    console.log('From AlbumState', albums.data);
 
     dispatch({
+      type: GET_ALBUMS,
+      payload: albums.data,
+    });
+  };
+
+  // Get a single album
+  const getAlbum = async (id) => {
+    const album = state.albums.find((album) => album.albumId === id);
+    dispatch({
       type: GET_ALBUM,
-      payload: album
+      payload: album,
     });
   };
 
   // Search Albums **FIX
-  const searchAlbums = async text => {
-    const filtered = state.albums.filter(album => {
+  const searchAlbums = async (text) => {
+    const filtered = state.albums.filter((album) => {
       return album.title.indexOf(text) !== -1;
     });
     dispatch({
       type: SEARCH_ALBUMS,
-      payload: filtered
+      payload: filtered,
     });
   };
 
@@ -90,8 +54,9 @@ const AlbumsState = props => {
       value={{
         albums: state.albums,
         album: state.album,
+        getAlbums,
         getAlbum,
-        searchAlbums
+        searchAlbums,
       }}
     >
       {props.children}

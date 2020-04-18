@@ -47,8 +47,6 @@ const SinglesState = (props) => {
   const getSingle = async (id) => {
     const single = state.singles.find((single) => single.singleId === id);
 
-    console.log('from dispatch getSingle', single);
-
     dispatch({
       type: GET_SINGLE,
       payload: single,

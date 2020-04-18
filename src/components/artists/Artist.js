@@ -5,7 +5,7 @@ import ArtistAbout from './ArtistAbout';
 const User = ({ match }) => {
   const [nav, setNav] = useState('overview');
 
-  const onClick = e => {
+  const onClick = (e) => {
     setNav(e.target.name);
   };
 
@@ -13,7 +13,7 @@ const User = ({ match }) => {
 
   const subnav = (
     <ul>
-      {navitems.map(item => {
+      {navitems.map((item) => {
         return (
           <li className='px-1' style={{ display: 'inline' }}>
             <a name={item} onClick={onClick}>

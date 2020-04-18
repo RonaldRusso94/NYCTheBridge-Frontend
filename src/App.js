@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Home from './components/pages/Home';
@@ -21,8 +21,21 @@ import SinglesState from './context/singles/SinglesState';
 import Layout from './components/layout/Layout';
 
 import './App.css';
+import api from './api';
 
 const App = () => {
+  useEffect(() => {
+    const apiCall = async () => {
+      try {
+        const res = await api.get('/artists');
+        // console.log('From APP', res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    apiCall();
+  });
+
   return (
     <ArtistsState>
       <AlbumsState>

@@ -1,72 +1,66 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useEffect, useState } from 'react';
 import ArtistsContext from './artistsContext';
 import ArtistsReducer from './artistsReducer';
 import {
   SEARCH_ARTISTS,
   SET_LOADING,
   CLEAR_ARTISTS,
-  GET_ARTIST
+  GET_ARTISTS,
+  GET_ARTIST,
 } from '../types';
 
-const ArtistsState = props => {
+import api from '../../api';
+
+const ArtistsState = (props) => {
   const initialState = {
-    artists: [
-      {
-        id: '1',
-        artist_name: 'Ray Flexie',
-        music_page_url:
-          'https://nycthebridge.com/Song_FlexieRay_DifferentPath.html',
-        image_address:
-          'https://nycthebridge.com/images/FlexieRay_DifferentPath.jpg'
-      },
-      {
-        id: '2',
-        artist_name: 'Jay Makk x Young Esco',
-        music_page_url:
-          'https://nycthebridge.com/Song_FlexieRay_DifferentPath.html',
-        image_address:
-          'https://nycthebridge.com/images/JayMakkxYoungEsco_Interlude.jpg'
-      },
-      {
-        id: '3',
-        artist_name: 'G-Whizz',
-        music_page_url:
-          'https://nycthebridge.com/Song_FlexieRay_DifferentPath.html',
-        image_address:
-          'https://nycthebridge.com/images/GWhizz_StickByMySide.jpg'
-      }
-    ],
+    artists: [],
     artist: {},
-    loading: false
+    loading: false,
   };
+
+  useEffect(() => {
+    getArtists();
+  }, []);
 
   const [state, dispatch] = useReducer(ArtistsReducer, initialState);
 
   // Search Artists **FIX
-  const searchArtists = async text => {
+  const searchArtists = async (text) => {
     setLoading();
 
-    const filtered = state.artists.filter(artist => {
+    const filtered = state.artists.filter((artist) => {
       return artist.artist_name.indexOf(text) !== -1;
     });
 
     dispatch({
       type: SEARCH_ARTISTS,
-      payload: filtered
+      payload: filtered,
     });
   };
 
   // Clear artists from state
   const clearArtists = () => dispatch({ type: CLEAR_ARTISTS });
 
+  // Get all artist
+  const getArtists = async () => {
+    const artists = await api.get('/artists');
+    console.log('getArtist() artists.data', artists.data);
+
+    dispatch({
+      type: GET_ARTISTS,
+      payload: artists.data,
+    });
+  };
+
   // Get a single artist
-  const getArtist = async id => {
+  const getArtist = async (id) => {
     setLoading();
-    const artist = state.artists.find(artist => artist.id === id);
+    const artist = await api.get(`/artists/${id}`);
+    console.log('From Context Artist!', artist.data);
 
     dispatch({
       type: GET_ARTIST,
-      payload: artist
+      payload: artist.data,
     });
   };
 
@@ -78,10 +72,9 @@ const ArtistsState = props => {
       value={{
         artists: state.artists,
         artist: state.artist,
-        loading: state.loading,
         searchArtists,
         clearArtists,
-        getArtist
+        getArtist,
       }}
     >
       {props.children}

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import SinglesContext from '../../context/singles/singlesContext';
 import AlbumsContext from '../../context/albums/albumsContext';
 import GenreItem from './GenreItem';
@@ -13,58 +13,32 @@ import Reggae from '../layout/images/Reggae.jpg';
 import Freestyle from '../layout/images/Freestyle.jpg';
 import Instrumental from '../layout/images/Instrumental.jpg';
 
+import api from '../../api';
+
 const Genres = () => {
   //   const singlesContext = useContext(SinglesContext);
   //   const albumsContext = useContext(AlbumsContext);
 
   //   const { singles } = singlesContext;
+  const [genres, setGenres] = useState([]);
 
-  const genres = [
-    {
-      genre: 'classic',
-      img: Classic,
-    },
-    {
-      genre: 'drill',
-      img: Drill,
-    },
-    {
-      genre: 'freestyle',
-      img: Freestyle,
-    },
-    {
-      genre: 'instrumental',
-      img: Instrumental,
-    },
-    {
-      genre: 'reggae',
-      img: Reggae,
-    },
-    {
-      genre: 'r&b',
-      img: Rb,
-    },
-    {
-      genre: 'spanish',
-      img: Spanish,
-    },
-    {
-      genre: 'trap',
-      img: Trap,
-    },
-
-    //  'instrumental'
-  ];
+  useEffect(() => {
+    const apiCall = async () => {
+      try {
+        const res = await api.get('/genres');
+        setGenres(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    apiCall();
+  }, []);
 
   return (
     <div className='grid-3'>
       {genres.map((genre) => {
         return <GenreItem key={genre.genre} genre={genre} />;
       })}
-
-      {/* {singles.map(single => {
-        console.log(single.genre);
-      })} */}
     </div>
   );
 };

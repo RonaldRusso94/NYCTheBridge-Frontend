@@ -5,23 +5,26 @@ import ArtistsContext from '../../context/artists/artistsContext';
 import AlbumsContext from '../../context/albums/albumsContext';
 import SinglesContext from '../../context/singles/singlesContext';
 
-export const ArtistOverview = props => {
+export const ArtistOverview = (props) => {
   const artistsContext = useContext(ArtistsContext);
   const singlesContext = useContext(SinglesContext);
   const albumsContext = useContext(AlbumsContext);
 
   const { getArtist, loading, artist } = artistsContext;
+  const { getAlbums } = albumsContext;
+  console.log('WORKING', artist);
 
-  const { id, artist_name, music_page_url, image_address, instagram } = artist;
+  const { _id, name, img } = artist;
 
   useEffect(() => {
     getArtist(props.params);
     // eslint-disable-next-line
+    console.log('PROPS.PARAMS', props.params);
   }, []);
 
   const getAlbum = () => {
-    return albumsContext.albums.map(album => {
-      return album.artistId.map(artist => {
+    return albumsContext.albums.map((album) => {
+      return album.artistId.map((artist) => {
         if (artist === props.params) {
           return (
             <div className='card'>
@@ -34,7 +37,7 @@ export const ArtistOverview = props => {
               />
 
               <p style={{ fontSize: '12px' }}>
-                {album.songs.map(song => {
+                {album.songs.map((song) => {
                   return <div>{song.songtitle}</div>;
                 })}
               </p>
@@ -46,8 +49,8 @@ export const ArtistOverview = props => {
   };
 
   const getSingles = () => {
-    return singlesContext.singles.map(single => {
-      return single.artistId.map(artist => {
+    return singlesContext.singles.map((single) => {
+      return single.artistId.map((artist) => {
         if (artist === props.params) {
           return (
             <div className='card'>
@@ -66,9 +69,9 @@ export const ArtistOverview = props => {
 
   const appearsOnAlbums = () => {
     // Searchs Albums
-    return albumsContext.albums.map(album => {
-      return album.songs.map(song => {
-        return song.features.map(artist => {
+    return albumsContext.albums.map((album) => {
+      return album.songs.map((song) => {
+        return song.features.map((artist) => {
           if (artist === props.params)
             return (
               <div>
@@ -86,8 +89,8 @@ export const ArtistOverview = props => {
   };
 
   const appearsOnSingles = () => {
-    return singlesContext.singles.map(single => {
-      return single.features.map(artist => {
+    return singlesContext.singles.map((single) => {
+      return single.features.map((artist) => {
         if (artist === props.params) {
           return (
             <div className='card'>
@@ -117,12 +120,14 @@ export const ArtistOverview = props => {
       <div className='card'>
         <div>
           <a className='all-center'>
-            <h1>{artist_name}</h1>
+            <h1>
+              {name} - ID: {_id}
+            </h1>
           </a>
         </div>
         {/* artist detail */}
         <center>
-          <img src={image_address} alt='' style={{ width: '75%' }} />
+          <img src={img} alt='' style={{ width: '75%' }} />
         </center>
       </div>
 
