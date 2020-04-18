@@ -19,7 +19,7 @@ const AlbumsState = (props) => {
   const [state, dispatch] = useReducer(AlbumsReducer, initialState);
 
   // Get all albums
-  const getAlbums = async (id) => {
+  const getAlbums = async () => {
     const albums = await api.get('/albums');
     console.log('From AlbumState', albums.data);
 
@@ -29,12 +29,17 @@ const AlbumsState = (props) => {
     });
   };
 
+  //     const res = await api.get('/albums/:albumId');
+  //     console.log('From Album', res.data);
+  //     setAlbum(res.data);
+
   // Get a single album
   const getAlbum = async (id) => {
-    const album = state.albums.find((album) => album.albumId === id);
+    // const album = state.albums.find((album) => album.albumId === id);
+    const album = await api.get(`/albums/${id}`);
     dispatch({
       type: GET_ALBUM,
-      payload: album,
+      payload: album.data,
     });
   };
 

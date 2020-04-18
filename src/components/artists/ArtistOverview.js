@@ -11,7 +11,6 @@ export const ArtistOverview = (props) => {
   const albumsContext = useContext(AlbumsContext);
 
   const { getArtist, loading, artist } = artistsContext;
-  const { getAlbums } = albumsContext;
   console.log('WORKING', artist);
 
   const { _id, name, img } = artist;

@@ -10,7 +10,7 @@ const SideNav = () => {
             <Link to='/'>Home</Link>
           </li>
           <li>
-            <Link to='/browse'>Browse</Link>
+            <Link to='/browse/genres'>Browse</Link>
           </li>
         </ul>
         <ul className='categories my-2'>
