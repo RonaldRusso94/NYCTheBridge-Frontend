@@ -1,47 +1,32 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useEffect } from 'react';
 import SinglesContext from './singlesContext';
 import SinglesReducer from './singlesReducer';
-import { GET_SINGLE, SEARCH_SINGLES } from '../types';
+import { GET_SINGLE, GET_SINGLES, SEARCH_SINGLES } from '../types';
+
+import api from '../../api';
 
 const SinglesState = (props) => {
   const initialState = {
-    singles: [
-      {
-        singleId: '1',
-        artistId: ['1'],
-        features: ['2'],
-        singleImg:
-          'https://image.shutterstock.com/image-vector/vector-music-icon-260nw-668051581.jpg',
-        title: 'Different Path Single',
-        genre: ['classic', 'trap'],
-        musicVideo: true,
-        musicUrl: '',
-      },
-      {
-        singleId: '2',
-        artistId: ['3', '1'],
-        features: ['1'],
-        singleImg:
-          'https://image.shutterstock.com/image-vector/vector-music-icon-260nw-668051581.jpg',
-        title: 'Stick By My Side Single',
-        genre: [
-          'classic',
-          'r&b',
-          'trap',
-          'drill',
-          'spanish',
-          'reggae',
-          'freestyle',
-          'instrumental',
-        ],
-        musicVideo: true,
-        musicUrl: '',
-      },
-    ],
+    singles: [],
     single: {},
   };
 
+  useEffect(() => {
+    getSingles();
+  }, []);
+
   const [state, dispatch] = useReducer(SinglesReducer, initialState);
+
+  // Get all singles
+  const getSingles = async (id) => {
+    const singles = await api.get('/singles');
+    // const single = state.singles.find((single) => single.singleId === id);
+    console.log('TEST', singles.data);
+    dispatch({
+      type: GET_SINGLES,
+      payload: singles.data,
+    });
+  };
 
   // Get a single
   const getSingle = async (id) => {
@@ -70,6 +55,7 @@ const SinglesState = (props) => {
         singles: state.singles,
         single: state.single,
         getSingle,
+        getSingles,
         searchSingles,
       }}
     >

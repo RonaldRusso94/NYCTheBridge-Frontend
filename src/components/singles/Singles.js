@@ -12,7 +12,7 @@ const Singles = () => {
     <div className='grid-3'>
       {singles &&
         singles.map((single) => (
-          <SingleItem key={single.singleId} single={single} />
+          <SingleItem key={single._id} single={single} />
         ))}
     </div>
   );
