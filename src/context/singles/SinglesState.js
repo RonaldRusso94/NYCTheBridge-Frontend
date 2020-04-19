@@ -20,8 +20,6 @@ const SinglesState = (props) => {
   // Get all singles
   const getSingles = async (id) => {
     const singles = await api.get('/singles');
-    // const single = state.singles.find((single) => single.singleId === id);
-    console.log('TEST', singles.data);
     dispatch({
       type: GET_SINGLES,
       payload: singles.data,
@@ -30,11 +28,13 @@ const SinglesState = (props) => {
 
   // Get a single
   const getSingle = async (id) => {
-    const single = state.singles.find((single) => single.singleId === id);
+    // const single = state.singles.find((single) => single.singleId === id);
+    const single = await api.get(`/singles/${id}`);
+    console.log('API', single.data);
 
     dispatch({
       type: GET_SINGLE,
-      payload: single,
+      payload: single.data,
     });
   };
 

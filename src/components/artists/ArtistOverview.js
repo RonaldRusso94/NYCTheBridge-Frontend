@@ -11,102 +11,110 @@ export const ArtistOverview = (props) => {
   const albumsContext = useContext(AlbumsContext);
 
   const { getArtist, loading, artist } = artistsContext;
-  console.log('WORKING', artist);
+  const { albums } = albumsContext;
 
   const { _id, name, img } = artist;
 
   useEffect(() => {
     getArtist(props.params);
     // eslint-disable-next-line
-    console.log('PROPS.PARAMS', props.params);
   }, []);
 
-  const getAlbum = () => {
-    return albumsContext.albums.map((album) => {
-      return album.artistId.map((artist) => {
-        if (artist === props.params) {
-          return (
-            <div className='card'>
-              <h4>{album.title}</h4>
+  const artistAlbums = albums.filter((album) => {
+    // album.artist === props.params;
+    if (album.artist === props.params) {
+      return true;
+    }
+  });
 
-              <img
-                src={album.albumImg}
-                alt=''
-                style={{ height: '10%', width: '10%' }}
-              />
+  // console.log('RESULT', result);
 
-              <p style={{ fontSize: '12px' }}>
-                {album.songs.map((song) => {
-                  return <div>{song.songtitle}</div>;
-                })}
-              </p>
-            </div>
-          );
-        }
-      });
-    });
-  };
+  // const getAlbum = () => {
+  //   return albumsContext.albums.map((album) => {
+  //     return album.artistId.map((artist) => {
+  //       if (artist === props.params) {
+  //         return (
+  //           <div className='card'>
+  //             <h4>{album.title}</h4>
 
-  const getSingles = () => {
-    return singlesContext.singles.map((single) => {
-      return single.artistId.map((artist) => {
-        if (artist === props.params) {
-          return (
-            <div className='card'>
-              <img
-                src={single.singleImg}
-                alt=''
-                style={{ height: '10%', width: '10%' }}
-              />
-              <p style={{ fontSize: '12px' }}>{single.title}</p>
-            </div>
-          );
-        }
-      });
-    });
-  };
+  //             <img
+  //               src={album.albumImg}
+  //               alt=''
+  //               style={{ height: '10%', width: '10%' }}
+  //             />
 
-  const appearsOnAlbums = () => {
-    // Searchs Albums
-    return albumsContext.albums.map((album) => {
-      return album.songs.map((song) => {
-        return song.features.map((artist) => {
-          if (artist === props.params)
-            return (
-              <div>
-                <img
-                  src={album.albumImg}
-                  alt=''
-                  style={{ height: '10%', width: '10%' }}
-                />
-                <p style={{ fontSize: '12px' }}>{song.songtitle}</p>
-              </div>
-            );
-        });
-      });
-    });
-  };
+  //             <p style={{ fontSize: '12px' }}>
+  //               {album.songs.map((song) => {
+  //                 return <div>{song.songtitle}</div>;
+  //               })}
+  //             </p>
+  //           </div>
+  //         );
+  //       }
+  //     });
+  //   });
+  // };
 
-  const appearsOnSingles = () => {
-    return singlesContext.singles.map((single) => {
-      return single.features.map((artist) => {
-        if (artist === props.params) {
-          return (
-            <div className='card'>
-              <img
-                src={single.singleImg}
-                alt=''
-                style={{ height: '10%', width: '10%' }}
-              />
-              <p style={{ fontSize: '12px' }}>{single.title}</p>
-            </div>
-          );
-        }
-      });
-    });
-  };
+  // const getSingles = () => {
+  //   return singlesContext.singles.map((single) => {
+  //     return single.artistId.map((artist) => {
+  //       if (artist === props.params) {
+  //         return (
+  //           <div className='card'>
+  //             <img
+  //               src={single.singleImg}
+  //               alt=''
+  //               style={{ height: '10%', width: '10%' }}
+  //             />
+  //             <p style={{ fontSize: '12px' }}>{single.title}</p>
+  //           </div>
+  //         );
+  //       }
+  //     });
+  //   });
+  // };
 
-  if (loading) return <Spinner />;
+  // const appearsOnAlbums = () => {
+  //   // Searchs Albums
+  //   return albumsContext.albums.map((album) => {
+  //     return album.songs.map((song) => {
+  //       return song.features.map((artist) => {
+  //         if (artist === props.params)
+  //           return (
+  //             <div>
+  //               <img
+  //                 src={album.albumImg}
+  //                 alt=''
+  //                 style={{ height: '10%', width: '10%' }}
+  //               />
+  //               <p style={{ fontSize: '12px' }}>{song.songtitle}</p>
+  //             </div>
+  //           );
+  //       });
+  //     });
+  //   });
+  // };
+
+  // const appearsOnSingles = () => {
+  //   return singlesContext.singles.map((single) => {
+  //     return single.features.map((artist) => {
+  //       if (artist === props.params) {
+  //         return (
+  //           <div className='card'>
+  //             <img
+  //               src={single.singleImg}
+  //               alt=''
+  //               style={{ height: '10%', width: '10%' }}
+  //             />
+  //             <p style={{ fontSize: '12px' }}>{single.title}</p>
+  //           </div>
+  //         );
+  //       }
+  //     });
+  //   });
+  // };
+
+  // if (loading) return <Spinner />;
 
   return (
     <Fragment>
@@ -152,15 +160,52 @@ export const ArtistOverview = (props) => {
         </div>
       </div>
 
-      <h3>Albums</h3>
-      {getAlbum()}
+      {artistAlbums.length > 0 ? <h3>Albums</h3> : null}
+      {artistAlbums.length > 0 &&
+        artistAlbums.map((album) => {
+          return (
+            <div className='card' key={album._id}>
+              <h4>{album.title}</h4>
+              <img
+                src={album.img}
+                alt=''
+                style={{ height: '10%', width: '10%' }}
+              />
+
+              {album.songs.map((song) => {
+                return (
+                  <p key={song._id} style={{ fontSize: '.7rem' }}>
+                    {song.songtitle}
+                  </p>
+                );
+              })}
+            </div>
+          );
+        })}
+      {/* {artistAlbums.map((album) => {
+        <div className='card'>
+          <h4>{album.title}</h4>
+
+          <img
+            src={album.albumImg}
+            alt=''
+            style={{ height: '10%', width: '10%' }}
+          />
+
+          <p style={{ fontSize: '12px' }}>
+            {album.songs.map((song) => {
+              return <div>{song.songtitle}</div>;
+            })}
+          </p>
+        </div>;
+      })} */}
 
       <h3>Singles</h3>
-      {getSingles()}
+      {/* {getSingles()} */}
 
       <h3>Appears On</h3>
-      {appearsOnAlbums()}
-      {appearsOnSingles()}
+      {/* {appearsOnAlbums()}
+      {appearsOnSingles()} */}
 
       {/* <div className='all-center'>
         <a href={instagram}>IG</a>

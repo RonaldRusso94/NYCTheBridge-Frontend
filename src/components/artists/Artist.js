@@ -15,7 +15,7 @@ const User = ({ match }) => {
     <ul>
       {navitems.map((item) => {
         return (
-          <li className='px-1' style={{ display: 'inline' }}>
+          <li className='px-1' style={{ display: 'inline' }} key={item}>
             <a name={item} onClick={onClick}>
               {item}
             </a>
@@ -24,6 +24,15 @@ const User = ({ match }) => {
       })}
     </ul>
   );
+
+  // <ul>
+  //   <a href='#' onClick={setNav('overview')}>
+  //     <li>Overview</li>
+  //   </a>
+  //   <a href='#' onClick={setNav('about')}>
+  //     <li>About</li>
+  //   </a>
+  // </ul>;
 
   if (nav === 'overview') {
     return (

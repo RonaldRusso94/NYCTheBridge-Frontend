@@ -2,7 +2,6 @@ import React, { useReducer, useEffect } from 'react';
 import AlbumsContext from './albumsContext';
 import AlbumsReducer from './albumsReducer';
 import { GET_ALBUMS, GET_ALBUM, SEARCH_ALBUMS } from '../types';
-import { findDOMNode } from 'react-dom';
 
 import api from '../../api';
 
