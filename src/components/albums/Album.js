@@ -43,7 +43,6 @@ const Album = ({ match }) => {
                 </p>
               </div>
             );
-            console.log(song._id);
           })}
 
         {/* {album.songs &&

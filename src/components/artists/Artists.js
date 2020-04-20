@@ -8,8 +8,6 @@ const Artists = () => {
 
   const { loading, artists } = artistsContext;
 
-  console.log('From Artists.js artists:', artists);
-
   // if (loading) {
   //   return <Spinner />;
   // } else {

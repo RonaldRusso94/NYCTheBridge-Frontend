@@ -28,7 +28,6 @@ const App = () => {
     const apiCall = async () => {
       try {
         const res = await api.get('/artists');
-        // console.log('From APP', res.data);
       } catch (err) {
         console.log(err);
       }

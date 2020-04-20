@@ -18,7 +18,7 @@ const Browse = ({ match }) => {
       <ul className='browse-subnav'>
         {navitems.map((item) => {
           return (
-            <li>
+            <li key={item}>
               <NavLink
                 className='capitalize'
                 to={`/browse/${item}`}

@@ -11,68 +11,29 @@ export const ArtistOverview = (props) => {
   const albumsContext = useContext(AlbumsContext);
 
   const { getArtist, loading, artist } = artistsContext;
-  const { albums } = albumsContext;
 
+  const { albums } = albumsContext;
   const { _id, name, img } = artist;
+
+  const { singles } = singlesContext;
 
   useEffect(() => {
     getArtist(props.params);
     // eslint-disable-next-line
   }, []);
 
+  // Get artist albums
   const artistAlbums = albums.filter((album) => {
-    // album.artist === props.params;
     if (album.artist === props.params) {
       return true;
     }
   });
 
-  // console.log('RESULT', result);
-
-  // const getAlbum = () => {
-  //   return albumsContext.albums.map((album) => {
-  //     return album.artistId.map((artist) => {
-  //       if (artist === props.params) {
-  //         return (
-  //           <div className='card'>
-  //             <h4>{album.title}</h4>
-
-  //             <img
-  //               src={album.albumImg}
-  //               alt=''
-  //               style={{ height: '10%', width: '10%' }}
-  //             />
-
-  //             <p style={{ fontSize: '12px' }}>
-  //               {album.songs.map((song) => {
-  //                 return <div>{song.songtitle}</div>;
-  //               })}
-  //             </p>
-  //           </div>
-  //         );
-  //       }
-  //     });
-  //   });
-  // };
-
-  // const getSingles = () => {
-  //   return singlesContext.singles.map((single) => {
-  //     return single.artistId.map((artist) => {
-  //       if (artist === props.params) {
-  //         return (
-  //           <div className='card'>
-  //             <img
-  //               src={single.singleImg}
-  //               alt=''
-  //               style={{ height: '10%', width: '10%' }}
-  //             />
-  //             <p style={{ fontSize: '12px' }}>{single.title}</p>
-  //           </div>
-  //         );
-  //       }
-  //     });
-  //   });
-  // };
+  const artistSingles = singles.filter((single) => {
+    if (single.artist === props.params) {
+      return true;
+    }
+  });
 
   // const appearsOnAlbums = () => {
   //   // Searchs Albums
@@ -118,12 +79,12 @@ export const ArtistOverview = (props) => {
 
   return (
     <Fragment>
-      <div>
+      <div className='py-1'>
         <Link to='/' className='btn btn-dark'>
           Back
         </Link>
       </div>
-      <br></br>
+
       <div className='card'>
         <div>
           <a className='all-center'>
@@ -160,12 +121,14 @@ export const ArtistOverview = (props) => {
         </div>
       </div>
 
+      {/* Display artist albums */}
       {artistAlbums.length > 0 ? <h3>Albums</h3> : null}
       {artistAlbums.length > 0 &&
         artistAlbums.map((album) => {
           return (
             <div className='card' key={album._id}>
               <h4>{album.title}</h4>
+              <h5>AID: {album._id}</h5>
               <img
                 src={album.img}
                 alt=''
@@ -175,33 +138,30 @@ export const ArtistOverview = (props) => {
               {album.songs.map((song) => {
                 return (
                   <p key={song._id} style={{ fontSize: '.7rem' }}>
-                    {song.songtitle}
+                    {song.songtitle} - Song ID: {song._id}
                   </p>
                 );
               })}
             </div>
           );
         })}
-      {/* {artistAlbums.map((album) => {
-        <div className='card'>
-          <h4>{album.title}</h4>
 
-          <img
-            src={album.albumImg}
-            alt=''
-            style={{ height: '10%', width: '10%' }}
-          />
-
-          <p style={{ fontSize: '12px' }}>
-            {album.songs.map((song) => {
-              return <div>{song.songtitle}</div>;
-            })}
-          </p>
-        </div>;
-      })} */}
-
-      <h3>Singles</h3>
-      {/* {getSingles()} */}
+      {/* Display artist singles */}
+      {artistSingles.length > 0 ? <h3>Singles</h3> : null}
+      {artistSingles.length > 0 &&
+        artistSingles.map((single) => {
+          return (
+            <div className='card' key={single._id}>
+              <h4>{single.title}</h4>
+              <img
+                src={single.img}
+                alt=''
+                style={{ height: '10%', width: '10%' }}
+              />
+              <h5>SID: {single._id}</h5>
+            </div>
+          );
+        })}
 
       <h3>Appears On</h3>
       {/* {appearsOnAlbums()}

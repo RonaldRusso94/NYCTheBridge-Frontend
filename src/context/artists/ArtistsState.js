@@ -44,7 +44,6 @@ const ArtistsState = (props) => {
   // Get all artist
   const getArtists = async () => {
     const artists = await api.get('/artists');
-    console.log('getArtist() artists.data', artists.data);
 
     dispatch({
       type: GET_ARTISTS,
@@ -56,7 +55,6 @@ const ArtistsState = (props) => {
   const getArtist = async (id) => {
     setLoading();
     const artist = await api.get(`/artists/${id}`);
-    console.log('From Context Artist!', artist.data);
 
     dispatch({
       type: GET_ARTIST,

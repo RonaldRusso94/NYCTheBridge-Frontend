@@ -20,7 +20,6 @@ const AlbumsState = (props) => {
   // Get all albums
   const getAlbums = async () => {
     const albums = await api.get('/albums');
-    console.log('From AlbumState', albums.data);
 
     dispatch({
       type: GET_ALBUMS,

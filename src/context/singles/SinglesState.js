@@ -18,7 +18,7 @@ const SinglesState = (props) => {
   const [state, dispatch] = useReducer(SinglesReducer, initialState);
 
   // Get all singles
-  const getSingles = async (id) => {
+  const getSingles = async () => {
     const singles = await api.get('/singles');
     dispatch({
       type: GET_SINGLES,
@@ -30,7 +30,6 @@ const SinglesState = (props) => {
   const getSingle = async (id) => {
     // const single = state.singles.find((single) => single.singleId === id);
     const single = await api.get(`/singles/${id}`);
-    console.log('API', single.data);
 
     dispatch({
       type: GET_SINGLE,
