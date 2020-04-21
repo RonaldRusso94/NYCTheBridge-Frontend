@@ -1,7 +1,9 @@
-import React, { Fragment, useEffect, useContext } from 'react';
+import React, { Fragment, useEffect, useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import SinglesContext from '../../context/singles/singlesContext';
 import AlbumsContext from '../../context/albums/albumsContext';
+
+import api from '../../api';
 
 const Genre = ({ match }) => {
   const singlesContext = useContext(SinglesContext);
@@ -10,24 +12,39 @@ const Genre = ({ match }) => {
   const { singles } = singlesContext;
   const { albums } = albumsContext;
 
-  console.log('TEST', singles);
+  const [genres, setGenres] = useState([]);
+
+  useEffect(() => {
+    const apiCall = async () => {
+      try {
+        const res = await api.get('/genres');
+        setGenres(res.data);
+        console.log('!!', res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    apiCall();
+  }, []);
 
   return (
     <>
-      {/* <h1>{match.params.genre}</h1> */}
+      {genres.map((genre) => {
+        if (genre._id === match.params.genre) {
+          return <h1>{genre.genre}</h1>;
+        }
+        console.log('!', genre);
+      })}
+
       <hr></hr>
       <div className='grid-3'>
-        {/* {singles.map((single) =>
-          single.genre.map((id) => {
-            if (id === match.params.genre) {
+        {singles.map((single) => {
+          return single.genres.map((genre) => {
+            if (genre === match.params.genre) {
               return (
                 <div className='card text-center py-2'>
                   <Link to={`/single/${single._id}`}>
-                    <img
-                      src={single.img}
-                      style={{ width: '80%' }}
-                      alt=''
-                    />
+                    <img src={single.img} style={{ width: '80%' }} alt='' />
                     <h3>
                       {single.title} - {single.artist}
                     </h3>
@@ -35,8 +52,9 @@ const Genre = ({ match }) => {
                 </div>
               );
             }
-          })
-        )} */}
+          });
+        })}
+
         {albums.map((album) => {
           return album.genres.map((genre) => {
             if (genre === match.params.genre) {
