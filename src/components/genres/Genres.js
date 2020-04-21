@@ -38,7 +38,7 @@ const Genres = () => {
     <div className='grid-3'>
       {genres.length > 0 &&
         genres.map((genre) => {
-          console.log('!!!', genre);
+          // console.log('!!!', genre);
           return <GenreItem key={genre._id} genre={genre} />;
         })}
     </div>
