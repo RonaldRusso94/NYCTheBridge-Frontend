@@ -27,7 +27,7 @@ const Album = ({ match }) => {
           </h1>
 
           {album.songs &&
-            album.songs.map(({ songtitle, artistsId }, index) => (
+            album.songs.map(({ songtitle }, index) => (
               <div key={index}>
                 <h2>
                   Track {index + 1} - {songtitle}

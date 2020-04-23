@@ -35,45 +35,48 @@ export const ArtistOverview = (props) => {
     }
   });
 
-  // const appearsOnAlbums = () => {
-  //   // Searchs Albums
-  //   return albumsContext.albums.map((album) => {
-  //     return album.songs.map((song) => {
-  //       return song.features.map((artist) => {
-  //         if (artist === props.params)
-  //           return (
-  //             <div>
-  //               <img
-  //                 src={album.albumImg}
-  //                 alt=''
-  //                 style={{ height: '10%', width: '10%' }}
-  //               />
-  //               <p style={{ fontSize: '12px' }}>{song.songtitle}</p>
-  //             </div>
-  //           );
-  //       });
-  //     });
-  //   });
-  // };
+  const appearsOnAlbums = () => {
+    // Searchs Albums
+    return albumsContext.albums.map((album) => {
+      return album.features.map((feature) => {
+        if (feature === props.params) {
+          return (
+            <div className='card'>
+              <img
+                src={album.img}
+                alt=''
+                style={{ height: '10%', width: '10%' }}
+              />
+              <h5>
+                {album.title} - {album.artist}
+              </h5>
+            </div>
+          );
+        }
+      });
+    });
+  };
 
-  // const appearsOnSingles = () => {
-  //   return singlesContext.singles.map((single) => {
-  //     return single.features.map((artist) => {
-  //       if (artist === props.params) {
-  //         return (
-  //           <div className='card'>
-  //             <img
-  //               src={single.singleImg}
-  //               alt=''
-  //               style={{ height: '10%', width: '10%' }}
-  //             />
-  //             <p style={{ fontSize: '12px' }}>{single.title}</p>
-  //           </div>
-  //         );
-  //       }
-  //     });
-  //   });
-  // };
+  const appearsOnSingles = () => {
+    return singlesContext.singles.map((single) => {
+      return single.features.map((artist) => {
+        if (artist === props.params) {
+          return (
+            <div className='card'>
+              <img
+                src={single.img}
+                alt=''
+                style={{ height: '10%', width: '10%' }}
+              />
+              <h5>
+                {single.title} - {single.artist}
+              </h5>
+            </div>
+          );
+        }
+      });
+    });
+  };
 
   // if (loading) return <Spinner />;
 
@@ -163,9 +166,22 @@ export const ArtistOverview = (props) => {
           );
         })}
 
-      <h3>Appears On</h3>
       {/* {appearsOnAlbums()}
       {appearsOnSingles()} */}
+
+      {albumsContext.albums.map((album) => {
+        if (album.features.includes(props.params)) {
+          return <h3>Appears On</h3>;
+        }
+      }) ||
+        singlesContext.singles.map((single) => {
+          if (single.features.includes(props.params)) {
+            return <h3>Appears On</h3>;
+          }
+        })}
+
+      {appearsOnAlbums()}
+      {appearsOnSingles()}
 
       {/* <div className='all-center'>
         <a href={instagram}>IG</a>
