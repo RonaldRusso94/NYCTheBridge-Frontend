@@ -169,6 +169,7 @@ export const ArtistOverview = (props) => {
       {/* {appearsOnAlbums()}
       {appearsOnSingles()} */}
 
+      {/* Needs fix */}
       {albumsContext.albums.map((album) => {
         if (album.features.includes(props.params)) {
           return <h3>Appears On</h3>;

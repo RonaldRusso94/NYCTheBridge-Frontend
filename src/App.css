@@ -4,7 +4,7 @@
 /* Global Styles */
 :root {
   --primary-color: #1e1e1e;
-  --dark-color: #0e0e0e;
+  --dark-color: #090909;
   --light-color: #c4c4c4;
   --white-color: white;
 }
@@ -152,6 +152,7 @@ img {
 .p-3 {
   padding: 3rem;
 }
+/* Y axis */
 .py {
   padding: 0.5rem 0;
 }
@@ -167,6 +168,7 @@ img {
 .px- {
   padding: 0 0.3rem;
 }
+/* X Axis */
 .px {
   padding: 0 0.5rem;
 }
@@ -179,7 +181,19 @@ img {
 .px-3 {
   padding: 0 3rem;
 }
-
+/* Bottom */
+.pb {
+  padding: 0 0 0.5rem 0;
+}
+.pb-1 {
+  padding: 0 0 1rem 0;
+}
+.pb-2 {
+  padding: 0 0 2rem 0;
+}
+.pb-3 {
+  padding: 0 0 3rem 0;
+}
 /* Margin */
 .m {
   margin: 0.5rem;
@@ -432,6 +446,15 @@ table th {
   justify-content: space-evenly;
   font-size: 1.3rem;
   padding-bottom: 1rem;
+}
+
+.details {
+  display: flex;
+}
+
+.artistDetails {
+  width: 30%;
+  justify-content: center;
 }
 
 /* Mobile Styles */

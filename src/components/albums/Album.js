@@ -8,7 +8,7 @@ const Album = ({ match }) => {
   const albumsContext = useContext(AlbumsContext);
 
   const { album, getAlbum } = albumsContext;
-  const { title, _id, img } = album;
+  const { title, _id, img, url, features, date, artist } = album;
 
   useEffect(() => {
     getAlbum(match.params.id);
@@ -19,21 +19,32 @@ const Album = ({ match }) => {
       <Link to='/browse' className='btn btn-dark'>
         Back
       </Link>
-      <div className='card grid-2'>
-        <img src={img} alt='' style={{ width: '50%' }} />
-        <div className=''>
-          <h3>Album</h3>
-          <h2>{title}</h2>
-          <h3>ID: {_id}</h3>
-          <h5>{Date(Date.now())}</h5>
+
+      <div className='d-flex py-1'>
+        <div style={{ width: '20%' }}>
+          <img src={img} alt='' style={{ width: '100%' }} />
+        </div>
+
+        <div className='px-2'>
+          <p className='small'>ALBUM</p>
+          <h1 className='pb-1'>{title}</h1>
+          <p>By: {artist && artist.name}</p>
+          <p>{date}</p>
         </div>
       </div>
-      <div className='all-center py-3 card'>
-        <h1>PLAYER</h1>
+
+      <div className='all-center py-3'>
+        <iframe
+          width='100%'
+          height='500'
+          scrolling='no'
+          frameBorder='no'
+          src={url}
+        ></iframe>
       </div>
+
       <div className='all-center'>
         <p># Title Time</p>
-
         {album.songs &&
           album.songs.map((song, index) => {
             return (
@@ -44,17 +55,40 @@ const Album = ({ match }) => {
               </div>
             );
           })}
-
-        {/* {album.songs &&
-          album.songs.map(({ songtitle }, index) => (
-            <div key={_id}>
-              {console.log(_id)}
-              <p style={{ textDecoration: 'underline', width: '100%' }}>
-                Track {index + 1} - {songtitle}
-              </p>
-            </div>
-          ))} */}
       </div>
+
+      <div>
+        <h2>Details:</h2>
+        <div className='details'>
+          <div className='artistDetails'>
+            <p>{artist && artist.name}</p>
+          </div>
+
+          <div style={{ background: 'red', width: '70%' }}>
+            <h5>
+              <a href={artist && artist.social.facebook}>FB</a>
+            </h5>
+          </div>
+        </div>
+
+        <h3>Featured:</h3>
+        {features &&
+          features.map((feature) => {
+            return (
+              <div className='details'>
+                <div className='artistDetails'>
+                  <p>{feature.name}</p>
+                </div>
+                <div style={{ background: 'red', width: '70%' }}>
+                  <h5>
+                    <a href={feature.social.facebook}>FB</a>
+                  </h5>
+                </div>
+              </div>
+            );
+          })}
+      </div>
+
       <div className='all-center py-3 card'>
         <h1>DISQUS FORM</h1>
       </div>
