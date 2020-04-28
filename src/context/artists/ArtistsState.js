@@ -28,9 +28,11 @@ const ArtistsState = (props) => {
   const searchArtists = async (text) => {
     setLoading();
 
-    const filtered = state.artists.filter((artist) => {
-      return artist.artist_name.indexOf(text) !== -1;
-    });
+    // const filtered = state.artists.filter((artist) => {
+    //   return artist.name.indexOf(text) !== -1;
+    // });
+
+    const filtered = await api.get(`/artists/search/${text}`);
 
     dispatch({
       type: SEARCH_ARTISTS,

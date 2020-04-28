@@ -42,7 +42,7 @@ const Layout = ({ children }) => {
   } else {
     if (searchResults === true) {
       return (
-        <div>
+        <>
           <Navbar
             text={text}
             setText={setText}
@@ -54,13 +54,16 @@ const Layout = ({ children }) => {
 
           <h1>Artist</h1>
           {/*  {if(artistsContext.artists.length==0)return <h2>No results</h2>}  */}
-          {artistsContext.artists.map((artist) => {
+          {/* {artistsContext.artists.map((artist) => {
             return (
               <Link onClick={onClick} to={`/artist/${artist.id}`}>
                 <p className='card'> {artist.artist_name} </p>;
               </Link>
             );
-          })}
+          })} */}
+
+          {artistsContext.searchArtist()}
+
           <h1>Albums</h1>
           {albumContext.albums.map((album) => {
             return (
@@ -69,6 +72,7 @@ const Layout = ({ children }) => {
               </Link>
             );
           })}
+
           <h1>Singles</h1>
           {singlesContext.singles.map((single) => {
             return (
@@ -77,27 +81,29 @@ const Layout = ({ children }) => {
               </Link>
             );
           })}
-        </div>
+        </>
       );
     } else {
       return (
-        <div>
+        <>
           <Navbar
             text={text}
             setText={setText}
             setSearch={setSearch}
             setSearchResults={setSearchResults}
           />
-          <h1 className='all-center py-3 my-3'>
-            Search for an Artist/Song/Album
-          </h1>
+          <div className='py-3'>
+            <h1 className='all-center py-3 my-3'>
+              Search for an Artist/Song/Album
+            </h1>
+          </div>
 
           <div className='all-center' style={{ width: '40%' }}>
             <a className='btn btn-dark all-center' href='/'>
               Back To Home
             </a>
           </div>
-        </div>
+        </>
       );
     }
   }

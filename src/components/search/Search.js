@@ -3,6 +3,8 @@ import ArtistsContext from '../../context/artists/artistsContext';
 import SinglesContext from '../../context/singles/singlesContext';
 import AlbumsContext from '../../context/albums/albumsContext';
 
+import './Search.css';
+
 import Artists from '../artists/Artist';
 
 import SearchModal from '../search/SearchModal';
@@ -12,38 +14,42 @@ const Search = ({ setSearch, text, setText, setSearchResults }) => {
   const singlesContext = useContext(SinglesContext);
   const albumsContext = useContext(AlbumsContext);
 
-  const onSubmit = async e => {
+  const onSubmit = async (e) => {
     e.preventDefault();
 
-    singlesContext.searchSingles(text);
-    artistsContext.searchArtists(text);
-    albumsContext.searchAlbums(text);
+    // artistsContext.searchArtists(text);
+    // singlesContext.searchSingles(text);
+    // albumsContext.searchAlbums(text);
 
     setSearchResults(true);
   };
 
-  const onClick = e => {
+  const onClick = (e) => {
     setSearch(true);
   };
 
-  const onChange = e => setText(e.target.value);
+  const onChange = (e) => setText(e.target.value);
 
   return (
     <div>
       {/* {console.log('FROM SEARCH', change)} */}
       {/* {console.log('FROM SEARCH', text)} */}
 
-      <form onSubmit={onSubmit} className='form' style={{ display: 'inline' }}>
+      <form onSubmit={onSubmit} className='form px-3 d-flex'>
         <input
+          className='textbox-search'
           type='text'
           name='text'
           placeholder='Search Artists...'
           value={text}
           onChange={onChange}
           onClick={onClick}
-          style={{ width: '50%', display: 'inline' }}
         />
-        <input type='submit' value='Search' className='btn btn-dark' />
+        <input
+          type='submit'
+          value='Search'
+          className='btn btn-dark btn-search'
+        />
       </form>
       {/* {artistsContext.artists.length > 0 && (
         <button

@@ -25,14 +25,16 @@ const Navbar = ({
         <label className='menu-icon' htmlFor='menu-btn'>
           <span className='nav-icon'></span>
         </label>
-        {/* <div>
-        <Search
-          text={text}
-          setText={setText}
-          setSearch={setSearch}
-          setSearchResults={setSearchResults}
-        />
-      </div> */}
+
+        <>
+          <Search
+            text={text}
+            setText={setText}
+            setSearch={setSearch}
+            setSearchResults={setSearchResults}
+          />
+        </>
+
         <div className='navbar-items'>
           <ul onClick={() => document.getElementById('menu-btn').click()}>
             <li>
