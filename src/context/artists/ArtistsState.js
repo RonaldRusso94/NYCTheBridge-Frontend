@@ -36,7 +36,7 @@ const ArtistsState = (props) => {
 
     dispatch({
       type: SEARCH_ARTISTS,
-      payload: filtered,
+      payload: filtered.data,
     });
   };
 

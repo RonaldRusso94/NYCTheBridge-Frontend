@@ -16,6 +16,8 @@ const Layout = ({ children }) => {
   const albumContext = useContext(AlbumContext);
   const singlesContext = useContext(SinglesContext);
 
+  const { artists } = artistsContext;
+
   const onClick = () => {
     setSearch(false);
   };
@@ -50,21 +52,39 @@ const Layout = ({ children }) => {
             setSearchResults={setSearchResults}
           />
 
-          {/* !!!!!! Link element does not work properly due to search removing all context from state */}
+          <div className='d-flex h-100'>
+            <SideNav />
 
-          <h1>Artist</h1>
-          {/*  {if(artistsContext.artists.length==0)return <h2>No results</h2>}  */}
-          {/* {artistsContext.artists.map((artist) => {
-            return (
-              <Link onClick={onClick} to={`/artist/${artist.id}`}>
-                <p className='card'> {artist.artist_name} </p>;
-              </Link>
-            );
-          })} */}
+            {/* !!!!!! Link element does not work properly due to search removing all context from state */}
 
-          {artistsContext.searchArtist()}
+            <div
+              className='container'
+              style={{ paddingTop: '6rem', width: '70%' }}
+            >
+              <div className='all-center' style={{ width: '40%' }}>
+                <a className='btn btn-dark all-center' href='/'>
+                  Back To Home
+                </a>
+              </div>
+              
+              <h3>Top Result</h3>
+              <h1>Artist</h1>
+              <div className='grid-3'>
+                {artistsContext.artists.map((artist) => {
+                  return (
+                    <Link onClick={onClick} to={`/artist/${artist.id}`}>
+                      <img src={artist.img} alt='' />
+                      <p className='card'> {artist.name} </p>
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
 
-          <h1>Albums</h1>
+          {console.log('SEARCH TEST', artists)}
+
+          {/* <h1>Albums</h1>
           {albumContext.albums.map((album) => {
             return (
               <Link onClick={onClick} to={`/album/${album.albumId}`}>
@@ -80,7 +100,7 @@ const Layout = ({ children }) => {
                 <p className='card'> {single.title} </p>
               </Link>
             );
-          })}
+          })} */}
         </>
       );
     } else {

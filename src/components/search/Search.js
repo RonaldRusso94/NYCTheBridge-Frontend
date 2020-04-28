@@ -17,7 +17,7 @@ const Search = ({ setSearch, text, setText, setSearchResults }) => {
   const onSubmit = async (e) => {
     e.preventDefault();
 
-    // artistsContext.searchArtists(text);
+    artistsContext.searchArtists(text);
     // singlesContext.searchSingles(text);
     // albumsContext.searchAlbums(text);
 

@@ -125,10 +125,6 @@
   text-decoration: underline;
 }
 
-/* .wrapper .sidebar {
-  display: none;
-} */
-
 /* Mobile Styles */
 @media (min-width: 1025px) {
   /* .navbar-nav {
