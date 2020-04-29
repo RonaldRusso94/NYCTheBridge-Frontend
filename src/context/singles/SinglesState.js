@@ -28,7 +28,6 @@ const SinglesState = (props) => {
 
   // Get a single
   const getSingle = async (id) => {
-    // const single = state.singles.find((single) => single.singleId === id);
     const single = await api.get(`/singles/${id}`);
 
     dispatch({
@@ -37,14 +36,14 @@ const SinglesState = (props) => {
     });
   };
 
-  // Search Singles **FIX
+  // Search Singles
   const searchSingles = async (text) => {
-    const filtered = state.singles.filter((single) => {
-      return single.title.indexOf(text) !== -1;
-    });
+    const filtered = await api.get(`/singles/search/${text}`);
+
+    console.log(filtered.data);
     dispatch({
       type: SEARCH_SINGLES,
-      payload: filtered,
+      payload: filtered.data,
     });
   };
 

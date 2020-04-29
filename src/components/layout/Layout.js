@@ -6,6 +6,7 @@ import SideNav from './SideNav';
 import ArtistsContext from '../../context/artists/artistsContext';
 import AlbumContext from '../../context/albums/albumsContext';
 import SinglesContext from '../../context/singles/singlesContext';
+import albumsContext from '../../context/albums/albumsContext';
 
 const Layout = ({ children }) => {
   const [text, setText] = useState('');
@@ -13,10 +14,8 @@ const Layout = ({ children }) => {
   const [searchResults, setSearchResults] = useState(false);
 
   const artistsContext = useContext(ArtistsContext);
-  const albumContext = useContext(AlbumContext);
+  const albumsContext = useContext(AlbumContext);
   const singlesContext = useContext(SinglesContext);
-
-  const { artists } = artistsContext;
 
   const onClick = () => {
     setSearch(false);
@@ -57,32 +56,89 @@ const Layout = ({ children }) => {
 
             {/* !!!!!! Link element does not work properly due to search removing all context from state */}
 
-            <div
-              className='container'
-              style={{ paddingTop: '6rem', width: '70%' }}
-            >
-              <div className='all-center' style={{ width: '40%' }}>
+            <div className='container' style={{ paddingTop: '6rem' }}>
+              <div className='all-center pb' style={{ width: '40%' }}>
                 <a className='btn btn-dark all-center' href='/'>
                   Back To Home
                 </a>
               </div>
-              
-              <h3>Top Result</h3>
-              <h1>Artist</h1>
-              <div className='grid-3'>
-                {artistsContext.artists.map((artist) => {
+
+              <h3 className='pb-1'>Top Result:</h3>
+              {artistsContext.artists.length > 0 && (
+                <h3 className='py'>Artist</h3>
+              )}
+
+              <div className='grid-5 py-1'>
+                {artistsContext.artists.map(
+                  (artist, index) => {
+                    // if (index < 5) {
+                    return (
+                      <Link onClick={onClick} to={`/artist/${artist._id}`}>
+                        <div className='image-cropper'>
+                          <img
+                            className='profile-pic'
+                            src={artist.img}
+                            alt=''
+                          />
+                        </div>
+
+                        <p className='all-center py'> {artist.name} </p>
+                      </Link>
+                    );
+                  }
+                  // }
+                )}
+              </div>
+
+              {albumsContext.albums.length > 0 && <h3>Albums</h3>}
+
+              <div className='grid-2 py-1'>
+                {albumsContext.albums.map((album) => {
                   return (
-                    <Link onClick={onClick} to={`/artist/${artist.id}`}>
-                      <img src={artist.img} alt='' />
-                      <p className='card'> {artist.name} </p>
-                    </Link>
+                    <div className='d-flex' style={{ alignItems: 'center' }}>
+                      <div
+                        style={{ width: '30%', fontSize: '0', lineHeight: '0' }}
+                      >
+                        <img src={album.img} alt='' />
+                      </div>
+
+                      <div style={{ width: '70%' }}>
+                        <p className='px-1'> {album.title} </p>
+                        <p className='px-1'>{album.artist}</p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
+              {singlesContext.singles.length > 0 && <h3>Singles</h3>}
+
+              <div className='grid-2 py-1'>
+                {singlesContext.singles.map((single) => {
+                  return (
+                    <div className='d-flex' style={{ alignItems: 'center' }}>
+                      <div style={{ width: '30%' }}>
+                        <img src={single.img} alt='' />
+                      </div>
+
+                      <div style={{ width: '70%' }}>
+                        <p className='px-1 small'> {single.title} </p>
+                        <p className='px-1 small'>{single.artist}</p>
+                      </div>
+                    </div>
                   );
                 })}
               </div>
             </div>
+            {/* 
+            <div
+              className='container'
+              style={{ paddingTop: '6rem', width: '70%' }}
+            >
+              <h1>Albums</h1>
+              <div className='grid-3'></div>
+            </div> */}
           </div>
-
-          {console.log('SEARCH TEST', artists)}
 
           {/* <h1>Albums</h1>
           {albumContext.albums.map((album) => {

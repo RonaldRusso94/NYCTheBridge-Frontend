@@ -18,8 +18,8 @@ const Search = ({ setSearch, text, setText, setSearchResults }) => {
     e.preventDefault();
 
     artistsContext.searchArtists(text);
-    // singlesContext.searchSingles(text);
-    // albumsContext.searchAlbums(text);
+    albumsContext.searchAlbums(text);
+    singlesContext.searchSingles(text);
 
     setSearchResults(true);
   };

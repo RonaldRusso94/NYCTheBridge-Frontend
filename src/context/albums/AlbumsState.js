@@ -33,7 +33,6 @@ const AlbumsState = (props) => {
 
   // Get a single album
   const getAlbum = async (id) => {
-    // const album = state.albums.find((album) => album.albumId === id);
     const album = await api.get(`/albums/${id}`);
     dispatch({
       type: GET_ALBUM,
@@ -41,14 +40,13 @@ const AlbumsState = (props) => {
     });
   };
 
-  // Search Albums **FIX
+  // Search Albums
   const searchAlbums = async (text) => {
-    const filtered = state.albums.filter((album) => {
-      return album.title.indexOf(text) !== -1;
-    });
+    const filtered = await api.get(`/albums/search/${text}`);
+
     dispatch({
       type: SEARCH_ALBUMS,
-      payload: filtered,
+      payload: filtered.data,
     });
   };
 

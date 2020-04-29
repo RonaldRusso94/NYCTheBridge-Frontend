@@ -42,7 +42,7 @@ const App = () => {
           <Router>
             <div className='App'>
               <Layout>
-                <div className='container' style={{ width: '70%' }}>
+                <div className='container'>
                   <Switch>
                     <Route exact path='/' component={Home} />
                     <Route exact path='/browse' component={Browse} />
