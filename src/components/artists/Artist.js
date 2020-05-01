@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
-import ArtistOverview from './ArtistOverview';
+import ArtistOverview from './profile/ArtistOverview.js';
 import ArtistAbout from './ArtistAbout';
 
 import ArtistsContext from '../../context/artists/artistsContext';
@@ -24,7 +24,7 @@ const User = ({ match }) => {
 
         {/* {subnav}
         <h1>Overview</h1> */}
-        <ArtistOverview params={match.params.id} />
+        <ArtistOverview paramsId={match.params.id} />
       </>
     );
   } else if (nav === 'about') {

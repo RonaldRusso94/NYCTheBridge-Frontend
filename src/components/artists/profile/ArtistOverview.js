@@ -1,10 +1,12 @@
 import React, { Fragment, useEffect, useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
-import ArtistsContext from '../../context/artists/artistsContext';
-import AlbumsContext from '../../context/albums/albumsContext';
-import SinglesContext from '../../context/singles/singlesContext';
+import ArtistsContext from '../../../context/artists/artistsContext';
+import AlbumsContext from '../../../context/albums/albumsContext';
+import SinglesContext from '../../../context/singles/singlesContext';
 
-import './Artist.css';
+import ArtistAlbums from './ArtistAlbums';
+
+import '../Artist.css';
 
 export const ArtistOverview = (props) => {
   const artistsContext = useContext(ArtistsContext);
@@ -19,19 +21,12 @@ export const ArtistOverview = (props) => {
   const { singles } = singlesContext;
 
   useEffect(() => {
-    getArtist(props.params);
+    getArtist(props.paramsId);
     // eslint-disable-next-line
   }, []);
 
-  // Get artist albums
-  const artistAlbums = albums.filter((album) => {
-    if (album.artist === props.params) {
-      return true;
-    }
-  });
-
   const artistSingles = singles.filter((single) => {
-    if (single.artist === props.params) {
+    if (single.artist === props.paramsId) {
       return true;
     }
   });
@@ -40,7 +35,7 @@ export const ArtistOverview = (props) => {
     // Searchs Albums
     return albumsContext.albums.map((album) => {
       return album.features.map((feature) => {
-        if (feature === props.params) {
+        if (feature === props.paramsId) {
           return (
             <div>
               <img
@@ -61,7 +56,7 @@ export const ArtistOverview = (props) => {
   const appearsOnSingles = () => {
     return singlesContext.singles.map((single) => {
       return single.features.map((artist) => {
-        if (artist === props.params) {
+        if (artist === props.paramsId) {
           return (
             <div className='card'>
               <img
@@ -78,8 +73,6 @@ export const ArtistOverview = (props) => {
       });
     });
   };
-
-  // if (loading) return <Spinner />;
 
   return (
     <Fragment>
@@ -102,7 +95,7 @@ export const ArtistOverview = (props) => {
         <div className='card '>
           {singlesContext.singles[0] ? (
             <img
-              src={singlesContext.singles[0].singleImg}
+              src={singlesContext.singles[0].img}
               alt=''
               style={{ width: '15%', height: '15%' }}
             />
@@ -119,30 +112,7 @@ export const ArtistOverview = (props) => {
         </div>
       </div>
 
-      {/* Display artist albums */}
-      {artistAlbums.length > 0 ? <h3>Albums</h3> : null}
-      {artistAlbums.length > 0 &&
-        artistAlbums.map((album) => {
-          return (
-            <div className='card' key={album._id}>
-              <h4>{album.title}</h4>
-              <h5>AID: {album._id}</h5>
-              <img
-                src={album.img}
-                alt=''
-                style={{ height: '10%', width: '10%' }}
-              />
-
-              {album.songs.map((song) => {
-                return (
-                  <p key={song._id} style={{ fontSize: '.7rem' }}>
-                    {song.songtitle} - Song ID: {song._id}
-                  </p>
-                );
-              })}
-            </div>
-          );
-        })}
+      <ArtistAlbums paramsId={props.paramsId} />
 
       {/* Display artist singles */}
       {artistSingles.length > 0 ? <h3>Singles</h3> : null}
@@ -166,12 +136,12 @@ export const ArtistOverview = (props) => {
 
       {/* Needs fix */}
       {albumsContext.albums.map((album) => {
-        if (album.features.includes(props.params)) {
+        if (album.features.includes(props.paramsId)) {
           return <h3>Appears On</h3>;
         }
       }) ||
         singlesContext.singles.map((single) => {
-          if (single.features.includes(props.params)) {
+          if (single.features.includes(props.paramsId)) {
             return <h3>Appears On</h3>;
           }
         })}
