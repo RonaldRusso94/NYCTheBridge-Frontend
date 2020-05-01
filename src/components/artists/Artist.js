@@ -1,8 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import ArtistOverview from './ArtistOverview';
 import ArtistAbout from './ArtistAbout';
 
+import ArtistsContext from '../../context/artists/artistsContext';
+
 const User = ({ match }) => {
+  const artistsContext = useContext(ArtistsContext);
+  const { getArtist, artist } = artistsContext;
+
+  useEffect(() => {
+    getArtist(match.params.id);
+    // eslint-disable-next-line
+  }, []);
+
+  console.log(artist);
   const [nav, setNav] = useState('overview');
 
   const onClick = (e) => {
@@ -25,21 +36,19 @@ const User = ({ match }) => {
     </ul>
   );
 
-  // <ul>
-  //   <a href='#' onClick={setNav('overview')}>
-  //     <li>Overview</li>
-  //   </a>
-  //   <a href='#' onClick={setNav('about')}>
-  //     <li>About</li>
-  //   </a>
-  // </ul>;
-
   if (nav === 'overview') {
     return (
       <>
-        {subnav}
-        <h1>Overview</h1>
-        <ArtistOverview params={match.params.id} />
+        <div className=''>
+          {/* artist detail */}
+          <div className='artist-img'>
+            <img className='' src={artist.img} alt='' />
+            <h1 className='name'>{artist.name}</h1>
+          </div>
+        </div>
+        {/* {subnav}
+        <h1>Overview</h1> */}
+        <ArtistOverview subnav={subnav} params={match.params.id} />
       </>
     );
   } else if (nav === 'about') {

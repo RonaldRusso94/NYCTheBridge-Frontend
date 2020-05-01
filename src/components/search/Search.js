@@ -15,17 +15,23 @@ const Search = ({ setSearch, text, setText, setSearchResults }) => {
   const albumsContext = useContext(AlbumsContext);
 
   const onSubmit = async (e) => {
-    e.preventDefault();
+    if (text !== '') {
+      e.preventDefault();
 
-    artistsContext.searchArtists(text);
-    albumsContext.searchAlbums(text);
-    singlesContext.searchSingles(text);
+      artistsContext.searchArtists(text);
+      albumsContext.searchAlbums(text);
+      singlesContext.searchSingles(text);
 
-    setSearchResults(true);
+      setSearchResults(true);
+    }
   };
 
-  const onClick = (e) => {
+  const onFocus = (e) => {
     setSearch(true);
+  };
+
+  const onBlur = (e) => {
+    setSearch(false);
   };
 
   const onChange = (e) => setText(e.target.value);
@@ -35,15 +41,20 @@ const Search = ({ setSearch, text, setText, setSearchResults }) => {
       {/* {console.log('FROM SEARCH', change)} */}
       {/* {console.log('FROM SEARCH', text)} */}
 
-      <form onSubmit={onSubmit} className='form px-3 d-flex'>
+      <form
+        onBlur={onBlur}
+        onFocus={onFocus}
+        onSubmit={onSubmit}
+        className='form px-3 d-flex'
+      >
         <input
           className='textbox-search'
           type='text'
           name='text'
           placeholder='Search Artists...'
+          autoComplete='off'
           value={text}
           onChange={onChange}
-          onClick={onClick}
         />
         <input
           type='submit'

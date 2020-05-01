@@ -8,6 +8,10 @@ import AlbumContext from '../../context/albums/albumsContext';
 import SinglesContext from '../../context/singles/singlesContext';
 import albumsContext from '../../context/albums/albumsContext';
 
+import Search from '../search/Search.js';
+
+import '../search/Search.css';
+
 const Layout = ({ children }) => {
   const [text, setText] = useState('');
   const [search, setSearch] = useState(false);
@@ -16,10 +20,6 @@ const Layout = ({ children }) => {
   const artistsContext = useContext(ArtistsContext);
   const albumsContext = useContext(AlbumContext);
   const singlesContext = useContext(SinglesContext);
-
-  const onClick = () => {
-    setSearch(false);
-  };
 
   if (search === false) {
     return (
@@ -32,7 +32,7 @@ const Layout = ({ children }) => {
               display: 'flex',
               justifyContent: 'center',
               width: '100%',
-              marginTop: '4rem',
+              marginTop: '3.1rem',
             }}
           >
             {children}
@@ -51,12 +51,21 @@ const Layout = ({ children }) => {
             setSearchResults={setSearchResults}
           />
 
+          <div className='mobile-searchbar' style={{ paddingTop: '5rem' }}>
+            <Search
+              text={text}
+              setText={setText}
+              setSearch={setSearch}
+              setSearchResults={setSearchResults}
+            />
+          </div>
+
           <div className='d-flex h-100'>
             <SideNav />
 
             {/* !!!!!! Link element does not work properly due to search removing all context from state */}
 
-            <div className='container' style={{ paddingTop: '6rem' }}>
+            <div className='container' style={{ paddingTop: '3rem' }}>
               <div className='all-center pb' style={{ width: '40%' }}>
                 <a className='btn btn-dark all-center' href='/'>
                   Back To Home
@@ -73,7 +82,13 @@ const Layout = ({ children }) => {
                   (artist, index) => {
                     // if (index < 5) {
                     return (
-                      <Link onClick={onClick} to={`/artist/${artist._id}`}>
+                      <Link
+                        key={artistsContext.artist._id}
+                        to={`/artist/${artist._id}`}
+                        onMouseDown={() =>
+                          (window.location = `/artist/${artist._id}`)
+                        }
+                      >
                         <div className='image-cropper'>
                           <img
                             className='profile-pic'
@@ -95,18 +110,30 @@ const Layout = ({ children }) => {
               <div className='grid-2 py-1'>
                 {albumsContext.albums.map((album) => {
                   return (
-                    <div className='d-flex' style={{ alignItems: 'center' }}>
-                      <div
-                        style={{ width: '30%', fontSize: '0', lineHeight: '0' }}
-                      >
-                        <img src={album.img} alt='' />
-                      </div>
+                    <Link
+                      key={albumsContext.album._id}
+                      to={`/album/${album._id}`}
+                      onMouseDown={() =>
+                        (window.location = `/album/${album._id}`)
+                      }
+                    >
+                      <div className='d-flex' style={{ alignItems: 'center' }}>
+                        <div
+                          style={{
+                            width: '30%',
+                            fontSize: '0',
+                            lineHeight: '0',
+                          }}
+                        >
+                          <img src={album.img} alt='' />
+                        </div>
 
-                      <div style={{ width: '70%' }}>
-                        <p className='px-1'> {album.title} </p>
-                        <p className='px-1'>{album.artist}</p>
+                        <div style={{ width: '70%' }}>
+                          <p className='px-1'> {album.title} </p>
+                          <p className='px-1'>{album.artist}</p>
+                        </div>
                       </div>
-                    </div>
+                    </Link>
                   );
                 })}
               </div>
@@ -116,16 +143,24 @@ const Layout = ({ children }) => {
               <div className='grid-2 py-1'>
                 {singlesContext.singles.map((single) => {
                   return (
-                    <div className='d-flex' style={{ alignItems: 'center' }}>
-                      <div style={{ width: '30%' }}>
-                        <img src={single.img} alt='' />
-                      </div>
+                    <Link
+                      key={singlesContext.single._id}
+                      to={`/single/${single._id}`}
+                      onMouseDown={() =>
+                        (window.location = `/single/${single._id}`)
+                      }
+                    >
+                      <div className='d-flex' style={{ alignItems: 'center' }}>
+                        <div style={{ width: '30%' }}>
+                          <img src={single.img} alt='' />
+                        </div>
 
-                      <div style={{ width: '70%' }}>
-                        <p className='px-1 small'> {single.title} </p>
-                        <p className='px-1 small'>{single.artist}</p>
+                        <div style={{ width: '70%' }}>
+                          <p className='px-1 small'> {single.title} </p>
+                          <p className='px-1 small'>{single.artist}</p>
+                        </div>
                       </div>
-                    </div>
+                    </Link>
                   );
                 })}
               </div>
@@ -168,10 +203,18 @@ const Layout = ({ children }) => {
             setSearch={setSearch}
             setSearchResults={setSearchResults}
           />
+
+          <div className='mobile-searchbar' style={{ paddingTop: '5rem' }}>
+            <Search
+              text={text}
+              setText={setText}
+              setSearch={setSearch}
+              setSearchResults={setSearchResults}
+            />
+          </div>
+
           <div className='py-3'>
-            <h1 className='all-center py-3 my-3'>
-              Search for an Artist/Song/Album
-            </h1>
+            <h1 className='all-center my-2'>Search for an Artist/Song/Album</h1>
           </div>
 
           <div className='all-center' style={{ width: '40%' }}>

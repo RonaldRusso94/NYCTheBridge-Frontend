@@ -1,9 +1,10 @@
 import React, { Fragment, useEffect, useContext, useState } from 'react';
-import Spinner from '../layout/Spinner';
 import { Link } from 'react-router-dom';
 import ArtistsContext from '../../context/artists/artistsContext';
 import AlbumsContext from '../../context/albums/albumsContext';
 import SinglesContext from '../../context/singles/singlesContext';
+
+import './Artist.css';
 
 export const ArtistOverview = (props) => {
   const artistsContext = useContext(ArtistsContext);
@@ -41,7 +42,7 @@ export const ArtistOverview = (props) => {
       return album.features.map((feature) => {
         if (feature === props.params) {
           return (
-            <div className='card'>
+            <div>
               <img
                 src={album.img}
                 alt=''
@@ -82,24 +83,18 @@ export const ArtistOverview = (props) => {
 
   return (
     <Fragment>
-      <div className='py-1'>
+      {/* <div className='py-1'>
         <Link to='/' className='btn btn-dark'>
           Back
         </Link>
-      </div>
+      </div> */}
 
-      <div className='card'>
-        <div>
-          <a className='all-center'>
-            <h1>
-              {name} - ID: {_id}
-            </h1>
-          </a>
-        </div>
-        {/* artist detail */}
-        <center>
-          <img src={img} alt='' style={{ width: '75%' }} />
-        </center>
+      <div>
+        <a className='all-center'>
+          <h1>
+            {name} - ID: {_id}
+          </h1>
+        </a>
       </div>
 
       <h3>Artist's Pick</h3>

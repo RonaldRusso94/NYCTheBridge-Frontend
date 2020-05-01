@@ -13,6 +13,10 @@ const Navbar = ({
   setText,
   setSearchResults,
 }) => {
+  const onClick = (e) => {
+    setSearch(true);
+  };
+
   return (
     <header className='navbar'>
       <nav className='navbar-nav bg-dark'>
@@ -26,14 +30,14 @@ const Navbar = ({
           <span className='nav-icon'></span>
         </label>
 
-        <>
+        <div className='desktop-searchbar'>
           <Search
             text={text}
             setText={setText}
             setSearch={setSearch}
             setSearchResults={setSearchResults}
           />
-        </>
+        </div>
 
         <div className='navbar-items'>
           <ul onClick={() => document.getElementById('menu-btn').click()}>
@@ -42,6 +46,9 @@ const Navbar = ({
             </li>
             <li>
               <Link to='/browse/genres'>Browse</Link>
+            </li>
+            <li>
+              <a onClick={onClick}>Search</a>
             </li>
             <li>
               <Link to='/admin'>Admin</Link>
