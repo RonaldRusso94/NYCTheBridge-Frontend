@@ -16,6 +16,21 @@
 .name {
   position: absolute;
   width: 100%;
-  bottom: 5%;
+  bottom: 11%;
   left: 2%;
+}
+
+.profile-nav-list {
+  position: absolute;
+  width: 100%;
+  bottom: 3%;
+  left: 2%;
+}
+
+.profile-nav-links {
+  cursor: pointer;
+  display: inline;
+}
+.profile-nav-links:nth-child(n + 2) {
+  margin-left: 1rem;
 }
