@@ -1,4 +1,9 @@
-import { GET_SINGLE, GET_SINGLES, SEARCH_SINGLES } from '../types';
+import {
+  GET_SINGLE,
+  GET_SINGLES,
+  SEARCH_SINGLES,
+  ARTIST_SINGLES,
+} from '../types';
 
 export default (state, action) => {
   switch (action.type) {
@@ -8,6 +13,11 @@ export default (state, action) => {
         single: action.payload,
       };
     case GET_SINGLES:
+      return {
+        ...state,
+        singles: action.payload,
+      };
+    case ARTIST_SINGLES:
       return {
         ...state,
         singles: action.payload,

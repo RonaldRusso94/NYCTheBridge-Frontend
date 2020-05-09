@@ -1,7 +1,12 @@
 import React, { useReducer, useEffect } from 'react';
 import SinglesContext from './singlesContext';
 import SinglesReducer from './singlesReducer';
-import { GET_SINGLE, GET_SINGLES, SEARCH_SINGLES } from '../types';
+import {
+  GET_SINGLE,
+  GET_SINGLES,
+  ARTIST_SINGLES,
+  SEARCH_SINGLES,
+} from '../types';
 
 import api from '../../api';
 
@@ -36,6 +41,16 @@ const SinglesState = (props) => {
     });
   };
 
+  // Get Single By Artist
+  const artistSingles = async (id) => {
+    const singles = await api.get(`/singles/artist/${id}`);
+
+    dispatch({
+      type: ARTIST_Singles,
+      payload: singles.data,
+    });
+  };
+
   // Search Singles
   const searchSingles = async (text) => {
     const filtered = await api.get(`/singles/search/${text}`);
@@ -54,6 +69,7 @@ const SinglesState = (props) => {
         single: state.single,
         getSingle,
         getSingles,
+        artistSingles,
         searchSingles,
       }}
     >
