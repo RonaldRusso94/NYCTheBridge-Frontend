@@ -87,8 +87,8 @@ export const ArtistOverview = (props) => {
         </div>
       </div>
 
-      {/* <ArtistAlbums paramsId={props.paramsId} />
-      <ArtistSingles paramsId={props.paramsId} /> */}
+      <ArtistAlbums paramsId={props.paramsId} />
+      <ArtistSingles paramsId={props.paramsId} />
       <ArtistFeatures paramsId={props.paramsId} />
 
       {/* {appearsOnAlbums()}

@@ -13,7 +13,7 @@ const ArtistSingles = ({ paramsId }) => {
   return (
     <div>
       {/* Display artist singles */}
-      {singles.length > 0 ? <h3>Singles</h3> : null}
+      {singles.length > 0 ? <h3>Singles & EPs</h3> : null}
       {singles.length > 0 &&
         singles.map((single) => {
           return (
