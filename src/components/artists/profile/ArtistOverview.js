@@ -7,6 +7,8 @@ import SinglesContext from '../../../context/singles/singlesContext';
 import ArtistAlbums from './ArtistAlbums';
 import ArtistSingles from './ArtistSingles';
 import ArtistFeatures from './ArtistFeatures';
+import ArtistMerch from './ArtistMerch';
+// import Abc from './ArtistMerch';
 
 import '../Artist.css';
 
@@ -27,28 +29,6 @@ export const ArtistOverview = (props) => {
     // eslint-disable-next-line
   }, []);
 
-  const appearsOnAlbums = () => {
-    // Searchs Albums
-    return albumsContext.albums.map((album) => {
-      return album.features.map((feature) => {
-        if (feature === props.paramsId) {
-          return (
-            <div>
-              <img
-                src={album.img}
-                alt=''
-                style={{ height: '10%', width: '10%' }}
-              />
-              <h5>
-                {album.title} - {album.artist}
-              </h5>
-            </div>
-          );
-        }
-      });
-    });
-  };
-
   return (
     <Fragment>
       {/* <div className='py-1'>
@@ -57,15 +37,7 @@ export const ArtistOverview = (props) => {
         </Link>
       </div> */}
 
-      <div>
-        <a className='all-center'>
-          <h1>
-            {name} - ID: {_id}
-          </h1>
-        </a>
-      </div>
-
-      <h3>Artist's Pick</h3>
+      {/* <h3>Artist's Pick</h3>
       <div className='grid-3'>
         <div className='card '>
           {singlesContext.singles[0] ? (
@@ -85,11 +57,14 @@ export const ArtistOverview = (props) => {
             </h5>
           }
         </div>
-      </div>
+      </div> */}
 
       <ArtistAlbums paramsId={props.paramsId} />
       <ArtistSingles paramsId={props.paramsId} />
       <ArtistFeatures paramsId={props.paramsId} />
+      <ArtistMerch paramsId={props.paramsId} />
+
+      {/* <ArtistMerch paramsId={props.paramsId} /> */}
 
       {/* {appearsOnAlbums()}
       {appearsOnSingles()} */}

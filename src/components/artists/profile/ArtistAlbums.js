@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import AlbumsContext from '../../../context/albums/albumsContext';
 
 const ArtistAlbums = ({ paramsId }) => {
@@ -11,27 +12,53 @@ const ArtistAlbums = ({ paramsId }) => {
   }, []);
 
   return (
-    <div>
+    <div className=''>
+      {/* <div className='d-flex'>
+        <div className='layout-one'>
+          <h1>hello</h1>
+        </div>
+        <div className='layout-two'>
+          <h1>World</h1>
+        </div>
+      </div> */}
+
       {albums.length > 0 ? <h3>Albums</h3> : null}
+      <hr className='mb-1' />
       {albums.length > 0 &&
         albums.map((album) => {
+          console.log('test', album);
           return (
-            <div className='card' key={album._id}>
-              <h4>{album.title}</h4>
-              <h5>AID: {album._id}</h5>
-              <img
-                src={album.img}
-                alt=''
-                style={{ height: '10%', width: '10%' }}
-              />
+            <div className='mb-3'>
+              <Link to={`/album/${album._id}`}>
+                <div className='layout-one mb-1' key={album._id}>
+                  <div className='layout-item-one'>
+                    <img src={album.img} alt='' className='' />
+                  </div>
 
-              {album.songs.map((song) => {
-                return (
-                  <p key={song._id} style={{ fontSize: '.7rem' }}>
-                    {song.songtitle} - Song ID: {song._id}
-                  </p>
-                );
-              })}
+                  <div className='layout-item-two mb'>
+                    <h5>{album.date}</h5>
+                    <h2 className='album-title'>{album.title}</h2>
+                  </div>
+                </div>
+              </Link>
+
+              <div className=''>
+                <div className='album-underline album-display'>
+                  <h3 className='album-item-one'>#</h3>
+                  <h3 className='album-item-two'>Title</h3>
+                </div>
+
+                {album.songs.map((song, index) => {
+                  return (
+                    <div className='album-underline album-display'>
+                      <p className='album-item-one'>{index + 1}.</p>
+                      <p className='album-item-two' key={song._id}>
+                        {song.songtitle}
+                      </p>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           );
         })}

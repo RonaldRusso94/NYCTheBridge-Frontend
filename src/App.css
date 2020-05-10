@@ -232,6 +232,15 @@ img {
 .mx-3 {
   margin: 0 3rem;
 }
+.mb-1 {
+  margin: 0 0 1rem 0;
+}
+.mb-2 {
+  margin: 0 0 2rem 0;
+}
+.mb-3 {
+  margin: 0 0 3rem 0;
+}
 
 /* Utilities */
 .d-flex {
