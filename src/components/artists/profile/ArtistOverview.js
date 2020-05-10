@@ -6,6 +6,7 @@ import SinglesContext from '../../../context/singles/singlesContext';
 
 import ArtistAlbums from './ArtistAlbums';
 import ArtistSingles from './ArtistSingles';
+import ArtistFeatures from './ArtistFeatures';
 
 import '../Artist.css';
 
@@ -40,27 +41,6 @@ export const ArtistOverview = (props) => {
               />
               <h5>
                 {album.title} - {album.artist}
-              </h5>
-            </div>
-          );
-        }
-      });
-    });
-  };
-
-  const appearsOnSingles = () => {
-    return singlesContext.singles.map((single) => {
-      return single.features.map((artist) => {
-        if (artist === props.paramsId) {
-          return (
-            <div className='card'>
-              <img
-                src={single.img}
-                alt=''
-                style={{ height: '10%', width: '10%' }}
-              />
-              <h5>
-                {single.title} - {single.artist}
               </h5>
             </div>
           );
@@ -107,14 +87,15 @@ export const ArtistOverview = (props) => {
         </div>
       </div>
 
-      <ArtistAlbums paramsId={props.paramsId} />
-      <ArtistSingles paramsId={props.paramsId} />
+      {/* <ArtistAlbums paramsId={props.paramsId} />
+      <ArtistSingles paramsId={props.paramsId} /> */}
+      <ArtistFeatures paramsId={props.paramsId} />
 
       {/* {appearsOnAlbums()}
       {appearsOnSingles()} */}
 
       {/* Needs fix */}
-      {albumsContext.albums.map((album) => {
+      {/* {albumsContext.albums.map((album) => {
         if (album.features.includes(props.paramsId)) {
           return <h3>Appears On</h3>;
         }
@@ -123,10 +104,10 @@ export const ArtistOverview = (props) => {
           if (single.features.includes(props.paramsId)) {
             return <h3>Appears On</h3>;
           }
-        })}
+        })} */}
 
-      {appearsOnAlbums()}
-      {appearsOnSingles()}
+      {/* {appearsOnAlbums()}
+      {appearsOnSingles()} */}
 
       {/* <div className='all-center'>
         <a href={instagram}>IG</a>

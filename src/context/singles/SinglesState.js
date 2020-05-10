@@ -6,6 +6,7 @@ import {
   GET_SINGLES,
   ARTIST_SINGLES,
   SEARCH_SINGLES,
+  FEATURED_ON_SINGLES,
 } from '../types';
 
 import api from '../../api';
@@ -14,6 +15,7 @@ const SinglesState = (props) => {
   const initialState = {
     singles: [],
     single: {},
+    featuredOn: [],
   };
 
   useEffect(() => {
@@ -51,6 +53,17 @@ const SinglesState = (props) => {
     });
   };
 
+  // Get Single By Featured
+  const featuredOnSingle = async (id) => {
+    const features = await api.get(`/singles/features/${id}`);
+    console.log('test', features.data);
+
+    dispatch({
+      type: FEATURED_ON_SINGLES,
+      payload: features.data,
+    });
+  };
+
   // Search Singles
   const searchSingles = async (text) => {
     const filtered = await api.get(`/singles/search/${text}`);
@@ -67,10 +80,12 @@ const SinglesState = (props) => {
       value={{
         singles: state.singles,
         single: state.single,
+        featuredOn: state.featuredOn,
         getSingle,
         getSingles,
         artistSingles,
         searchSingles,
+        featuredOnSingle,
       }}
     >
       {props.children}

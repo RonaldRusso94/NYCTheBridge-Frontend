@@ -1,6 +1,7 @@
 import {
   GET_SINGLE,
   GET_SINGLES,
+  FEATURED_ON_SINGLES,
   SEARCH_SINGLES,
   ARTIST_SINGLES,
 } from '../types';
@@ -21,6 +22,11 @@ export default (state, action) => {
       return {
         ...state,
         singles: action.payload,
+      };
+    case FEATURED_ON_SINGLES:
+      return {
+        ...state,
+        featuredOn: action.payload,
       };
     case SEARCH_SINGLES:
       return {
