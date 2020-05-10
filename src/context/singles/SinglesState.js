@@ -56,7 +56,6 @@ const SinglesState = (props) => {
   // Get Single By Featured
   const featuredOnSingle = async (id) => {
     const features = await api.get(`/singles/features/${id}`);
-    console.log('test', features.data);
 
     dispatch({
       type: FEATURED_ON_SINGLES,

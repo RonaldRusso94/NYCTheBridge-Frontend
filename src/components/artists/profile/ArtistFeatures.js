@@ -4,18 +4,37 @@ import AlbumsContext from '../../../context/albums/albumsContext';
 
 const ArtistFeatures = ({ paramsId }) => {
   const singlesContext = useContext(SinglesContext);
-  const { featuredOnSingle, featuredOn } = singlesContext;
+  const albumsContext = useContext(AlbumsContext);
+
+  const { featuredOnSingle } = singlesContext;
+  const { featuredOnAlbum } = albumsContext;
 
   useEffect(() => {
     featuredOnSingle(paramsId);
+    featuredOnAlbum(paramsId);
     // eslint-disable-next-line
   }, []);
 
   return (
     <>
-      {featuredOn.length > 0 && console.log('!!!!!!!!', featuredOn)}
-      {featuredOn.length > 0 &&
-        featuredOn.map((single) => {
+      {albumsContext.featuredOn.length > 0 &&
+        albumsContext.featuredOn.map((album) => {
+          return (
+            <div className='card'>
+              <img
+                src={album.img}
+                alt=''
+                style={{ height: '10%', width: '10%' }}
+              />
+              <h5>
+                {album.title} - {album.artist}
+              </h5>
+            </div>
+          );
+        })}
+
+      {singlesContext.featuredOn.length > 0 &&
+        singlesContext.featuredOn.map((single) => {
           return (
             <div className='card'>
               <img

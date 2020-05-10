@@ -1,4 +1,10 @@
-import { GET_ALBUMS, GET_ALBUM, ARTIST_ALBUMS, SEARCH_ALBUMS } from '../types';
+import {
+  GET_ALBUMS,
+  GET_ALBUM,
+  ARTIST_ALBUMS,
+  FEATURED_ON_ALBUMS,
+  SEARCH_ALBUMS,
+} from '../types';
 
 export default (state, action) => {
   switch (action.type) {
@@ -16,6 +22,11 @@ export default (state, action) => {
       return {
         ...state,
         albums: action.payload,
+      };
+    case FEATURED_ON_ALBUMS:
+      return {
+        ...state,
+        featuredOn: action.payload,
       };
     case SEARCH_ALBUMS:
       return {

@@ -1,7 +1,13 @@
 import React, { useReducer, useEffect } from 'react';
 import AlbumsContext from './albumsContext';
 import AlbumsReducer from './albumsReducer';
-import { GET_ALBUMS, GET_ALBUM, ARTIST_ALBUMS, SEARCH_ALBUMS } from '../types';
+import {
+  GET_ALBUMS,
+  GET_ALBUM,
+  FEATURED_ON_ALBUMS,
+  ARTIST_ALBUMS,
+  SEARCH_ALBUMS,
+} from '../types';
 
 import api from '../../api';
 
@@ -9,6 +15,7 @@ const AlbumsState = (props) => {
   const initialState = {
     albums: [],
     album: {},
+    featuredOn: [],
   };
 
   useEffect(() => {
@@ -46,6 +53,16 @@ const AlbumsState = (props) => {
     });
   };
 
+  // Get Album By Featured
+  const featuredOnAlbum = async (id) => {
+    const features = await api.get(`/albums/features/${id}`);
+
+    dispatch({
+      type: FEATURED_ON_ALBUMS,
+      payload: features.data,
+    });
+  };
+
   // Get Album By Seach
   const searchAlbums = async (text) => {
     const filtered = await api.get(`/albums/search/${text}`);
@@ -61,10 +78,12 @@ const AlbumsState = (props) => {
       value={{
         albums: state.albums,
         album: state.album,
+        featuredOn: state.featuredOn,
         getAlbums,
         getAlbum,
         searchAlbums,
         artistAlbums,
+        featuredOnAlbum,
       }}
     >
       {props.children}
