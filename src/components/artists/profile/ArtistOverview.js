@@ -5,6 +5,7 @@ import AlbumsContext from '../../../context/albums/albumsContext';
 import SinglesContext from '../../../context/singles/singlesContext';
 
 import ArtistAlbums from './ArtistAlbums';
+import ArtistSingles from './ArtistSingles';
 
 import '../Artist.css';
 
@@ -24,12 +25,6 @@ export const ArtistOverview = (props) => {
     getArtist(props.paramsId);
     // eslint-disable-next-line
   }, []);
-
-  const artistSingles = singles.filter((single) => {
-    if (single.artist === props.paramsId) {
-      return true;
-    }
-  });
 
   const appearsOnAlbums = () => {
     // Searchs Albums
@@ -113,6 +108,7 @@ export const ArtistOverview = (props) => {
       </div>
 
       <ArtistAlbums paramsId={props.paramsId} />
+      <ArtistSingles paramsId={props.paramsId} />
 
       {/* {appearsOnAlbums()}
       {appearsOnSingles()} */}

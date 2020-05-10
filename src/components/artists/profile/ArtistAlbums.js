@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import AlbumsContext from '../../../context/albums/albumsContext';
 
-const ArtistAlbums = ({ match, paramsId }) => {
+const ArtistAlbums = ({ paramsId }) => {
   const albumsContext = useContext(AlbumsContext);
   const { artistAlbums, albums } = albumsContext;
 

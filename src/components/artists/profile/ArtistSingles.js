@@ -1,13 +1,21 @@
-import React from 'react';
-import 
+import React, { useContext, useEffect } from 'react';
+import SinglesContext from '../../../context/singles/singlesContext';
 
-const ArtistSingles = () => {
+const ArtistSingles = ({ paramsId }) => {
+  const singlesContext = useContext(SinglesContext);
+  const { artistSingles, singles } = singlesContext;
+
+  useEffect(() => {
+    artistSingles(paramsId);
+    // eslint-disable-next-line
+  }, []);
+
   return (
     <div>
       {/* Display artist singles */}
-      {artistSingles.length > 0 ? <h3>Singles</h3> : null}
-      {artistSingles.length > 0 &&
-        artistSingles.map((single) => {
+      {singles.length > 0 ? <h3>Singles</h3> : null}
+      {singles.length > 0 &&
+        singles.map((single) => {
           return (
             <div className='card' key={single._id}>
               <h4>{single.title}</h4>

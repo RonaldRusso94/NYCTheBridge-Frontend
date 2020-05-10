@@ -46,7 +46,7 @@ const SinglesState = (props) => {
     const singles = await api.get(`/singles/artist/${id}`);
 
     dispatch({
-      type: ARTIST_Singles,
+      type: ARTIST_SINGLES,
       payload: singles.data,
     });
   };
