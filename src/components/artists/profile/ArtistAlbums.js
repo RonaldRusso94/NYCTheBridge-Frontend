@@ -22,11 +22,15 @@ const ArtistAlbums = ({ paramsId }) => {
         </div>
       </div> */}
 
-      {albums.length > 0 ? <h3>Albums</h3> : null}
-      <hr className='mb-1' />
+      {albums.length > 0 ? (
+        <>
+          <h3>Albums</h3>
+          <hr className='mb-1' />
+        </>
+      ) : null}
+
       {albums.length > 0 &&
         albums.map((album) => {
-          console.log('test', album);
           return (
             <div className='mb-3'>
               <Link to={`/album/${album._id}`}>
@@ -37,7 +41,7 @@ const ArtistAlbums = ({ paramsId }) => {
 
                   <div className='layout-item-two mb'>
                     <h5>{album.date}</h5>
-                    <h2 className='album-title'>{album.title}</h2>
+                    <h2 className='title'>{album.title}</h2>
                   </div>
                 </div>
               </Link>
