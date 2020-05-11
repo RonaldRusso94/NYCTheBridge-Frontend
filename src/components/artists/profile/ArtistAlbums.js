@@ -12,7 +12,7 @@ const ArtistAlbums = ({ paramsId }) => {
   }, []);
 
   return (
-    <div className=''>
+    <div className='my-4'>
       {/* <div className='d-flex'>
         <div className='layout-one'>
           <h1>hello</h1>

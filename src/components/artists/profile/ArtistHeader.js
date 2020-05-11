@@ -1,5 +1,4 @@
 import React from 'react';
-import '../Artist.css';
 
 const ArtistHeader = ({ artist, setNav }) => {
   const onClick = (e) => {

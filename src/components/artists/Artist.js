@@ -6,6 +6,8 @@ import ArtistsContext from '../../context/artists/artistsContext';
 
 import ArtistHeader from './profile/ArtistHeader.js';
 
+import './Artist.css';
+
 const User = ({ match }) => {
   const artistsContext = useContext(ArtistsContext);
   const { getArtist, artist } = artistsContext;
@@ -32,8 +34,8 @@ const User = ({ match }) => {
       <>
         {/* {subnav} */}
         {console.log(nav)}
-        <h1>About</h1>
-        {/* <ArtistAbout params={match.params.id} /> */}
+        <ArtistHeader setNav={setNav} artist={artist} />
+        <ArtistAbout params={match.params.id} />
       </>
     );
   }

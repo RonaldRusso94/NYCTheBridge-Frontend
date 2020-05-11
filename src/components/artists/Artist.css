@@ -81,3 +81,13 @@
 .album-item-two {
   width: 80%;
 }
+
+.merch-img-cropper {
+  width: 150px;
+  height: 150px;
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}

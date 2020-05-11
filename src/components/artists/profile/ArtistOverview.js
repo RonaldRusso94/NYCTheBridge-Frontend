@@ -10,8 +10,6 @@ import ArtistFeatures from './ArtistFeatures';
 import ArtistMerch from './ArtistMerch';
 // import Abc from './ArtistMerch';
 
-import '../Artist.css';
-
 export const ArtistOverview = (props) => {
   const artistsContext = useContext(ArtistsContext);
   const singlesContext = useContext(SinglesContext);
@@ -59,10 +57,10 @@ export const ArtistOverview = (props) => {
         </div>
       </div> */}
 
+      <ArtistMerch paramsId={props.paramsId} />
       <ArtistAlbums paramsId={props.paramsId} />
       <ArtistSingles paramsId={props.paramsId} />
       <ArtistFeatures paramsId={props.paramsId} />
-      <ArtistMerch paramsId={props.paramsId} />
 
       {/* <ArtistMerch paramsId={props.paramsId} /> */}
 

@@ -18,18 +18,25 @@ const ArtistMerch = ({ paramsId }) => {
   }, []);
 
   return (
-    <div>
-      {merch.length > 0 && <h3>Merch</h3>}
-      {merch.length > 0 &&
-        merch.map((item) => {
-          return (
-            <div className='card'>
-              <a href={item.link}>
-                <img src={item.img} alt='' className='img-sm' />
-              </a>
-            </div>
-          );
-        })}
+    <div className='my-4'>
+      {merch.length > 0 && (
+        <>
+          <h3>Merch</h3>
+          <hr className='mb-1' />
+        </>
+      )}
+      <div className='grid-4'>
+        {merch.length > 0 &&
+          merch.map((item) => {
+            return (
+              <div className=''>
+                {/* <a href={item.link}> */}
+                <img src={item.img} alt='' className='' />
+                {/* </a> */}
+              </div>
+            );
+          })}
+      </div>
     </div>
   );
 };

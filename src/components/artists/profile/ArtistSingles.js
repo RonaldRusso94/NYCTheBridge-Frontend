@@ -11,7 +11,7 @@ const ArtistSingles = ({ paramsId }) => {
   }, []);
 
   return (
-    <div>
+    <div className='my-4'>
       {/* Display artist singles */}
       {singles.length > 0 ? (
         <div>
