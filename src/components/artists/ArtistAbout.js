@@ -6,16 +6,20 @@ export const ArtistAbout = (props) => {
   return (
     <>
       <h4>Image Gallery</h4>
-      <div className='d-flex' style={{ flexWrap: 'wrap' }}>
-        <img
-          className=''
-          src={artistsContext.artist.img}
-          alt=''
-          style={{ height: '500px', width: '500px' }}
-        />
+      <hr className='mb-1' />
+      <div className='' style={{ overflow: 'auto' }}>
+        {artistsContext.artist.gallery.map((img) => {
+          return (
+            <div className='test-img'>
+              <img className='' src={img.img} alt='' />
+            </div>
+          );
+        })}
       </div>
 
-      <p className='py-3'>{artistsContext.artist.bio}</p>
+      <div>
+        <p className='py-3'>{artistsContext.artist.bio}</p>
+      </div>
     </>
   );
 };

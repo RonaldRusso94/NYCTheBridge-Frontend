@@ -91,3 +91,26 @@
   display: flex;
   justify-content: center;
 }
+
+.test-img {
+  height: 66.66%;
+  width: 66.66%;
+  float: left;
+  line-height: 0;
+}
+.test-img:nth-child(1) {
+  padding-right: 0.5rem;
+}
+.test-img:nth-child(n + 2) {
+  height: 33.33%;
+  width: 33.33%;
+  padding-left: 1rem;
+
+  /* float: left; */
+}
+.test-img:nth-child(n + 3) {
+  height: 33.33%;
+  width: 33.33%;
+  margin-top: 1.5rem;
+  /* float: left; */
+}

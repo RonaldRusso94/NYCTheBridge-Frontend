@@ -7,7 +7,7 @@ const ArtistHeader = ({ artist, setNav }) => {
 
   return (
     <div className='artist-img mb-2'>
-      <img className='' src={artist.img} alt='' />
+      <img className='' src={artist.headerimg} alt='' />
       <h1 className='name'>{artist.name}</h1>
       <ul className='profile-nav-list'>
         <li name='overview' onClick={onClick} className='profile-nav-links'>

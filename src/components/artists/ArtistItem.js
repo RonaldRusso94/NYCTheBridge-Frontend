@@ -9,9 +9,7 @@ const UserItem = ({ artist: { _id, img, name } }) => {
       <Link to={`/artist/${_id}`}>
         <img src={img} alt='' />
         <div className='text-wrapper'>
-          <h3 className='text-styles'>
-            {name} - {_id}
-          </h3>
+          <h3 className='text-styles'>{name}</h3>
         </div>
       </Link>
     </div>
