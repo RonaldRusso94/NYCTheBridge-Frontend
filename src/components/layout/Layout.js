@@ -63,8 +63,6 @@ const Layout = ({ children }) => {
           <div className='d-flex h-100'>
             <SideNav />
 
-            {/* !!!!!! Link element does not work properly due to search removing all context from state */}
-
             <div className='container' style={{ paddingTop: '3rem' }}>
               <div className='all-center pb' style={{ width: '40%' }}>
                 <a className='btn btn-dark all-center' href='/'>

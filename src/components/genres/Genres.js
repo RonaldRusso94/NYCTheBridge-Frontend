@@ -1,11 +1,8 @@
 import React, { useState, useContext, useEffect } from 'react';
-import SinglesContext from '../../context/singles/singlesContext';
-import AlbumsContext from '../../context/albums/albumsContext';
 import GenreItem from './GenreItem';
 
 import Classic from '../layout/images/Classic.jpg';
 import Trap from '../layout/images/Trap.jpg';
-
 import Drill from '../layout/images/Drill.jpg';
 import Rb from '../layout/images/R&B.jpg';
 import Spanish from '../layout/images/Spanish.jpg';
@@ -16,10 +13,6 @@ import Instrumental from '../layout/images/Instrumental.jpg';
 import api from '../../api';
 
 const Genres = () => {
-  //   const singlesContext = useContext(SinglesContext);
-  //   const albumsContext = useContext(AlbumsContext);
-
-  //   const { singles } = singlesContext;
   const [genres, setGenres] = useState([]);
 
   useEffect(() => {

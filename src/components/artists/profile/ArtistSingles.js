@@ -10,6 +10,12 @@ const ArtistSingles = ({ paramsId }) => {
     // eslint-disable-next-line
   }, []);
 
+  singlesContext.singles
+    .sort(function (a, b) {
+      return new Date(a.date) - new Date(b.date);
+    })
+    .reverse();
+
   return (
     <div className='my-4'>
       {/* Display artist singles */}
@@ -22,13 +28,13 @@ const ArtistSingles = ({ paramsId }) => {
       {singles.length > 0 &&
         singles.map((single) => {
           return (
-            <div className='layout-one mb-3' key={single._id}>
+            <div className='layout-one mb-1' key={single._id}>
               <div className='layout-item-one'>
                 <img src={single.img} alt='' />
               </div>
 
               <div className='layout-item-two'>
-                <h5>{single.date}</h5>
+                <h5>{single.date.replace(/-.+/, ' ')}</h5>
                 <h2 className='title'>{single.title}</h2>
               </div>
 

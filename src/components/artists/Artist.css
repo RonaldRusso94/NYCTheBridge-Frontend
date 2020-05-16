@@ -22,7 +22,7 @@
 }
 .profile-nav-list {
   position: absolute;
-  width: 100%;
+
   bottom: 3%;
   left: 2%;
 }
@@ -33,6 +33,16 @@
 }
 .profile-nav-links:nth-child(n + 2) {
   margin-left: 1rem;
+}
+
+.socials {
+  position: absolute;
+  bottom: 3%;
+  right: 2%;
+}
+
+.socials a:nth-child(n + 2) {
+  padding-left: 0.5rem;
 }
 
 /* GENERAL DISPLAY */
@@ -63,7 +73,7 @@
 }
 
 .title {
-  font-size: 3rem;
+  font-size: 2.5rem;
 }
 .album-underline {
   border-bottom: 1px solid #96969642;
@@ -113,4 +123,13 @@
   width: 33.33%;
   margin-top: 1.5rem;
   /* float: left; */
+}
+
+@media (max-width: 700px) {
+  .artist-img > img {
+    height: 200px;
+  }
+  .title {
+    font-size: 1.5rem;
+  }
 }

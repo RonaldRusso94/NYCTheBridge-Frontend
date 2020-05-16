@@ -23,16 +23,16 @@ import './App.css';
 import api from './api';
 
 const App = () => {
-  useEffect(() => {
-    const apiCall = async () => {
-      try {
-        const res = await api.get('/artists');
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    apiCall();
-  });
+  // useEffect(() => {
+  //   const apiCall = async () => {
+  //     try {
+  //       const res = await api.get('/artists');
+  //     } catch (err) {
+  //       console.log(err);
+  //     }
+  //   };
+  //   apiCall();
+  // });
 
   return (
     <ArtistsState>

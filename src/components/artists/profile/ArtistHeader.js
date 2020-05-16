@@ -1,4 +1,13 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faTwitterSquare,
+  faFacebookSquare,
+  faSoundcloud,
+  faYoutubeSquare,
+  faInstagramSquare,
+} from '@fortawesome/free-brands-svg-icons';
+import { faGlobeAmericas } from '@fortawesome/free-solid-svg-icons';
 
 const ArtistHeader = ({ artist, setNav }) => {
   const onClick = (e) => {
@@ -17,6 +26,26 @@ const ArtistHeader = ({ artist, setNav }) => {
           About
         </li>
       </ul>
+      <div className='socials'>
+        <a href='#'>
+          <FontAwesomeIcon icon={faGlobeAmericas} size='lg' />
+        </a>
+        <a href='#'>
+          <FontAwesomeIcon icon={faYoutubeSquare} size='lg' />
+        </a>
+        <a href='#'>
+          <FontAwesomeIcon icon={faTwitterSquare} size='lg' />
+        </a>
+        <a href='#'>
+          <FontAwesomeIcon icon={faFacebookSquare} size='lg' />
+        </a>
+        <a href='#'>
+          <FontAwesomeIcon icon={faInstagramSquare} size='lg' />
+        </a>
+        <a href='#'>
+          <FontAwesomeIcon icon={faSoundcloud} size='lg' />
+        </a>
+      </div>
     </div>
   );
 };

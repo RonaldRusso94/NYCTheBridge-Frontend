@@ -1,7 +1,4 @@
 import React, { Fragment, useContext } from 'react';
-import ArtistsContext from '../../context/artists/artistsContext';
-import AlbumsContext from '../../context/albums/albumsContext';
-import SinglesContext from '../../context/singles/singlesContext';
 
 import Artists from '../artists/Artists';
 

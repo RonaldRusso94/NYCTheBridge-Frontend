@@ -11,17 +11,14 @@ const ArtistAlbums = ({ paramsId }) => {
     // eslint-disable-next-line
   }, []);
 
-  return (
-    <div className='my-4'>
-      {/* <div className='d-flex'>
-        <div className='layout-one'>
-          <h1>hello</h1>
-        </div>
-        <div className='layout-two'>
-          <h1>World</h1>
-        </div>
-      </div> */}
+  albumsContext.albums
+    .sort(function (a, b) {
+      return new Date(a.date) - new Date(b.date);
+    })
+    .reverse();
 
+  return (
+    <div className='my-1'>
       {albums.length > 0 ? (
         <>
           <h3>Albums</h3>
@@ -32,7 +29,7 @@ const ArtistAlbums = ({ paramsId }) => {
       {albums.length > 0 &&
         albums.map((album) => {
           return (
-            <div className='mb-3'>
+            <div key={album._id} className='mb-3'>
               <Link to={`/album/${album._id}`}>
                 <div className='layout-one mb-1' key={album._id}>
                   <div className='layout-item-one'>
@@ -40,7 +37,7 @@ const ArtistAlbums = ({ paramsId }) => {
                   </div>
 
                   <div className='layout-item-two mb'>
-                    <h5>{album.date}</h5>
+                    <h5>{album.date.replace(/-.+/, ' ')}</h5>
                     <h2 className='title'>{album.title}</h2>
                   </div>
                 </div>
@@ -54,7 +51,10 @@ const ArtistAlbums = ({ paramsId }) => {
 
                 {album.songs.map((song, index) => {
                   return (
-                    <div className='album-underline album-display'>
+                    <div
+                      key={song._id}
+                      className='album-underline album-display'
+                    >
                       <p className='album-item-one'>{index + 1}.</p>
                       <p className='album-item-two' key={song._id}>
                         {song.songtitle}

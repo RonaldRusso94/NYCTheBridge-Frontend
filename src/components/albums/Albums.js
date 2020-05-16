@@ -7,27 +7,8 @@ import api from '../../api';
 
 const Albums = () => {
   const albumsContext = useContext(AlbumsContext);
-  // const { getArtist, loading, artist } = artistsContext;
   const { albums } = albumsContext;
 
-  // const [albums, setAlbums] = useState([]);
-
-  // useEffect(() => {
-  //   const apiCall = async () => {
-  //     try {
-  //       const res = await api.get('/albums');
-  //       console.log('From res', res.data);
-  //       setAlbums(res.data);
-  //     } catch (err) {
-  //       console.log(err);
-  //     }
-  //   };
-  //   apiCall();
-  // }, []);
-
-  console.log('albums var', albums);
-
-  // const { albums } = albumsContext;
   return (
     <div className='grid-3'>
       {albums &&

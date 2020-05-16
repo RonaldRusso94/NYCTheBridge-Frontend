@@ -1,8 +1,6 @@
 import React, { useContext } from 'react';
 import VideoItemSingle from './VideoItemSingle';
 import Spinner from '../layout/Spinner';
-//getting both for the moment just in case
-import AlbumsContext from '../../context/albums/albumsContext';
 import SinglesContext from '../../context/singles/singlesContext';
 
 const Videos = () => {
