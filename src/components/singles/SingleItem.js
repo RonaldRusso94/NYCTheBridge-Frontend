@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const SingleItem = ({ single: { _id, artist, img, title } }) => {
   return (
-    <div className='item-container py-1'>
+    <div className='item-container my-1'>
       <Link to={`/single/${_id}`}>
         <img src={img} alt='' />
         <div className='text-wrapper'>

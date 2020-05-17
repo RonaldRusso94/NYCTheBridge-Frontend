@@ -10,7 +10,7 @@ const Albums = () => {
   const { albums } = albumsContext;
 
   return (
-    <div className='grid-3'>
+    <div className='grid-3 my-1'>
       {albums &&
         albums.map((album) => <AlbumItem key={album._id} album={album} />)}
     </div>

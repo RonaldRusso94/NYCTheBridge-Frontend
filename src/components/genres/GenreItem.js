@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const GenreItem = ({ genre: { genre, img, _id } }) => {
   return (
-    <div className='item-container'>
+    <div className='item-container my-1'>
       <Link to={`/browse/genres/${_id}`}>
         <img src={img} alt='' />
         <div className='text-wrapper'>

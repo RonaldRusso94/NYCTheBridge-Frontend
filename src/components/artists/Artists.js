@@ -6,14 +6,11 @@ import ArtistsContext from '../../context/artists/artistsContext';
 const Artists = () => {
   const artistsContext = useContext(ArtistsContext);
 
-  const { loading, artists } = artistsContext;
+  const { artists } = artistsContext;
 
-  // if (loading) {
-  //   return <Spinner />;
-  // } else {
   return (
     <>
-      <div className='grid-3'>
+      <div className='grid-3 my-1'>
         {artists.map((artist) => (
           <ArtistItem key={artist._id} artist={artist} />
         ))}

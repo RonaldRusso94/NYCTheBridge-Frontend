@@ -20,6 +20,7 @@ const Genres = () => {
       try {
         const res = await api.get('/genres');
         setGenres(res.data);
+        console.log('!!!!', res.data);
       } catch (err) {
         console.log(err);
       }
