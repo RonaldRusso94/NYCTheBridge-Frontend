@@ -4,6 +4,7 @@ import {
   FEATURED_ON_SINGLES,
   SEARCH_SINGLES,
   ARTIST_SINGLES,
+  VIDEO_SINGLES,
 } from '../types';
 
 export default (state, action) => {
@@ -29,6 +30,11 @@ export default (state, action) => {
         featuredOn: action.payload,
       };
     case SEARCH_SINGLES:
+      return {
+        ...state,
+        singles: action.payload,
+      };
+    case VIDEO_SINGLES:
       return {
         ...state,
         singles: action.payload,

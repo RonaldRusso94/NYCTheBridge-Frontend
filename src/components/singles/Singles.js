@@ -1,12 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import SingleItem from './SingleItem';
 import Spinner from '../layout/Spinner';
 import SinglesContext from '../../context/singles/singlesContext';
 
 const Singles = () => {
   const singlesContext = useContext(SinglesContext);
+  const { singles, getSingles } = singlesContext;
 
-  const { singles } = singlesContext;
+  useEffect(() => {
+    getSingles();
+  }, []);
 
   return (
     <div className='grid-3'>

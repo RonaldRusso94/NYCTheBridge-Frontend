@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect, useState } from 'react';
+import React, { useReducer } from 'react';
 import ArtistsContext from './artistsContext';
 import ArtistsReducer from './artistsReducer';
 import {
@@ -18,19 +18,11 @@ const ArtistsState = (props) => {
     loading: false,
   };
 
-  useEffect(() => {
-    getArtists();
-  }, []);
-
   const [state, dispatch] = useReducer(ArtistsReducer, initialState);
 
-  // Search Artists **FIX
+  // Search Artists
   const searchArtists = async (text) => {
     setLoading();
-
-    // const filtered = state.artists.filter((artist) => {
-    //   return artist.name.indexOf(text) !== -1;
-    // });
 
     const filtered = await api.get(`/artists/search/${text}`);
 
@@ -72,6 +64,7 @@ const ArtistsState = (props) => {
       value={{
         artists: state.artists,
         artist: state.artist,
+        getArtists,
         searchArtists,
         clearArtists,
         getArtist,

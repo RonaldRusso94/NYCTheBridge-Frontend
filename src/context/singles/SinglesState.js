@@ -7,6 +7,7 @@ import {
   ARTIST_SINGLES,
   SEARCH_SINGLES,
   FEATURED_ON_SINGLES,
+  VIDEO_SINGLES,
 } from '../types';
 
 import api from '../../api';
@@ -17,10 +18,6 @@ const SinglesState = (props) => {
     single: {},
     featuredOn: [],
   };
-
-  useEffect(() => {
-    getSingles();
-  }, []);
 
   const [state, dispatch] = useReducer(SinglesReducer, initialState);
 
@@ -74,6 +71,15 @@ const SinglesState = (props) => {
     });
   };
 
+  // Get single w/ videos
+  const videoSingles = async () => {
+    const singles = await api.get('/singles/videos');
+    dispatch({
+      type: VIDEO_SINGLES,
+      payload: singles.data,
+    });
+  };
+
   return (
     <SinglesContext.Provider
       value={{
@@ -85,6 +91,7 @@ const SinglesState = (props) => {
         artistSingles,
         searchSingles,
         featuredOnSingle,
+        videoSingles,
       }}
     >
       {props.children}

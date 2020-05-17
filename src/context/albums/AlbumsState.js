@@ -18,10 +18,6 @@ const AlbumsState = (props) => {
     featuredOn: [],
   };
 
-  useEffect(() => {
-    getAlbums();
-  }, []);
-
   const [state, dispatch] = useReducer(AlbumsReducer, initialState);
 
   // Get All Albums

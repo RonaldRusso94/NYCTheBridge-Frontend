@@ -35,11 +35,13 @@ const Album = ({ match }) => {
 
       <div className='all-center py-3'>
         <iframe
+          title={title}
           width='100%'
           height='500'
           scrolling='no'
           frameBorder='no'
           src={url}
+          allowfullscreen
         ></iframe>
       </div>
 

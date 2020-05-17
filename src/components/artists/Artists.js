@@ -1,13 +1,14 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import ArtistItem from './ArtistItem';
-import Spinner from '../layout/Spinner';
 import ArtistsContext from '../../context/artists/artistsContext';
 
 const Artists = () => {
   const artistsContext = useContext(ArtistsContext);
+  const { artists, getArtists } = artistsContext;
 
-  const { artists } = artistsContext;
-
+  useEffect(() => {
+    getArtists();
+  }, []);
   return (
     <>
       <div className='grid-3 my-1'>

@@ -31,8 +31,6 @@ const ArtistFeatures = ({ paramsId }) => {
     })
     .reverse();
 
-  console.log('AFTER', featuredOnArr);
-
   if (
     albumsContext.featuredOn.length > 0 ||
     singlesContext.featuredOn.length > 0
