@@ -23,17 +23,12 @@ const User = ({ match }) => {
     return (
       <>
         <ArtistHeader setNav={setNav} artist={artist} />
-
-        {/* {subnav}
-        <h1>Overview</h1> */}
         <ArtistOverview paramsId={match.params.id} />
       </>
     );
   } else if (nav === 'about') {
     return (
       <>
-        {/* {subnav} */}
-        {console.log(nav)}
         <ArtistHeader setNav={setNav} artist={artist} />
         <ArtistAbout params={match.params.id} />
       </>

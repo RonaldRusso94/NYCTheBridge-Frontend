@@ -4,6 +4,7 @@ import {
   ARTIST_ALBUMS,
   FEATURED_ON_ALBUMS,
   SEARCH_ALBUMS,
+  GENRE_ALBUMS,
 } from '../types';
 
 export default (state, action) => {
@@ -29,6 +30,11 @@ export default (state, action) => {
         featuredOn: action.payload,
       };
     case SEARCH_ALBUMS:
+      return {
+        ...state,
+        albums: action.payload,
+      };
+    case GENRE_ALBUMS:
       return {
         ...state,
         albums: action.payload,

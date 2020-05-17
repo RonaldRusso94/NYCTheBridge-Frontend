@@ -7,6 +7,7 @@ import {
   FEATURED_ON_ALBUMS,
   ARTIST_ALBUMS,
   SEARCH_ALBUMS,
+  GENRE_ALBUMS,
 } from '../types';
 
 import api from '../../api';
@@ -59,13 +60,23 @@ const AlbumsState = (props) => {
     });
   };
 
-  // Get Album By Seach
+  // Get Album By Search
   const searchAlbums = async (text) => {
     const filtered = await api.get(`/albums/search/${text}`);
 
     dispatch({
       type: SEARCH_ALBUMS,
       payload: filtered.data,
+    });
+  };
+
+  // Get Album By Genre
+  const genreAlbums = async (id) => {
+    const albums = await api.get(`/albums/genre/${id}`);
+
+    dispatch({
+      type: GENRE_ALBUMS,
+      payload: albums.data,
     });
   };
 
@@ -80,6 +91,7 @@ const AlbumsState = (props) => {
         searchAlbums,
         artistAlbums,
         featuredOnAlbum,
+        genreAlbums,
       }}
     >
       {props.children}

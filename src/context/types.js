@@ -23,3 +23,5 @@ export const SEARCH_SINGLES = 'SEARCH_SINGLES';
 export const CLEAR_ARTISTS = 'CLEAR_ARTISTS';
 
 export const VIDEO_SINGLES = 'VIDEO_SINGLES';
+export const GENRE_SINGLES = 'GENRE_SINGLES';
+export const GENRE_ALBUMS = 'GENRE_ALBUMS';

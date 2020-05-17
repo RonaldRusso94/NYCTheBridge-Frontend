@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const UserItem = ({ artist: { _id, img, name } }) => {
-  // console.log('From Artist Item', _id);
   return (
     <div className='item-container'>
       <Link to={`/artist/${_id}`}>

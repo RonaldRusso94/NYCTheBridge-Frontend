@@ -5,6 +5,7 @@ import {
   SEARCH_SINGLES,
   ARTIST_SINGLES,
   VIDEO_SINGLES,
+  GENRE_SINGLES,
 } from '../types';
 
 export default (state, action) => {
@@ -35,6 +36,11 @@ export default (state, action) => {
         singles: action.payload,
       };
     case VIDEO_SINGLES:
+      return {
+        ...state,
+        singles: action.payload,
+      };
+    case GENRE_SINGLES:
       return {
         ...state,
         singles: action.payload,

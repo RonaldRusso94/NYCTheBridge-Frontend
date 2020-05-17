@@ -8,6 +8,7 @@ import {
   SEARCH_SINGLES,
   FEATURED_ON_SINGLES,
   VIDEO_SINGLES,
+  GENRE_SINGLES,
 } from '../types';
 
 import api from '../../api';
@@ -80,6 +81,15 @@ const SinglesState = (props) => {
     });
   };
 
+  // Get Single By Genre
+  const genreSingles = async (id) => {
+    const singles = await api.get(`/singles/genre/${id}`);
+    dispatch({
+      type: GENRE_SINGLES,
+      payload: singles.data,
+    });
+  };
+
   return (
     <SinglesContext.Provider
       value={{
@@ -92,6 +102,7 @@ const SinglesState = (props) => {
         searchSingles,
         featuredOnSingle,
         videoSingles,
+        genreSingles,
       }}
     >
       {props.children}
