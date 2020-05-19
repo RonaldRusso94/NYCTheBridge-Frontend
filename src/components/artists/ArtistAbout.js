@@ -17,8 +17,10 @@ export const ArtistAbout = (props) => {
         })}
       </div>
 
-      <div>
-        <p className='py-3'>{artistsContext.artist.bio}</p>
+      <div className='my-2'>
+        <h4>Bio</h4>
+        <hr className='mb-1' />
+        <p className=''>{artistsContext.artist.bio}</p>
       </div>
     </>
   );

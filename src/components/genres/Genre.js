@@ -28,51 +28,62 @@ const Genre = ({ match }) => {
     };
     apiCall();
   }, []);
-  {
-    console.log('!!', genres.genre);
-  }
+
+  const genresArr = [];
+
+  albumsContext.albums.forEach((album) => {
+    genresArr.push(album);
+  });
+
+  singlesContext.singles.forEach((single) => {
+    genresArr.push(single);
+  });
+
+  console.log('!!!!!', genresArr);
+
+  genresArr
+    .sort(function (a, b) {
+      return new Date(a.date) - new Date(b.date);
+    })
+    .reverse();
   return (
     <>
-      <h1>{genres.genre}</h1>
-      <hr></hr>
-
-      {/* NEED TO ADD SINGLES && ALBUMS TO AN ARRAY THEN SORT BY DATE */}
+      <h1 className='py'>{genres.genre}</h1>
+      <hr className='mb-1' />
 
       <div className='grid-3'>
-        {/* {singles.length > 0 &&
-          singles.map((single) => {
-            return single.genres.map((genre) => {
-              if (genre === match.params.genreId) {
-                return (
-                  <div key={single._id} className='card text-center py-2'>
-                    <Link to={`/single/${single._id}`}>
-                      <img src={single.img} style={{ width: '80%' }} alt='' />
-                      <h3>
-                        {single.title} - {single.artist}
-                      </h3>
-                    </Link>
-                  </div>
-                );
-              }
-            });
-          })}
-
-        {albums.map((album) => {
-          return album.genres.map((genre) => {
-            if (genre === match.params.genreId) {
+        {genresArr.length > 0 &&
+          genresArr.map((item) => {
+            // If Single
+            if ('video' in item) {
               return (
-                <div key={genre._id} className='card text-center py-2'>
-                  <Link to={`/album/${album._id}`}>
-                    <img src={album.img} style={{ width: '80%' }} alt='' />
-                    <h3>
-                      {album.title} -{album.artist}
-                    </h3>
+                <div key={item._id} className='item-container'>
+                  <Link to={`/single/${item._id}`}>
+                    <img src={item.img} alt='' />
+                    <div className='text-wrapper'>
+                      <h3 className='text-styles'>
+                        {item.title} - {item.artist}
+                      </h3>
+                    </div>
+                  </Link>
+                </div>
+              );
+            } else {
+              // If Album
+              return (
+                <div key={item._id} className='item-container'>
+                  <Link to={`/album/${item._id}`}>
+                    <img src={item.img} alt='' />
+                    <div className='text-wrapper'>
+                      <h3 className='text-styles'>
+                        {item.title} - {item.artist}
+                      </h3>
+                    </div>
                   </Link>
                 </div>
               );
             }
-          });
-        })} */}
+          })}
       </div>
     </>
   );
