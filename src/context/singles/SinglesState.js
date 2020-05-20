@@ -65,7 +65,6 @@ const SinglesState = (props) => {
   const searchSingles = async (text) => {
     const filtered = await api.get(`/singles/search/${text}`);
 
-    console.log(filtered.data);
     dispatch({
       type: SEARCH_SINGLES,
       payload: filtered.data,

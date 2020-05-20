@@ -10,7 +10,7 @@ export const ArtistAbout = (props) => {
       <div className='' style={{ overflow: 'auto' }}>
         {artistsContext.artist.gallery.map((img) => {
           return (
-            <div className='test-img'>
+            <div key={img._id} className='test-img'>
               <img className='' src={img.img} alt='' />
             </div>
           );

@@ -39,8 +39,6 @@ const Genre = ({ match }) => {
     genresArr.push(single);
   });
 
-  console.log('!!!!!', genresArr);
-
   genresArr
     .sort(function (a, b) {
       return new Date(a.date) - new Date(b.date);

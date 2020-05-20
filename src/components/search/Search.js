@@ -5,10 +5,6 @@ import AlbumsContext from '../../context/albums/albumsContext';
 
 import './Search.css';
 
-import Artists from '../artists/Artist';
-
-import SearchModal from '../search/SearchModal';
-
 const Search = ({ setSearch, text, setText, setSearchResults }) => {
   const artistsContext = useContext(ArtistsContext);
   const singlesContext = useContext(SinglesContext);

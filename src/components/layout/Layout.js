@@ -80,23 +80,23 @@ const Layout = ({ children }) => {
                   (artist, index) => {
                     // if (index < 5) {
                     return (
-                      <Link
-                        key={artistsContext.artist._id}
-                        to={`/artist/${artist._id}`}
-                        onMouseDown={() =>
-                          (window.location = `/artist/${artist._id}`)
-                        }
-                      >
-                        <div className='image-cropper'>
-                          <img
-                            className='profile-pic'
-                            src={artist.img}
-                            alt=''
-                          />
-                        </div>
-
+                      <div key={artistsContext.artist._id}>
+                        <Link
+                          to={`/artist/${artist._id}`}
+                          onMouseDown={() =>
+                            (window.location = `/artist/${artist._id}`)
+                          }
+                        >
+                          <div className='image-cropper'>
+                            <img
+                              className='profile-pic'
+                              src={artist.img}
+                              alt=''
+                            />
+                          </div>
+                        </Link>
                         <p className='all-center py'> {artist.name} </p>
-                      </Link>
+                      </div>
                     );
                   }
                   // }
@@ -163,33 +163,7 @@ const Layout = ({ children }) => {
                 })}
               </div>
             </div>
-            {/* 
-            <div
-              className='container'
-              style={{ paddingTop: '6rem', width: '70%' }}
-            >
-              <h1>Albums</h1>
-              <div className='grid-3'></div>
-            </div> */}
           </div>
-
-          {/* <h1>Albums</h1>
-          {albumContext.albums.map((album) => {
-            return (
-              <Link onClick={onClick} to={`/album/${album.albumId}`}>
-                <p className='card'> {album.title} </p>
-              </Link>
-            );
-          })}
-
-          <h1>Singles</h1>
-          {singlesContext.singles.map((single) => {
-            return (
-              <Link onClick={onClick} to={`/single/${single.singleId}`}>
-                <p className='card'> {single.title} </p>
-              </Link>
-            );
-          })} */}
         </>
       );
     } else {
