@@ -118,7 +118,7 @@ const Layout = ({ children }) => {
                       <div className='d-flex' style={{ alignItems: 'center' }}>
                         <div
                           style={{
-                            width: '30%',
+                            width: '40%',
                             fontSize: '0',
                             lineHeight: '0',
                           }}
@@ -126,7 +126,7 @@ const Layout = ({ children }) => {
                           <img src={album.img} alt='' />
                         </div>
 
-                        <div style={{ width: '70%' }}>
+                        <div style={{ width: '60%' }}>
                           <p className='px-1'> {album.title} </p>
                           <p className='px-1'>{album.artist}</p>
                         </div>
@@ -149,13 +149,13 @@ const Layout = ({ children }) => {
                       }
                     >
                       <div className='d-flex' style={{ alignItems: 'center' }}>
-                        <div style={{ width: '30%' }}>
+                        <div style={{ width: '40%' }}>
                           <img src={single.img} alt='' />
                         </div>
 
-                        <div style={{ width: '70%' }}>
-                          <p className='px-1 small'> {single.title} </p>
-                          <p className='px-1 small'>{single.artist}</p>
+                        <div style={{ width: '60%' }}>
+                          <p className='px-1'> {single.title} </p>
+                          <p className='px-1'>{single.artist}</p>
                         </div>
                       </div>
                     </Link>

@@ -483,15 +483,6 @@ table th {
   padding-bottom: 1rem;
 }
 
-.details {
-  display: flex;
-}
-
-.artistDetails {
-  width: 30%;
-  justify-content: center;
-}
-
 /* Mobile Styles */
 @media (max-width: 700px) {
   .hide-sm {

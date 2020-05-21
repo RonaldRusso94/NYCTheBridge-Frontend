@@ -2,13 +2,13 @@ import React, { Fragment, useEffect, useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import AlbumsContext from '../../context/albums/albumsContext';
 
-import api from '../../api';
+import './Album.css';
 
 const Album = ({ match }) => {
   const albumsContext = useContext(AlbumsContext);
 
   const { album, getAlbum } = albumsContext;
-  const { title, _id, img, url, features, date, artist } = album;
+  const { title, _id, img, url, features, date, artist, songs } = album;
 
   useEffect(() => {
     getAlbum(match.params.id);
@@ -20,8 +20,8 @@ const Album = ({ match }) => {
         Back
       </Link>
 
-      <div className='d-flex py-1'>
-        <div style={{ width: '20%' }}>
+      <div className='d-flex my-1'>
+        <div style={{ width: '25%' }}>
           <img src={img} alt='' style={{ width: '100%' }} />
         </div>
 
@@ -33,7 +33,7 @@ const Album = ({ match }) => {
         </div>
       </div>
 
-      <div className='all-center py-3'>
+      <div className='my-3'>
         <iframe
           title={title}
           width='100%'
@@ -45,28 +45,33 @@ const Album = ({ match }) => {
         ></iframe>
       </div>
 
-      <div className='all-center'>
-        <p># Title Time</p>
+      <div className=''>
+        <div className='album-underline album-display'>
+          <h3 className='album-item-one'>#</h3>
+          <h3 className='album-item-two'>Title</h3>
+        </div>
+
         {album.songs &&
           album.songs.map((song, index) => {
             return (
-              <div key={song._id}>
-                <p style={{ textDecoration: 'underline', width: '100%' }}>
-                  Track {index + 1} - {song.songtitle}
+              <div key={song._id} className='album-underline album-display'>
+                <p className='album-item-one'>{index + 1}.</p>
+                <p className='album-item-two' key={song._id}>
+                  {song.songtitle}
                 </p>
               </div>
             );
           })}
       </div>
 
-      <div>
+      <div className='my-3'>
         <h2>Details:</h2>
         <div className='details'>
-          <div className='artistDetails'>
+          <div className='details-artist'>
             <p>{artist && artist.name}</p>
           </div>
 
-          <div style={{ background: 'red', width: '70%' }}>
+          <div className='details-socials'>
             <h5>
               <a href={artist && artist.social.facebook}>FB</a>
             </h5>
@@ -78,13 +83,20 @@ const Album = ({ match }) => {
           features.map((feature) => {
             return (
               <div key={feature._id} className='details'>
-                <div className='artistDetails'>
+                <div className='details-artist'>
                   <p>{feature.name}</p>
                 </div>
-                <div style={{ background: 'red', width: '70%' }}>
-                  <h5>
+                <div className='details-socials'>
+                  {/* <h5>
                     <a href={feature.social.facebook}>FB</a>
-                  </h5>
+                  </h5> */}
+                  {console.log(feature.social)}
+
+                  {/* {feature.social.map(item => {
+                    <h5>
+                      a
+                    </h5>
+                  })} */}
                 </div>
               </div>
             );

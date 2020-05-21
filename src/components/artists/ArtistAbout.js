@@ -4,8 +4,8 @@ import ArtistsContext from '../../context/artists/artistsContext';
 export const ArtistAbout = (props) => {
   const artistsContext = useContext(ArtistsContext);
   return (
-    <>
-      <h4>Image Gallery</h4>
+    <div className='my-3'>
+      <h3>Image Gallery</h3>
       <hr className='mb-1' />
       <div className='' style={{ overflow: 'auto' }}>
         {artistsContext.artist.gallery.map((img) => {
@@ -17,12 +17,12 @@ export const ArtistAbout = (props) => {
         })}
       </div>
 
-      <div className='my-2'>
-        <h4>Bio</h4>
+      <div className='my-3'>
+        <h3>Bio</h3>
         <hr className='mb-1' />
         <p className=''>{artistsContext.artist.bio}</p>
       </div>
-    </>
+    </div>
   );
 };
 

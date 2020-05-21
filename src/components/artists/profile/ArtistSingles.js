@@ -17,7 +17,7 @@ const ArtistSingles = ({ paramsId }) => {
     .reverse();
 
   return (
-    <div className='my-4'>
+    <div className='my-3'>
       {/* Display artist singles */}
       {singles.length > 0 ? (
         <div>

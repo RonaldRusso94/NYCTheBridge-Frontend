@@ -18,7 +18,7 @@ const ArtistMerch = ({ paramsId }) => {
   }, []);
 
   return (
-    <div className='my-4'>
+    <div className='my-3'>
       {merch.length > 0 && (
         <>
           <h3>Merch</h3>

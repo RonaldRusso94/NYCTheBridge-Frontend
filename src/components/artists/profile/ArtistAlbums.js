@@ -18,7 +18,7 @@ const ArtistAlbums = ({ paramsId }) => {
     .reverse();
 
   return (
-    <div className='my-1'>
+    <div className='my-3'>
       {albums.length > 0 ? (
         <>
           <h3>Albums</h3>

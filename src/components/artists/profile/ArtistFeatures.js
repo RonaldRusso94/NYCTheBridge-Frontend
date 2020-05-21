@@ -36,7 +36,7 @@ const ArtistFeatures = ({ paramsId }) => {
     singlesContext.featuredOn.length > 0
   ) {
     return (
-      <>
+      <div className='my-3'>
         <h3>Appears On</h3>
         <hr className='mb-1' />
 
@@ -51,7 +51,7 @@ const ArtistFeatures = ({ paramsId }) => {
             );
           })}
         </div>
-      </>
+      </div>
     );
   } else {
     return null;

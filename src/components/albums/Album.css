@@ -1,0 +1,30 @@
+.details {
+  display: flex;
+}
+
+.details-artist {
+  width: 30%;
+  justify-content: center;
+}
+
+.details-socials {
+  width: 70%;
+  background: red;
+}
+
+.album-underline {
+  border-bottom: 1px solid #96969642;
+}
+
+.album-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.album-item-one {
+  width: 20%;
+}
+.album-item-two {
+  width: 80%;
+}
