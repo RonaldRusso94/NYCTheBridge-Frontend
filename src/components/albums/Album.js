@@ -41,7 +41,7 @@ const Album = ({ match }) => {
           scrolling='no'
           frameBorder='no'
           src={url}
-          allowfullscreen
+          allowFullScreen
         ></iframe>
       </div>
 
@@ -77,7 +77,7 @@ const Album = ({ match }) => {
         {features &&
           features.map((feature) => {
             return (
-              <div className='details'>
+              <div key={feature._id} className='details'>
                 <div className='artistDetails'>
                   <p>{feature.name}</p>
                 </div>

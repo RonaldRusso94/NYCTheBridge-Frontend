@@ -61,7 +61,7 @@ const Single = ({ match }) => {
         {features &&
           features.map((feature) => {
             return (
-              <div className='details'>
+              <div key={feature._id} className='details'>
                 <div className='artistDetails'>
                   <p>{feature.name}</p>
                 </div>

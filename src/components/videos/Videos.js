@@ -18,7 +18,7 @@ const Videos = () => {
       {singles &&
         singles.map(
           (single) =>
-            single.video && <VideoItemSingle key={single.id} single={single} />
+            single.video && <VideoItemSingle key={single._id} single={single} />
         )}
     </div>
   );
