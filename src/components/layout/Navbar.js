@@ -50,9 +50,9 @@ const Navbar = ({
             <li>
               <a onClick={onClick}>Search</a>
             </li>
-            <li>
+            {/* <li>
               <Link to='/admin'>Admin</Link>
-            </li>
+            </li> */}
           </ul>
         </div>
       </nav>

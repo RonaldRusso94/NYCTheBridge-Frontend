@@ -2,6 +2,16 @@ import React, { Fragment, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import SinglesContext from '../../context/singles/singlesContext';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faTwitterSquare,
+  faFacebookSquare,
+  faSoundcloud,
+  faYoutubeSquare,
+  faInstagramSquare,
+} from '@fortawesome/free-brands-svg-icons';
+import { faGlobeAmericas } from '@fortawesome/free-solid-svg-icons';
+
 const Single = ({ match }) => {
   const singlesContext = useContext(SinglesContext);
 
@@ -19,14 +29,14 @@ const Single = ({ match }) => {
         Back
       </Link>
 
-      <div className='d-flex py-1'>
-        <div style={{ width: '20%' }}>
-          <img src={img} alt='' style={{ width: '100%' }} />
+      <div className='single-header my-1'>
+        <div className='single-img'>
+          <img src={img} alt='' />
         </div>
 
-        <div className='px-2'>
+        <div className='single-info'>
           <p className='small'>SINGLE</p>
-          <h1 className='pb-1'>{title}</h1>
+          <h1 className='title'>{title}</h1>
           <p>By: {artist && artist.name}</p>
           <p>{date}</p>
         </div>
@@ -43,32 +53,96 @@ const Single = ({ match }) => {
         ></iframe>
       </div>
 
-      <div>
-        <h2>Details:</h2>
+      <div className='my-3'>
+        <h2 className=''>Details:</h2>
+        <hr className='mb-1' />
         <div className='details'>
-          <div className='artistDetails'>
+          <div className='details-artist'>
             <p>{artist && artist.name}</p>
           </div>
 
-          <div style={{ background: 'red', width: '70%' }}>
-            <h5>
-              <a href={artist && artist.social.facebook}>FB</a>
-            </h5>
-          </div>
+          {artist && (
+            <div className='details-socials'>
+              {artist.website && (
+                <a href=''>
+                  <FontAwesomeIcon icon={faGlobeAmericas} size='lg' />
+                </a>
+              )}
+              {artist.social.facebook && (
+                <a href=''>
+                  <FontAwesomeIcon icon={faYoutubeSquare} size='lg' />
+                </a>
+              )}
+              {artist.social.twitter && (
+                <a href=''>
+                  <FontAwesomeIcon icon={faTwitterSquare} size='lg' />
+                </a>
+              )}
+              {artist.social.facebook && (
+                <a href=''>
+                  <FontAwesomeIcon icon={faFacebookSquare} size='lg' />
+                </a>
+              )}
+              {artist.social.instagram && (
+                <a href=''>
+                  <FontAwesomeIcon icon={faInstagramSquare} size='lg' />
+                </a>
+              )}
+              {artist.social.soundcloud && (
+                <a href=''>
+                  <FontAwesomeIcon icon={faSoundcloud} size='lg' />
+                </a>
+              )}
+            </div>
+          )}
         </div>
 
-        <h3>Featured:</h3>
+        <h3 className='featured-title'>Featured:</h3>
+        <hr className='mb-1' />
         {features &&
           features.map((feature) => {
             return (
               <div key={feature._id} className='details'>
-                <div className='artistDetails'>
+                <div className='details-artist'>
                   <p>{feature.name}</p>
                 </div>
-                <div style={{ background: 'red', width: '70%' }}>
-                  <h5>
-                    <a href={feature.social.facebook}>FB</a>
-                  </h5>
+
+                <div className='details-socials'>
+                  {feature.website && (
+                    <a href=''>
+                      <FontAwesomeIcon icon={faGlobeAmericas} size='lg' />
+                    </a>
+                  )}
+                  {feature.social.facebook && (
+                    <a href=''>
+                      <FontAwesomeIcon icon={faYoutubeSquare} size='lg' />
+                    </a>
+                  )}
+                  {feature.social.twitter && (
+                    <a href=''>
+                      <FontAwesomeIcon icon={faTwitterSquare} size='lg' />
+                    </a>
+                  )}
+                  {feature.social.facebook && (
+                    <a href=''>
+                      <FontAwesomeIcon icon={faFacebookSquare} size='lg' />
+                    </a>
+                  )}
+                  {feature.social.instagram && (
+                    <a href=''>
+                      <FontAwesomeIcon icon={faInstagramSquare} size='lg' />
+                    </a>
+                  )}
+                  {feature.social.soundcloud && (
+                    <a href=''>
+                      <FontAwesomeIcon icon={faSoundcloud} size='lg' />
+                    </a>
+                  )}
+                  {/* {feature.social.map(item => {
+                    <h5>
+                      a
+                    </h5>
+                  })} */}
                 </div>
               </div>
             );

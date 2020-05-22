@@ -30,9 +30,11 @@ const ArtistMerch = ({ paramsId }) => {
           merch.map((item) => {
             return (
               <div key={item._id} className=''>
-                {/* <a href={item.link}> */}
-                <img src={item.img} alt='' className='' />
-                {/* </a> */}
+                <a href={item.link} target='_blank'>
+                  {/* <a href={item.link}> */}
+                  <img src={item.img} alt='' className='' />
+                  {/* </a> */}
+                </a>
               </div>
             );
           })}

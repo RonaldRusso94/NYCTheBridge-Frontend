@@ -1,15 +1,20 @@
-.details {
+.album-header {
   display: flex;
 }
-
-.details-artist {
-  width: 30%;
-  justify-content: center;
+.album-img {
+  width: 25%;
 }
 
-.details-socials {
-  width: 70%;
-  background: red;
+.album-info {
+  margin: 0 2rem;
+}
+
+.title {
+  margin-bottom: 1rem;
+}
+
+.iframe-div {
+  margin: 3rem 0;
 }
 
 .album-underline {
@@ -27,4 +32,59 @@
 }
 .album-item-two {
   width: 80%;
+}
+
+.details {
+  display: flex;
+}
+
+.details-artist {
+  width: 30%;
+}
+
+.details-socials {
+  width: 70%;
+  /* background: red; */
+  display: flex;
+  justify-content: center;
+}
+
+.details {
+  margin-top: 0.5rem;
+}
+
+.details-socials > a:nth-child(n + 2) {
+  padding-left: 1rem;
+}
+
+.featured-title {
+  margin-top: 1rem;
+}
+
+h3 {
+  margin: 0;
+}
+
+@media (max-width: 700px) {
+  .album-header {
+    flex-direction: column;
+  }
+  .album-img {
+    width: 50%;
+  }
+  .album-info {
+    margin: 1rem 0.3rem;
+  }
+  .small {
+    font-size: 1rem;
+  }
+  .title {
+    font-size: 1.5rem;
+  }
+  .iframe-div {
+    margin: 1rem 0;
+  }
+  iframe {
+    height: 250px;
+  }
 }

@@ -105,7 +105,7 @@ const Layout = ({ children }) => {
 
               {albumsContext.albums.length > 0 && <h3>Albums</h3>}
 
-              <div className='grid-2 py-1'>
+              <div className='search-grid-2 py-1'>
                 {albumsContext.albums.map((album) => {
                   return (
                     <Link
@@ -138,7 +138,7 @@ const Layout = ({ children }) => {
 
               {singlesContext.singles.length > 0 && <h3>Singles</h3>}
 
-              <div className='grid-2 py-1'>
+              <div className='search-grid-2 py-1'>
                 {singlesContext.singles.map((single) => {
                   return (
                     <Link

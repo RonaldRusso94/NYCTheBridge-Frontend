@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import SinglesContext from '../../../context/singles/singlesContext';
 
 const ArtistSingles = ({ paramsId }) => {
@@ -29,16 +30,16 @@ const ArtistSingles = ({ paramsId }) => {
         singles.map((single) => {
           return (
             <div className='layout-one mb-1' key={single._id}>
-              <div className='layout-item-one'>
-                <img src={single.img} alt='' />
-              </div>
+              <Link to={`/single/${single._id}`}>
+                <div className='layout-item-one'>
+                  <img src={single.img} alt='' />
+                </div>
 
-              <div className='layout-item-two'>
-                <h5>{single.date.replace(/-.+/, ' ')}</h5>
-                <h2 className='title'>{single.title}</h2>
-              </div>
-
-              {/* <h5>SID: {single._id}</h5> */}
+                <div className='layout-item-two'>
+                  <h5>{single.date.replace(/-.+/, ' ')}</h5>
+                  <h2 className='title'>{single.title}</h2>
+                </div>
+              </Link>
             </div>
           );
         })}

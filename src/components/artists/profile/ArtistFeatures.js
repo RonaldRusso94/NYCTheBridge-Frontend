@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import SinglesContext from '../../../context/singles/singlesContext';
 import AlbumsContext from '../../../context/albums/albumsContext';
 
@@ -42,13 +43,27 @@ const ArtistFeatures = ({ paramsId }) => {
 
         <div className='grid-4'>
           {featuredOnArr.map((item) => {
-            return (
-              <div key={item._id}>
-                <img src={item.img} alt='' />
-                <h5>{item.title}</h5>
-                <h5>{item.date.replace(/-.+/, ' ')}</h5>
-              </div>
-            );
+            if ('video' in item) {
+              return (
+                <div key={item._id}>
+                  <Link to={`/single/${item._id}`}>
+                    <img src={item.img} alt='' />
+                    <h5>{item.title}</h5>
+                    <h5>{item.date.replace(/-.+/, ' ')}</h5>
+                  </Link>
+                </div>
+              );
+            } else {
+              return (
+                <div key={item._id}>
+                  <Link to={`/album/${item._id}`}>
+                    <img src={item.img} alt='' />
+                    <h5>{item.title}</h5>
+                    <h5>{item.date.replace(/-.+/, ' ')}</h5>
+                  </Link>
+                </div>
+              );
+            }
           })}
         </div>
       </div>
