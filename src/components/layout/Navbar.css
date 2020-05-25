@@ -166,7 +166,15 @@
     position: fixed;
     top: 50px;
     height: 100vh;
-    background: var(--light-color);
+    background: linear-gradient(
+        to bottom,
+        rgba(188, 177, 197, 0.521),
+        rgba(0, 0, 0, 0.5)
+      ),
+      url('https://cdn.discordapp.com/attachments/595107266303229987/713563402118627399/website.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     padding: 2.5rem;
     text-align: center;
   }

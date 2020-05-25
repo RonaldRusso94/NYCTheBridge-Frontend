@@ -10,7 +10,8 @@ const VideoItemSingle = ({ single: { _id, artist, img, title } }) => {
 
         <div className='text-wrapper'>
           <h3 className='text-styles'>
-            {title} - {artist}
+            {title} - {artist.name}
+            {console.log(artist)}
           </h3>
         </div>
       </Link>

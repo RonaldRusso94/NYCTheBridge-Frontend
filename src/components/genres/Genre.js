@@ -60,7 +60,7 @@ const Genre = ({ match }) => {
                     <img src={item.img} alt='' />
                     <div className='text-wrapper'>
                       <h3 className='text-styles'>
-                        {item.title} - {item.artist}
+                        {item.title} - {item.artist.name}
                       </h3>
                     </div>
                   </Link>
@@ -74,7 +74,7 @@ const Genre = ({ match }) => {
                     <img src={item.img} alt='' />
                     <div className='text-wrapper'>
                       <h3 className='text-styles'>
-                        {item.title} - {item.artist}
+                        {item.title} - {item.artist.name}
                       </h3>
                     </div>
                   </Link>

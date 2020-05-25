@@ -30,7 +30,7 @@ const Album = ({ match }) => {
         Back
       </Link>
 
-      <div className='album-header my-1'>
+      <div className='card album-header my-1'>
         <div className='album-img'>
           <img src={img} alt='' />
         </div>
@@ -43,7 +43,7 @@ const Album = ({ match }) => {
         </div>
       </div>
 
-      <div className='iframe-div'>
+      <div className=' card2 iframe-div'>
         <iframe
           title={title}
           width='100%'
@@ -55,7 +55,7 @@ const Album = ({ match }) => {
         ></iframe>
       </div>
 
-      <div className=''>
+      <div className='card'>
         <div className='album-underline album-display'>
           <h3 className='album-item-one'>#</h3>
           <h3 className='album-item-two'>Title</h3>
@@ -74,7 +74,7 @@ const Album = ({ match }) => {
           })}
       </div>
 
-      <div className='my-3'>
+      <div className='card my-3'>
         <h2 className=''>Details:</h2>
         <hr className='mb-1' />
         <div className='details'>

@@ -29,7 +29,7 @@ const Single = ({ match }) => {
         Back
       </Link>
 
-      <div className='single-header my-1'>
+      <div className='card single-header my-1'>
         <div className='single-img'>
           <img src={img} alt='' />
         </div>
@@ -42,7 +42,7 @@ const Single = ({ match }) => {
         </div>
       </div>
 
-      <div className='all-center py-3'>
+      <div className='card2 all-center my-3'>
         <iframe
           width='100%'
           height='500'
@@ -53,7 +53,7 @@ const Single = ({ match }) => {
         ></iframe>
       </div>
 
-      <div className='my-3'>
+      <div className='card my-3'>
         <h2 className=''>Details:</h2>
         <hr className='mb-1' />
         <div className='details'>

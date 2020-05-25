@@ -71,97 +71,123 @@ const Layout = ({ children }) => {
               </div>
 
               <h3 className='pb-1'>Top Result:</h3>
+
               {artistsContext.artists.length > 0 && (
-                <h3 className='py'>Artist</h3>
+                <>
+                  <div className='card'>
+                    <h3>Artist</h3>
+                    <hr className='mb-1' />
+
+                    <div className='grid-5'>
+                      {artistsContext.artists.map(
+                        (artist, index) => {
+                          // if (index < 5) {
+                          return (
+                            <div key={artistsContext.artist._id}>
+                              <Link
+                                to={`/artist/${artist._id}`}
+                                onMouseDown={() =>
+                                  (window.location = `/artist/${artist._id}`)
+                                }
+                              >
+                                <div className='image-cropper'>
+                                  <img
+                                    className='profile-pic'
+                                    src={artist.img}
+                                    alt=''
+                                  />
+                                </div>
+                              </Link>
+                              <p className='all-center py'> {artist.name} </p>
+                            </div>
+                          );
+                        }
+                        // }
+                      )}
+                    </div>
+                  </div>
+                </>
               )}
 
-              <div className='grid-5 py-1'>
-                {artistsContext.artists.map(
-                  (artist, index) => {
-                    // if (index < 5) {
-                    return (
-                      <div key={artistsContext.artist._id}>
-                        <Link
-                          to={`/artist/${artist._id}`}
-                          onMouseDown={() =>
-                            (window.location = `/artist/${artist._id}`)
-                          }
-                        >
-                          <div className='image-cropper'>
-                            <img
-                              className='profile-pic'
-                              src={artist.img}
-                              alt=''
-                            />
-                          </div>
-                        </Link>
-                        <p className='all-center py'> {artist.name} </p>
-                      </div>
-                    );
-                  }
-                  // }
-                )}
-              </div>
+              {albumsContext.albums.length > 0 && (
+                <>
+                  <div className='card my-3'>
+                    <h3>Albums</h3>
+                    <hr className='mb-1' />
 
-              {albumsContext.albums.length > 0 && <h3>Albums</h3>}
+                    <div className='search-grid-2 py-1'>
+                      {albumsContext.albums.map((album) => {
+                        return (
+                          <Link
+                            key={albumsContext.album._id}
+                            to={`/album/${album._id}`}
+                            onMouseDown={() =>
+                              (window.location = `/album/${album._id}`)
+                            }
+                          >
+                            <div
+                              className='d-flex'
+                              style={{ alignItems: 'center' }}
+                            >
+                              <div
+                                style={{
+                                  width: '40%',
+                                  fontSize: '0',
+                                  lineHeight: '0',
+                                }}
+                              >
+                                <img src={album.img} alt='' />
+                              </div>
 
-              <div className='search-grid-2 py-1'>
-                {albumsContext.albums.map((album) => {
-                  return (
-                    <Link
-                      key={albumsContext.album._id}
-                      to={`/album/${album._id}`}
-                      onMouseDown={() =>
-                        (window.location = `/album/${album._id}`)
-                      }
-                    >
-                      <div className='d-flex' style={{ alignItems: 'center' }}>
-                        <div
-                          style={{
-                            width: '40%',
-                            fontSize: '0',
-                            lineHeight: '0',
-                          }}
-                        >
-                          <img src={album.img} alt='' />
-                        </div>
+                              <div style={{ width: '60%' }}>
+                                <p className='px-1'> {album.title} </p>
+                                <p className='px-1'>{album.artist.name}</p>
+                              </div>
+                            </div>
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </>
+              )}
 
-                        <div style={{ width: '60%' }}>
-                          <p className='px-1'> {album.title} </p>
-                          <p className='px-1'>{album.artist}</p>
-                        </div>
-                      </div>
-                    </Link>
-                  );
-                })}
-              </div>
+              {singlesContext.singles.length > 0 && (
+                <>
+                  <div className='card my-3'>
+                    <h3>Singles</h3>
+                    <hr className='mb-1' />
 
-              {singlesContext.singles.length > 0 && <h3>Singles</h3>}
+                    <div className='search-grid-2 py-1'>
+                      {singlesContext.singles.map((single) => {
+                        return (
+                          <Link
+                            key={singlesContext.single._id}
+                            to={`/single/${single._id}`}
+                            onMouseDown={() =>
+                              (window.location = `/single/${single._id}`)
+                            }
+                          >
+                            <div
+                              className='d-flex'
+                              style={{ alignItems: 'center' }}
+                            >
+                              <div style={{ width: '40%' }}>
+                                <img src={single.img} alt='' />
+                              </div>
 
-              <div className='search-grid-2 py-1'>
-                {singlesContext.singles.map((single) => {
-                  return (
-                    <Link
-                      key={singlesContext.single._id}
-                      to={`/single/${single._id}`}
-                      onMouseDown={() =>
-                        (window.location = `/single/${single._id}`)
-                      }
-                    >
-                      <div className='d-flex' style={{ alignItems: 'center' }}>
-                        <div style={{ width: '40%' }}>
-                          <img src={single.img} alt='' />
-                        </div>
-
-                        <div style={{ width: '60%' }}>
-                          <p className='px-1'> {single.title} </p>
-                          <p className='px-1'>{single.artist}</p>
-                        </div>
-                      </div>
-                    </Link>
-                  );
-                })}
-              </div>
+                              <div style={{ width: '60%' }}>
+                                <p className='px-1'> {single.title} </p>
+                                <p className='px-1'>{single.artist.name}</p>
+                              </div>
+                            </div>
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </>
+              )}
             </div>
           </div>
         </>

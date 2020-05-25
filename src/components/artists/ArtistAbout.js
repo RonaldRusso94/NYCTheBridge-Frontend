@@ -4,7 +4,7 @@ import ArtistsContext from '../../context/artists/artistsContext';
 export const ArtistAbout = (props) => {
   const artistsContext = useContext(ArtistsContext);
   return (
-    <div className='my-3'>
+    <div className='card my-3'>
       <h3>Image Gallery</h3>
       <hr className='mb-1' />
       <div className='' style={{ overflow: 'auto' }}>

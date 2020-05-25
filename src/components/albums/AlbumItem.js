@@ -9,8 +9,9 @@ const AlbumItem = ({ album: { _id, artist, img, title } }) => {
         <img src={img} alt='' />
         <div className='text-wrapper'>
           <h3 className='text-styles'>
-            {title} - {artist}
+            {title} - {artist.name}
           </h3>
+          {console.log('artist', artist)}
         </div>
       </Link>
     </div>

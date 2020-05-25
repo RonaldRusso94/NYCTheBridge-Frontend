@@ -19,7 +19,12 @@ body {
   font-family: 'Russo One', sans-serif;
   font-size: 1rem;
   line-height: 1.6;
-  background-color: var(--primary-color);
+  height: 100vh;
+  background-image: url('https://cdn.discordapp.com/attachments/595107266303229987/714337304365236325/Desktop02.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
   color: white;
 }
 
@@ -120,15 +125,16 @@ img {
   background-color: #313131;
   margin: 0.7rem 0;
   color: white;
-  border-radius: 5%;
+  border-radius: 2%;
 }
 
 /* Alternate Cards */
 .card2 {
   padding: 1rem;
-  background-color: white;
+  background-color: #313131;
   margin: 0.7rem 0;
-  color: #313131;
+  color: white;
+  border-radius: 2%;
 }
 
 /* List */
@@ -513,8 +519,23 @@ table th {
   margin-bottom: 1rem;
 }
 
+/* Medium Styles */
+/* @media (max-width: 1600px) {
+
+} */
+
 /* Mobile Styles */
 @media (max-width: 700px) {
+  body {
+    background-image: url('https://cdn.discordapp.com/attachments/595107266303229987/714340498281594880/Mobile-Background.jpg');
+  }
+
+  .card2 {
+    padding: 0rem;
+    background-color: transparent;
+    margin: 0rem 0;
+    color: white;
+  }
   .hide-sm {
     display: none;
   }
