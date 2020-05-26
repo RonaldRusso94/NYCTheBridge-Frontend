@@ -23,10 +23,8 @@ import ReactGA from 'react-ga';
 import './App.css';
 
 const App = () => {
-  useEffect(() => {
-    ReactGA.initialize('UA-137181245-1');
-    ReactGA.pageview(window.location.pathname + window.location.search);
-  });
+  ReactGA.initialize('UA-137181245-1');
+  ReactGA.pageview(window.location.pathname + window.location.search);
 
   return (
     <ArtistsState>
