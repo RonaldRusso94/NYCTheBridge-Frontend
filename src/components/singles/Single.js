@@ -38,7 +38,7 @@ const Single = ({ match }) => {
           <p className='small'>SINGLE</p>
           <h1 className='title'>{title}</h1>
           <p>By: {artist && artist.name}</p>
-          <p>{date}</p>
+          <p>{date.replace(/-.+/, ' ')}}</p>
         </div>
       </div>
 
