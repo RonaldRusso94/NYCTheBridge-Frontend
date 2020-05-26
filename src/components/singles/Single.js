@@ -96,7 +96,6 @@ const Single = ({ match }) => {
             </div>
           )}
         </div>
-        {console.log('!!!', features)}
         {features != undefined &&
           features.lenght > 0 &&
           ((
