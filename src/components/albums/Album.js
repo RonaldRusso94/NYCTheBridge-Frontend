@@ -89,7 +89,7 @@ const Album = ({ match }) => {
                   <FontAwesomeIcon icon={faGlobeAmericas} size='lg' />
                 </a>
               )}
-              {artist.social.facebook && (
+              {artist.social.youtube && (
                 <a href={artist.social.youtube}>
                   <FontAwesomeIcon icon={faYoutubeSquare} size='lg' />
                 </a>
