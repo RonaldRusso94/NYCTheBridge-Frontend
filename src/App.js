@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Navbar from './components/layout/Navbar';
 import Home from './components/pages/Home';
 import Browse from './components/pages/Browse';
 import Admin from './components/pages/Admin';
@@ -19,10 +18,16 @@ import SinglesState from './context/singles/SinglesState';
 
 import Layout from './components/layout/Layout';
 
+import ReactGA from 'react-ga';
+
 import './App.css';
-import api from './api';
 
 const App = () => {
+  useEffect(() => {
+    ReactGA.initialize('UA-137181245-1');
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  });
+
   return (
     <ArtistsState>
       <AlbumsState>
