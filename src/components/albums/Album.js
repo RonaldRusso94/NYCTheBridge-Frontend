@@ -118,56 +118,62 @@ const Album = ({ match }) => {
           )}
         </div>
 
-        <h3 className='featured-title'>Featured:</h3>
-        <hr className='mb-1' />
-        {features &&
-          features.map((feature) => {
-            return (
-              <div key={feature._id} className='details'>
-                <div className='details-artist'>
-                  <p>{feature.name}</p>
-                </div>
+        {features != undefined &&
+          features.lenght > 0 &&
+          ((
+            <>
+              <h3 className='featured-title'>Featured:</h3>
+              <hr className='mb-1' />
+            </>
+          ),
+          features &&
+            features.map((feature) => {
+              return (
+                <div key={feature._id} className='details'>
+                  <div className='details-artist'>
+                    <p>{feature.name}</p>
+                  </div>
 
-                <div className='details-socials'>
-                  {feature.website && (
-                    <a href=''>
-                      <FontAwesomeIcon icon={faGlobeAmericas} size='lg' />
-                    </a>
-                  )}
-                  {feature.social.facebook && (
-                    <a href=''>
-                      <FontAwesomeIcon icon={faYoutubeSquare} size='lg' />
-                    </a>
-                  )}
-                  {feature.social.twitter && (
-                    <a href=''>
-                      <FontAwesomeIcon icon={faTwitterSquare} size='lg' />
-                    </a>
-                  )}
-                  {feature.social.facebook && (
-                    <a href=''>
-                      <FontAwesomeIcon icon={faFacebookSquare} size='lg' />
-                    </a>
-                  )}
-                  {feature.social.instagram && (
-                    <a href=''>
-                      <FontAwesomeIcon icon={faInstagramSquare} size='lg' />
-                    </a>
-                  )}
-                  {feature.social.soundcloud && (
-                    <a href=''>
-                      <FontAwesomeIcon icon={faSoundcloud} size='lg' />
-                    </a>
-                  )}
-                  {/* {feature.social.map(item => {
+                  <div className='details-socials'>
+                    {feature.website && (
+                      <a href=''>
+                        <FontAwesomeIcon icon={faGlobeAmericas} size='lg' />
+                      </a>
+                    )}
+                    {feature.social.facebook && (
+                      <a href=''>
+                        <FontAwesomeIcon icon={faYoutubeSquare} size='lg' />
+                      </a>
+                    )}
+                    {feature.social.twitter && (
+                      <a href=''>
+                        <FontAwesomeIcon icon={faTwitterSquare} size='lg' />
+                      </a>
+                    )}
+                    {feature.social.facebook && (
+                      <a href=''>
+                        <FontAwesomeIcon icon={faFacebookSquare} size='lg' />
+                      </a>
+                    )}
+                    {feature.social.instagram && (
+                      <a href=''>
+                        <FontAwesomeIcon icon={faInstagramSquare} size='lg' />
+                      </a>
+                    )}
+                    {feature.social.soundcloud && (
+                      <a href=''>
+                        <FontAwesomeIcon icon={faSoundcloud} size='lg' />
+                      </a>
+                    )}
+                    {/* {feature.social.map(item => {
                     <h5>
                       a
                     </h5>
                   })} */}
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            }))}
       </div>
 
       <div className='all-center py-3 card'>

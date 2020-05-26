@@ -96,10 +96,15 @@ const Single = ({ match }) => {
             </div>
           )}
         </div>
-
-        <h3 className='featured-title'>Featured:</h3>
-        <hr className='mb-1' />
-        {features &&
+        {console.log('!!!', features)}
+        {features != undefined &&
+          features.lenght > 0 &&
+          ((
+            <>
+              <h3 className='featured-title'>Featured:</h3>
+              <hr className='mb-1' />
+            </>
+          ),
           features.map((feature) => {
             return (
               <div key={feature._id} className='details'>
@@ -146,7 +151,7 @@ const Single = ({ match }) => {
                 </div>
               </div>
             );
-          })}
+          }))}
       </div>
 
       <div className='all-center py-3 card'>
