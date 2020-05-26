@@ -64,32 +64,32 @@ const Single = ({ match }) => {
           {artist && (
             <div className='details-socials'>
               {artist.website && (
-                <a href={artist.website}>
+                <a href=''>
                   <FontAwesomeIcon icon={faGlobeAmericas} size='lg' />
                 </a>
               )}
-              {artist.social.youtube && (
-                <a href={artist.social.youtube}>
+              {artist.social.facebook && (
+                <a href=''>
                   <FontAwesomeIcon icon={faYoutubeSquare} size='lg' />
                 </a>
               )}
               {artist.social.twitter && (
-                <a href={artist.social.twitter}>
+                <a href=''>
                   <FontAwesomeIcon icon={faTwitterSquare} size='lg' />
                 </a>
               )}
               {artist.social.facebook && (
-                <a href={artist.social.facebook}>
+                <a href=''>
                   <FontAwesomeIcon icon={faFacebookSquare} size='lg' />
                 </a>
               )}
               {artist.social.instagram && (
-                <a href={artist.social.instagram}>
+                <a href=''>
                   <FontAwesomeIcon icon={faInstagramSquare} size='lg' />
                 </a>
               )}
               {artist.social.soundcloud && (
-                <a href={artist.social.soundcloud}>
+                <a href=''>
                   <FontAwesomeIcon icon={faSoundcloud} size='lg' />
                 </a>
               )}
