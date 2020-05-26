@@ -20,33 +20,37 @@ const SideNav = () => {
           <li>
             <ul className='subcategories my-1'>
               <li>
-                <Link to='/browse/genres/5e98cd285d04334070b3c2df'>
+                <Link to='/browse/genres/5ec42e7d83b76a1e5c07f3ab'>
                   Classic
                 </Link>
               </li>
               <li>
-                <Link to='/browse/genres/5e98cc99c898c315748d0d4d'>Drill</Link>
+                <Link to='/browse/genres/5ec0a03c99339f3ad85973cc'>Drill</Link>
               </li>
               <li>
-                <Link to='/browse/genres/freestyle'>Freestyles</Link>
+                <Link to='/browse/genres/5ec4308583b76a1e5c07f3b1'>
+                  Freestyles
+                </Link>
               </li>
               <li>
-                <Link to='/browse/genres/instrumental'>Instrumentals</Link>
+                <Link to='/browse/genres/5ec42e9983b76a1e5c07f3ac'>
+                  Instrumentals
+                </Link>
               </li>
               <li>
-                <Link to='/browse/genres/5e98cd395d04334070b3c2e0'>Reggae</Link>
+                <Link to='/browse/genres/5ec42eb783b76a1e5c07f3ae'>Reggae</Link>
               </li>
               <li>
-                <Link to='/browse/genres/5e98cd205d04334070b3c2de'>R&B</Link>
+                <Link to='/browse/genres/5ec42eaa83b76a1e5c07f3ad'>R&B</Link>
               </li>
               <li>
-                <Link to='/browse/genres/5e98cd455d04334070b3c2e2'>
+                <Link to='/browse/genres/5ec42ec783b76a1e5c07f3af'>
                   Spanish
                 </Link>
               </li>
 
               <li>
-                <Link to='/browse/genres/5e98cca0c898c315748d0d4e'>Trap</Link>
+                <Link to='/browse/genres/5ec42ed183b76a1e5c07f3b0'>Trap</Link>
               </li>
             </ul>
           </li>
