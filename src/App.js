@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Router, Switch, Route } from 'react-router-dom';
 import Home from './components/pages/Home';
 import Browse from './components/pages/Browse';
 import Admin from './components/pages/Admin';
@@ -18,20 +18,35 @@ import SinglesState from './context/singles/SinglesState';
 
 import Layout from './components/layout/Layout';
 
-import ReactGa from 'react-ga';
+import createHistory from 'history/createBrowserHistory';
+
+import ReactGA from 'react-ga';
 
 import './App.css';
 
+// ReactGA.initialize('UA-137181245-1');
+// const browserHistory = createBrowserHistory();
+// browserHistory.listen((location, action) => {
+//   ReactGA.pageview(location.pathname + location.search);
+// });
+
+const history = createHistory();
+ReactGA.initialize('UA-137181245-1');
+history.listen((location, action) => {
+  ReactGA.pageview(location.pathname + location.search);
+  console.log(location.pathname);
+});
+
 const App = () => {
-  useEffect(() => {
-    ReactGA.initalize('UA-137181245-1');
-    ReactGa.pageview('/');
-  }, []);
+  // useEffect(() => {
+  //   ReactGA.pageview(window.location.pathname + window.location.search);
+  // }, []);
+
   return (
     <ArtistsState>
       <AlbumsState>
         <SinglesState>
-          <Router>
+          <Router history={history}>
             <div className='App'>
               <Layout>
                 <div className='container'>
