@@ -11,6 +11,7 @@ import {
   faInstagramSquare,
 } from '@fortawesome/free-brands-svg-icons';
 import { faGlobeAmericas } from '@fortawesome/free-solid-svg-icons';
+import { DiscussionEmbed } from 'disqus-react';
 
 import './Album.css';
 
@@ -176,8 +177,15 @@ const Album = ({ match }) => {
             }))}
       </div>
 
-      <div className='all-center py-3 card'>
-        <h1>DISQUS FORM</h1>
+      <div className=' my-3 card'>
+        <DiscussionEmbed
+          shortname='the-bridge-nyc'
+          config={{
+            url: window.location.href,
+            identifier: _id,
+            title: title,
+          }}
+        />
       </div>
     </Fragment>
   );

@@ -2,6 +2,8 @@ import React, { Fragment, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import SinglesContext from '../../context/singles/singlesContext';
 
+import { DiscussionEmbed } from 'disqus-react';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faTwitterSquare,
@@ -16,7 +18,7 @@ const Single = ({ match }) => {
   const singlesContext = useContext(SinglesContext);
 
   const { getSingle, single } = singlesContext;
-  const { _id, artist, title, img, url, date, features } = single;
+  const { _id, artist, title, img, date, features } = single;
 
   useEffect(() => {
     getSingle(match.params.id);
@@ -49,7 +51,7 @@ const Single = ({ match }) => {
           scrolling='no'
           frameBorder='no'
           allow='autoplay'
-          src={url}
+          src={single.url}
         ></iframe>
       </div>
 
@@ -152,9 +154,15 @@ const Single = ({ match }) => {
             );
           }))}
       </div>
-
-      <div className='all-center py-3 card'>
-        <h1>DISQUS FORM</h1>
+      <div className='card'>
+        <DiscussionEmbed
+          shortname='the-bridge-nyc'
+          config={{
+            url: window.location.href,
+            identifier: _id,
+            title: title,
+          }}
+        />
       </div>
     </Fragment>
   );
