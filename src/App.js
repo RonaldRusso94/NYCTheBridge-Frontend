@@ -18,14 +18,15 @@ import SinglesState from './context/singles/SinglesState';
 
 import Layout from './components/layout/Layout';
 
-import ReactGA from 'react-ga';
+import ReactGa from 'react-ga';
 
 import './App.css';
 
 const App = () => {
-  ReactGA.initialize('UA-137181245-1');
-  ReactGA.pageview(window.location.pathname + window.location.search);
-
+  useEffect(() => {
+    ReactGA.initalize('UA-137181245-1');
+    ReactGa.pageview('/');
+  }, []);
   return (
     <ArtistsState>
       <AlbumsState>
