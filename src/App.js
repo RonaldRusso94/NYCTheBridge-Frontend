@@ -38,10 +38,6 @@ history.listen((location, action) => {
 });
 
 const App = () => {
-  // useEffect(() => {
-  //   ReactGA.pageview(window.location.pathname + window.location.search);
-  // }, []);
-
   return (
     <ArtistsState>
       <AlbumsState>
