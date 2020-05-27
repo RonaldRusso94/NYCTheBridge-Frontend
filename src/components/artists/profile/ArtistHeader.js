@@ -26,26 +26,42 @@ const ArtistHeader = ({ artist, setNav }) => {
           About
         </li>
       </ul>
-      <div className='socials'>
-        <a href='#'>
-          <FontAwesomeIcon icon={faGlobeAmericas} size='lg' />
-        </a>
-        <a href='#'>
-          <FontAwesomeIcon icon={faYoutubeSquare} size='lg' />
-        </a>
-        <a href='#'>
-          <FontAwesomeIcon icon={faTwitterSquare} size='lg' />
-        </a>
-        <a href='#'>
-          <FontAwesomeIcon icon={faFacebookSquare} size='lg' />
-        </a>
-        <a href='#'>
-          <FontAwesomeIcon icon={faInstagramSquare} size='lg' />
-        </a>
-        <a href='#'>
-          <FontAwesomeIcon icon={faSoundcloud} size='lg' />
-        </a>
-      </div>
+
+      {artist && (
+        <div className='socials'>
+          {artist.website && (
+            <a href={artist.website}>
+              <FontAwesomeIcon icon={faGlobeAmericas} size='lg' />
+            </a>
+          )}
+          {artist.social && artist.social.youtube && (
+            <a href={artist.social.youtube}>
+              <FontAwesomeIcon icon={faYoutubeSquare} size='lg' />
+            </a>
+          )}
+
+          {artist.social && artist.social.twitter && (
+            <a href={artist.social.twitter}>
+              <FontAwesomeIcon icon={faTwitterSquare} size='lg' />
+            </a>
+          )}
+          {artist.social && artist.social.facebook && (
+            <a href={artist.social.facebook}>
+              <FontAwesomeIcon icon={faFacebookSquare} size='lg' />
+            </a>
+          )}
+          {artist.social && artist.social.instagram && (
+            <a href={artist.social.instagram}>
+              <FontAwesomeIcon icon={faInstagramSquare} size='lg' />
+            </a>
+          )}
+          {artist.social && artist.social.soundcloud && (
+            <a href={artist.social.soundcloud}>
+              <FontAwesomeIcon icon={faSoundcloud} size='lg' />
+            </a>
+          )}
+        </div>
+      )}
     </div>
   );
 };

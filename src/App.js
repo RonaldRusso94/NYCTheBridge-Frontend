@@ -18,7 +18,7 @@ import SinglesState from './context/singles/SinglesState';
 
 import Layout from './components/layout/Layout';
 
-import createHistory from 'history/createBrowserHistory';
+import { createBrowserHistory } from 'history';
 
 import ReactGA from 'react-ga';
 
@@ -30,7 +30,7 @@ import './App.css';
 //   ReactGA.pageview(location.pathname + location.search);
 // });
 
-const history = createHistory();
+const history = createBrowserHistory();
 ReactGA.initialize('UA-137181245-1');
 history.listen((location, action) => {
   ReactGA.pageview(location.pathname + location.search);
