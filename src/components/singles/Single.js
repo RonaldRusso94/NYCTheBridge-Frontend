@@ -154,7 +154,7 @@ const Single = ({ match }) => {
             );
           }))}
       </div>
-      <div className='card'>
+      <div className='card my-3'>
         <DiscussionEmbed
           shortname='the-bridge-nyc'
           config={{
