@@ -119,7 +119,7 @@ const Single = ({ match }) => {
                       <FontAwesomeIcon icon={faGlobeAmericas} size='lg' />
                     </a>
                   )}
-                  {feature.social.facebook && (
+                  {feature.social.youtube && (
                     <a href=''>
                       <FontAwesomeIcon icon={faYoutubeSquare} size='lg' />
                     </a>
