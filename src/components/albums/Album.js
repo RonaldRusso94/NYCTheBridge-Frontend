@@ -119,13 +119,14 @@ const Album = ({ match }) => {
           )}
         </div>
 
-        {features != undefined && (
+        {features != undefined && features.length > 0 && (
           <>
             <h3 className='featured-title'>Featured:</h3>
             <hr className='mb-1' />
           </>
         )}
         {features != undefined &&
+          features.length > 0 &&
           features.map((feature) => {
             return (
               <div key={feature._id} className='details'>
@@ -135,32 +136,32 @@ const Album = ({ match }) => {
 
                 <div className='details-socials'>
                   {feature.website && (
-                    <a href=''>
+                    <a href={feature.website}>
                       <FontAwesomeIcon icon={faGlobeAmericas} size='lg' />
                     </a>
                   )}
-                  {feature.social.facebook && (
-                    <a href=''>
+                  {feature.social.youtube && (
+                    <a href={feature.social.youtube}>
                       <FontAwesomeIcon icon={faYoutubeSquare} size='lg' />
                     </a>
                   )}
                   {feature.social.twitter && (
-                    <a href=''>
+                    <a href={feature.social.twitter}>
                       <FontAwesomeIcon icon={faTwitterSquare} size='lg' />
                     </a>
                   )}
                   {feature.social.facebook && (
-                    <a href=''>
+                    <a href={feature.social.facebook}>
                       <FontAwesomeIcon icon={faFacebookSquare} size='lg' />
                     </a>
                   )}
                   {feature.social.instagram && (
-                    <a href=''>
+                    <a href={feature.social.instagram}>
                       <FontAwesomeIcon icon={faInstagramSquare} size='lg' />
                     </a>
                   )}
                   {feature.social.soundcloud && (
-                    <a href=''>
+                    <a href={feature.social.soundcloud}>
                       <FontAwesomeIcon icon={faSoundcloud} size='lg' />
                     </a>
                   )}
