@@ -98,13 +98,14 @@ const Single = ({ match }) => {
             </div>
           )}
         </div>
-        {features != undefined && (
+        {features != undefined && features.length > 0 && (
           <>
             <h3 className='featured-title'>Featured:</h3>
             <hr className='mb-1' />
           </>
         )}
         {features != undefined &&
+          features.length > 0 &&
           features.map((feature) => {
             return (
               <div key={feature._id} className='details'>
