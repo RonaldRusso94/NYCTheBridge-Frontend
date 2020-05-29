@@ -58,17 +58,13 @@
 /* LAYOUT  */
 .layout-one {
   display: flex;
-  align-items: flex-start;
 }
 .layout-item-one {
-  width: 20%;
   /* font-size: 0; */
   line-height: 0;
-  background: blue;
 }
 
 .layout-item-two {
-  width: 80%;
   padding: 1rem;
 }
 
@@ -135,17 +131,22 @@
 
   .title {
     font-size: 1.2rem;
+    line-height: 0;
+    margin-top: 1rem;
+  }
+
+  .layout-one {
+    display: flex;
   }
 
   .layout-item-one {
-    width: 30%;
+    width: 40%;
     /* font-size: 0; */
     line-height: 0;
     background: blue;
   }
 
   .layout-item-two {
-    width: 70%;
     padding: 0 0 0 0.5rem;
   }
 
