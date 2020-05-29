@@ -20,7 +20,7 @@ body {
   font-size: 1rem;
   line-height: 1.6;
   height: 100vh;
-  background-image: url('https://cdn.discordapp.com/attachments/595107266303229987/714337304365236325/Desktop02.jpg');
+  background-image: url('https://cdn.discordapp.com/attachments/595107266303229987/715990705331241140/NycTheBridge_Desktop_Background.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -527,7 +527,7 @@ table th {
 /* Mobile Styles */
 @media (max-width: 700px) {
   body {
-    background-image: url('https://cdn.discordapp.com/attachments/595107266303229987/714340498281594880/Mobile-Background.jpg');
+    background-image: url('https://cdn.discordapp.com/attachments/595107266303229987/715990728081408041/NycTheBridge_Mobile_Background.jpg');
   }
 
   .card2 {
