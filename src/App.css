@@ -119,6 +119,10 @@ img {
   text-align: center;
 }
 
+.underline {
+  text-decoration: underline !important;
+}
+
 /* Cards */
 .card {
   padding: 1rem;

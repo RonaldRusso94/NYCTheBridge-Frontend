@@ -39,7 +39,16 @@ const Single = ({ match }) => {
         <div className='single-info'>
           <p className='small'>SINGLE</p>
           <h1 className='title'>{title}</h1>
-          <p>By: {artist && artist.name}</p>
+          <p>
+            By:{' '}
+            <span style={{ textDecoration: 'underline' }}>
+              {artist && (
+                <Link to={`/artist/${artist._id}`}>
+                  {artist && artist.name}
+                </Link>
+              )}
+            </span>
+          </p>
           <p>{date && date.replace(/-.+/, ' ')}</p>
         </div>
       </div>
@@ -60,7 +69,15 @@ const Single = ({ match }) => {
         <hr className='mb-1' />
         <div className='details'>
           <div className='details-artist'>
-            <p>{artist && artist.name}</p>
+            <p>
+              <span style={{ textDecoration: 'underline' }}>
+                {artist && (
+                  <Link to={`/artist/${artist._id}`}>
+                    {artist && artist.name}
+                  </Link>
+                )}
+              </span>
+            </p>
           </div>
 
           {artist && (
@@ -110,7 +127,11 @@ const Single = ({ match }) => {
             return (
               <div key={feature._id} className='details'>
                 <div className='details-artist'>
-                  <p>{feature.name}</p>
+                  <p>
+                    <span style={{ textDecoration: 'underline' }}>
+                      <Link to={`/artist/${feature._id}`}>{feature.name}</Link>
+                    </span>
+                  </p>
                 </div>
 
                 <div className='details-socials'>

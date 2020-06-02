@@ -9,7 +9,7 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import { faGlobeAmericas } from '@fortawesome/free-solid-svg-icons';
 
-const ArtistHeader = ({ artist, setNav }) => {
+const ArtistHeader = ({ artist, nav, setNav }) => {
   const onClick = (e) => {
     setNav(e.target.getAttribute('name'));
   };
@@ -19,10 +19,18 @@ const ArtistHeader = ({ artist, setNav }) => {
       <img className='' src={artist.headerimg} alt='' />
       <h1 className='name'>{artist.name}</h1>
       <ul className='profile-nav-list'>
-        <li name='overview' onClick={onClick} className='profile-nav-links'>
+        <li
+          name='overview'
+          onClick={onClick}
+          className={`profile-nav-links ${nav === 'overview' ? 'active' : ''}`}
+        >
           Overview
         </li>
-        <li name='about' onClick={onClick} className='profile-nav-links'>
+        <li
+          name='about'
+          onClick={onClick}
+          className={`profile-nav-links ${nav === 'about' ? 'active' : ''}`}
+        >
           About
         </li>
       </ul>
