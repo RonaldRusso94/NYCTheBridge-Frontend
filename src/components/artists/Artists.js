@@ -8,6 +8,7 @@ const Artists = () => {
 
   useEffect(() => {
     getArtists();
+    // eslint-disable-next-line
   }, []);
   return (
     <>

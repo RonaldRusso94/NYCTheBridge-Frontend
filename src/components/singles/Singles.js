@@ -1,6 +1,5 @@
 import React, { useContext, useEffect } from 'react';
 import SingleItem from './SingleItem';
-import Spinner from '../layout/Spinner';
 import SinglesContext from '../../context/singles/singlesContext';
 
 const Singles = () => {
@@ -9,6 +8,7 @@ const Singles = () => {
 
   useEffect(() => {
     getSingles();
+    // eslint-disable-next-line
   }, []);
 
   return (

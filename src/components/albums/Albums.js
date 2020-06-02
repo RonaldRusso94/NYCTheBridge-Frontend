@@ -8,6 +8,7 @@ const Albums = () => {
 
   useEffect(() => {
     getAlbums();
+    // eslint-disable-next-line
   }, []);
 
   return (

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Search from '../search/Search.js';
@@ -48,7 +48,7 @@ const Navbar = ({
               <Link to='/browse/genres'>Browse</Link>
             </li>
             <li>
-              <a onClick={onClick}>Search</a>
+              <Link onClick={onClick}>Search</Link>
             </li>
             {/* <li>
               <Link to='/admin'>Admin</Link>

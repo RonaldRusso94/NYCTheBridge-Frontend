@@ -1,6 +1,5 @@
 import React, { useContext, useEffect } from 'react';
 import VideoItemSingle from './VideoItemSingle';
-import Spinner from '../layout/Spinner';
 import SinglesContext from '../../context/singles/singlesContext';
 
 const Videos = () => {
@@ -10,6 +9,7 @@ const Videos = () => {
 
   useEffect(() => {
     videoSingles();
+    // eslint-disable-next-line
   }, []);
 
   return (

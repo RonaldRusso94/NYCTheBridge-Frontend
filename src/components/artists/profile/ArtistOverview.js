@@ -1,5 +1,4 @@
 import React, { useEffect, useContext } from 'react';
-import { Link } from 'react-router-dom';
 import ArtistsContext from '../../../context/artists/artistsContext';
 
 import ArtistAlbums from './ArtistAlbums';
@@ -11,8 +10,7 @@ import ArtistMerch from './ArtistMerch';
 export const ArtistOverview = (props) => {
   const artistsContext = useContext(ArtistsContext);
 
-  const { getArtist, loading, artist } = artistsContext;
-  const { _id, name, img } = artist;
+  const { getArtist } = artistsContext;
 
   useEffect(() => {
     getArtist(props.paramsId);

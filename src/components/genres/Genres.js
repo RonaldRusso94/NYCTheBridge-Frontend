@@ -1,14 +1,14 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import GenreItem from './GenreItem';
 
-import Classic from '../layout/images/Classic.jpg';
-import Trap from '../layout/images/Trap.jpg';
-import Drill from '../layout/images/Drill.jpg';
-import Rb from '../layout/images/R&B.jpg';
-import Spanish from '../layout/images/Spanish.jpg';
-import Reggae from '../layout/images/Reggae.jpg';
-import Freestyle from '../layout/images/Freestyle.jpg';
-import Instrumental from '../layout/images/Instrumental.jpg';
+// import Classic from '../layout/images/Classic.jpg';
+// import Trap from '../layout/images/Trap.jpg';
+// import Drill from '../layout/images/Drill.jpg';
+// import Rb from '../layout/images/R&B.jpg';
+// import Spanish from '../layout/images/Spanish.jpg';
+// import Reggae from '../layout/images/Reggae.jpg';
+// import Freestyle from '../layout/images/Freestyle.jpg';
+// import Instrumental from '../layout/images/Instrumental.jpg';
 
 import api from '../../api';
 

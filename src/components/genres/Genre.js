@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useContext, useState } from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import SinglesContext from '../../context/singles/singlesContext';
 import AlbumsContext from '../../context/albums/albumsContext';
@@ -9,8 +9,8 @@ const Genre = ({ match }) => {
   const singlesContext = useContext(SinglesContext);
   const albumsContext = useContext(AlbumsContext);
 
-  const { singles, genreSingles } = singlesContext;
-  const { albums, genreAlbums } = albumsContext;
+  const { genreSingles } = singlesContext;
+  const { genreAlbums } = albumsContext;
 
   const [genres, setGenres] = useState([]);
 
@@ -27,6 +27,7 @@ const Genre = ({ match }) => {
       }
     };
     apiCall();
+    // eslint-disable-next-line
   }, []);
 
   const genresArr = [];

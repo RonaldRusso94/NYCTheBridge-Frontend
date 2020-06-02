@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect } from 'react';
+import React, { useReducer } from 'react';
 import AlbumsContext from './albumsContext';
 import AlbumsReducer from './albumsReducer';
 import {

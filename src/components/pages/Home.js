@@ -1,7 +1,6 @@
 import React, { Fragment, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import Artists from '../artists/Artists';
 import AlbumsContext from '../../context/albums/albumsContext';
 import SinglesContext from '../../context/singles/singlesContext';
 
@@ -9,12 +8,13 @@ const Home = () => {
   const albumsContext = useContext(AlbumsContext);
   const singlesContext = useContext(SinglesContext);
 
-  const { albums, getAlbums } = albumsContext;
-  const { singles, getSingles } = singlesContext;
+  const { getAlbums } = albumsContext;
+  const { getSingles } = singlesContext;
 
   useEffect(() => {
     getAlbums();
     getSingles();
+    // eslint-disable-next-line
   }, []);
 
   const mostRecent = [];

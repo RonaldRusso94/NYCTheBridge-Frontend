@@ -6,7 +6,6 @@ import SideNav from './SideNav';
 import ArtistsContext from '../../context/artists/artistsContext';
 import AlbumContext from '../../context/albums/albumsContext';
 import SinglesContext from '../../context/singles/singlesContext';
-import albumsContext from '../../context/albums/albumsContext';
 
 import Search from '../search/Search.js';
 

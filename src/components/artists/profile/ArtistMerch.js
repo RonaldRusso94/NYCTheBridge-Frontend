@@ -15,6 +15,7 @@ const ArtistMerch = ({ paramsId }) => {
       }
     };
     apiCall();
+    // eslint-disable-next-line
   }, []);
 
   return (
@@ -32,7 +33,11 @@ const ArtistMerch = ({ paramsId }) => {
               merch.map((item) => {
                 return (
                   <div key={item._id} className=''>
-                    <a href={item.link} target='_blank'>
+                    <a
+                      href={item.link}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                    >
                       {/* <a href={item.link}> */}
                       <img src={item.img} alt='' className='' />
                       {/* </a> */}

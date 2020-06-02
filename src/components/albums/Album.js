@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState, useContext } from 'react';
+import React, { Fragment, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import AlbumsContext from '../../context/albums/albumsContext';
 
@@ -23,6 +23,7 @@ const Album = ({ match }) => {
 
   useEffect(() => {
     getAlbum(match.params.id);
+    // eslint-disable-next-line
   }, []);
 
   return (
@@ -71,8 +72,8 @@ const Album = ({ match }) => {
           <h3 className='album-item-two'>Title</h3>
         </div>
 
-        {album.songs &&
-          album.songs.map((song, index) => {
+        {songs &&
+          songs.map((song, index) => {
             return (
               <div key={song._id} className='album-underline album-display'>
                 <p className='album-item-one'>{index + 1}.</p>
@@ -136,13 +137,13 @@ const Album = ({ match }) => {
           )}
         </div>
 
-        {features != undefined && features.length > 0 && (
+        {features !== undefined && features.length > 0 && (
           <>
             <h3 className='featured-title'>Featured:</h3>
             <hr className='mb-1' />
           </>
         )}
-        {features != undefined &&
+        {features !== undefined &&
           features.length > 0 &&
           features.map((feature) => {
             return (

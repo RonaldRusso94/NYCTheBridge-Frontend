@@ -55,6 +55,7 @@ const Single = ({ match }) => {
 
       <div className='card2 all-center my-3'>
         <iframe
+          title={single.url}
           width='100%'
           height='500'
           scrolling='no'
@@ -115,13 +116,13 @@ const Single = ({ match }) => {
             </div>
           )}
         </div>
-        {features != undefined && features.length > 0 && (
+        {features !== undefined && features.length > 0 && (
           <>
             <h3 className='featured-title'>Featured:</h3>
             <hr className='mb-1' />
           </>
         )}
-        {features != undefined &&
+        {features !== undefined &&
           features.length > 0 &&
           features.map((feature) => {
             return (
