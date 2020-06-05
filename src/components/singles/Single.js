@@ -62,6 +62,7 @@ const Single = ({ match }) => {
           frameBorder='no'
           allow='autoplay'
           src={single.url}
+          allowFullScreen
         ></iframe>
       </div>
 
